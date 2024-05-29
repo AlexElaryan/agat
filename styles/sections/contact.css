@@ -964,17 +964,28 @@ body .lk-light , ._light .lk-dark  {
 	border-top: none;
 }
 
+.tableScroll > tbody > tr > td, #table > tbody > tr > td {
+	vertical-align: middle;
+	padding: 18px 10px;
+}
 
+thead .table-tr .table-source , thead .table-tr .table-organization {
+	width: 200px;
+}
 
+tbody tr td {
+	border: none;
+}
 
-
+.section-actions {
+	padding: 20px 20px 20px 50px;
+}
 
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
 		font-size: 17px;
 	}
 }
-
 
 @media screen and (min-width:1682px) {
 	.lk-check {
@@ -991,7 +1002,6 @@ body .lk-light , ._light .lk-dark  {
 		padding-left: 25px;
 	}
 }
-
 
 @media screen and (max-width:1600px) {
 	.contact-table_top span , .contact-table_body p {
@@ -1013,7 +1023,6 @@ body .lk-light , ._light .lk-dark  {
 		font-size: 12px;
 	}
 }
-
 
 @media screen and (max-width:1300px) {
 	.contact_header-middle {
@@ -1081,7 +1090,6 @@ body .lk-light , ._light .lk-dark  {
 		height: fit-content;
 	}
 }
-
 
 @media screen and (max-width:1300px) {
 	body._error .menu__box {
