@@ -41,35 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 document.addEventListener('DOMContentLoaded', function () {
-    let popupBack = document.querySelector('.section-event-log-content-popup-back');
-    let popupEvent = document.querySelector('.section-event-log-content-popup');
-    let popupEventOpen = document.querySelector('.section-event-log-content-popup-content-open');
-    let tableContainer = document.querySelector('.table-block');
-    let popupWidth;
-
-    function getPopupWidth() {
-        let popupContent = document.querySelector('.section-event-log-content-popup-content');
-        if (popupContent) {
-            popupWidth = popupContent.scrollWidth + 3;
-        }
-    }
-
-    if (popupEventOpen && popupEvent && popupBack && tableContainer) {
-        getPopupWidth();
-
-        popupEventOpen.addEventListener('click', e => {
-            if (popupEventOpen.classList.toggle('_active')) {
-                popupEvent.classList.add('_show');
-                popupBack.classList.add('_show');
-                tableContainer.style.maxWidth = +tableContainer.parentElement.offsetWidth - +popupWidth + 'px';
-            } else {
-                popupEvent.classList.remove('_show');
-                popupBack.classList.remove('_show');
-                tableContainer.style.maxWidth = +tableContainer.parentElement.offsetWidth + 'px';
-            }
-        });
-    }
-
     let toolSelect = document.querySelectorAll('.contactPopup-tool_select');
     let toolArrow = document.querySelectorAll('.toolArrow');
     let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
