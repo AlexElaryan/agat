@@ -919,7 +919,8 @@ body .lk-light , ._light .lk-dark  {
 }
 
 .contact_header-middle {
-	padding: 20px 14px;
+	/* padding: 20px 14px; */
+	padding: 10px 14px;
 	border-left: 1px solid var(--color-1);
 }
 
@@ -971,6 +972,7 @@ body .lk-light , ._light .lk-dark  {
 .tableScroll > tbody > tr > td, #table > tbody > tr > td {
 	vertical-align: middle;
 	padding: 18px 10px;
+	padding-left: 25px;
 }
 
 thead .table-tr .table-source , thead .table-tr .table-organization {
@@ -983,6 +985,20 @@ tbody tr td {
 
 .section-actions {
 	padding: 20px 20px 20px 50px;
+}
+
+thead .table-id .checkbox span {
+	white-space: nowrap;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 140%;
+    color: #909090;
+}
+
+.table-id .tableIdPhoto {
+	position: absolute;
+	top: 71%;
+	left: 31px;
 }
 
 @media screen and (max-width:1730px) {
@@ -1027,6 +1043,28 @@ tbody tr td {
 	}
 }
 
+@media screen and (max-width:1560px) {
+	.tableScroll > tbody > tr > td, #table > tbody > tr > td {
+		padding: 18px 15px;
+	}
+}
+
+@media screen and (max-width:1500px) {
+	.table-id  {
+		max-width: 155px;
+	}
+	
+}
+
+@media screen and (max-width:1470px) {
+	.table-fullName  {
+		width: 300px;
+	}
+	.table-organization {
+		width: 230px;
+	}
+}
+
 @media screen and (max-width:1460px) {
 	.contact-table_body p {
 		font-size: 14px;
@@ -1034,6 +1072,10 @@ tbody tr td {
 	.contact-table_top, .contact-table_body > div {
 		grid-template-columns: 0.6fr 1fr 1.3fr 1fr 1fr 1fr 1fr;
 	}
+}
+
+@media screen and (max-width:1385px) {
+	
 }
 
 @media screen and (max-width:1360px) {
