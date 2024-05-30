@@ -20,7 +20,7 @@
 
 <body class=' _error _light'>
     <div class="section-event-log-top-line">
-        <span>
+        <span id="theme-light">
             IP-АТС АГАТ CU-7210
         </span>
     </div>
@@ -372,7 +372,7 @@
                     <img src="./img/Logo-mob-light.png" alt>
                 </a>
             </div>
-            <div class="header-logo">
+            <div class="header-logo" id="theme-dark">
                 <img src="./img/logo-agant.svg" alt>
                 <img src="./img/logo-agant-light.svg" alt>
             </div>
@@ -402,7 +402,7 @@
 
     <!-- _hide -->
     <section class="section-event-log">
-        <div class="left-menu left-menu-desktop">
+        <div class="left-menu left-menu-desktop _hide">
             <div class="left-menu-link">
                 <div class="left-menu-link-block">
                     <button class="accordion">
@@ -737,6 +737,13 @@
 
             <div class="section-event-log-content  counterparties-content">
                 <div class="section-event-log-top">
+
+                    <button class="btn-menu-open _active">
+                        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="#FF9900"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z" fill="#FF9900"></path>
+                        </svg>
+                    </button>
                     <div class="section-event-log-top-left">
                         <div class="section-event-log-top-btns">
                             <svg class="reload-btn lk-light" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
@@ -1071,218 +1078,232 @@
                     </div>
                 </div>
 
-                <div class="contact-table_block">
-                    <div class="contact-table_top">
-                        <div>
-                            <input type="checkbox">
-                            <img src="img/contactPhotocheck.svg" class="lk-light">
-                            <svg class="lk-dark" width="24" height="39" viewBox="0 0 24 39" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect x="1.00195" y="1" width="22" height="22" rx="4" fill="#2C2C2C" stroke="#808080"
-                                    stroke-width="2" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M12.001 33.3137L16.2048 29L18.001 30.8432L12.001 37L6.00098 30.8432L7.79718 29L12.001 33.3137Z"
-                                    fill="#FF9900" />
-                            </svg>
+                <div class="table-block">
+                    <table id="table1" class='tableScroll colors'>
+                        <thead>
+                            <tr class="table-tr">
+                                <th class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span>Фото</span>
+                                        </label>
+                                    </div>
+                                    <svg class="tableIdPhoto lk-light" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#203F9A"/>
+                                        </svg>
+                                        <svg class="tableIdPhoto lk-dark" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#FF9900"/>
+                                            </svg>
+                                            
+                                        
+                                </th>
+                                <th class="table-source">Источник</th>
+                                <th class="table-fullName">ФИО</th>
+                                <th class="table-organization">Органищация</th>
+                                <th class="table-ourOrganization">Наша организация</th>
+                                <th class="table-subdivision">Подразделение</th>
+                                <th class="table-number">Внутренний номер</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-tbody">
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">agat_157</td>
+                                <td class="table-organization">Наша организация</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    ...
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">asdf_800011</td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    Техподдержка
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">Второй базовый абонент с выходом в ТФОП</td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    ...
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
 
-                            <span>Фото</span>
-                        </div>
-                        <span>Источник</span>
-                        <span>ФИО</span>
-                        <span>Органищация</span>
-                        <span>Наша организация</span>
-                        <span>Подразделение</span>
-                        <span>Внутренний номер</span>
-                    </div>
-                    <div class="contact-table_body">
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>agat_157</span>
-                            <p>Наша организация</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>asdf_800011</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                Техподдержка
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>Второй базовый абонент с выходом в ТФОП</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>1002</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>Сидоров Василий Петрович</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>asdf_800011</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                Отдел закупок
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>Второй абонент в отделе 23</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>1002</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
-                        <div>
-                            <div class="checkbox">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="color-1" value="indigo">
-                                    <span class="lk-light"><img src="./img/lk-light.png"></span>
-                                    <span class="lk-dark"><img src="./img/lk.png"></span>
-                                </label>
-                            </div>
-                            <p>Это устройство</p>
-                            <p>zusernew</span>
-                            <p>ICL Services, OOO</span>
-                            <p>Да</span>
-                            <p>
-                                ...
-                            </p>
-                            <p>
-                                XXX
-                            </p>
-                        </div>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">asdf_800011</td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    Отдел закупок
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
 
-                    </div>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">Второй абонент в отделе 23
+
+                                </td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    ...
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">1002</td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    ...
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
+                            <tr class="table-tr">
+                                <td class="table-id">
+                                    <div class="checkbox">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="color-1" value="indigo">
+                                            <span><img src="./img/lk.png"></span>
+
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="table-source">Это устройство</td>
+                                <td class="table-fullName">zusernew</td>
+                                <td class="table-organization">ICL Services, OOO</td>
+                                <td class="table-ourOrganization">Да</td>
+                                <td class="table-subdivision">
+                                    ...
+                                </td>
+                                <td class="table-number">
+                                    XXX
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
                 <div class="contact-bottom ">
                     <div>
                         <div class="contact-bottom_left">
-                            <button>Пагинаторы <svg class="lk-light" width="7" height="12" viewBox="0 0 7 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                            <div class="dropdown _top">
+                                <button>
+                                    Пагинаторы
+                                    <svg class="lk-light" width="7" height="12" viewBox="0 0 7 12"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M3.77448 6.5L-4.08854e-07 2.64652L1.61276 1L7 6.5L1.61276 12L-7.19716e-08 10.3535L3.77448 6.5Z"
                                         fill="#203F9A" />
                                 </svg>
-                                <svg class="lk-dark" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77497 6.5L0.000487872 2.64652L1.61325 1L7.00049 6.5L1.61325 12L0.000488209 10.3535L3.77497 6.5Z" fill="#FF9900"/>
-                                    </svg>
-                                    
-                            </button>
+                                <svg class="lk-dark" width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M3.77497 6.5L0.000487872 2.64652L1.61325 1L7.00049 6.5L1.61325 12L0.000488209 10.3535L3.77497 6.5Z"
+                                        fill="#FF9900" />
+                                </svg>
+                                </button>
+                                <div class="dropdown-content dropdown-content-filter">
+                                    <div class="radio">
+                                        <label class="custom-radio">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="top">
+                                            <span>Включить только верхний</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="custom-radio">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="bottom">
+                                            <span>Включить только нижний</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="custom-radio">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="all" checked>
+                                            <span>Включить все</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="custom-radio">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="none">
+                                            <span>отключить все</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                             <div>
                                 Строки
                                 <input type="number" value="50">
