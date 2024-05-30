@@ -1,33 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let popupBack = document.querySelector('.section-event-log-content-popup-back');
-    let popupEvent = document.querySelector('.section-event-log-content-popup');
-    let popupEventOpen = document.querySelector('.section-event-log-content-popup-content-open');
-    let tableContainer = document.querySelector('.table-block');
-    let popupWidth;
-
-    function getPopupWidth() {
-        let popupContent = document.querySelector('.section-event-log-content-popup-content');
-        if (popupContent) {
-            popupWidth = popupContent.scrollWidth + 3;
-        }
-    }
-
-    if (popupEventOpen && popupEvent && popupBack && tableContainer) {
-        getPopupWidth();
-
-        popupEventOpen.addEventListener('click', e => {
-            if (popupEventOpen.classList.toggle('_active')) {
-                popupEvent.classList.add('_show');
-                popupBack.classList.add('_show');
-                tableContainer.style.maxWidth = +tableContainer.parentElement.offsetWidth - +popupWidth + 'px';
-            } else {
-                popupEvent.classList.remove('_show');
-                popupBack.classList.remove('_show');
-                tableContainer.style.maxWidth = +tableContainer.parentElement.offsetWidth + 'px';
-            }
-        });
-    }
-
     let toolSelect = document.querySelectorAll('.contactPopup-tool_select');
     let toolArrow = document.querySelectorAll('.toolArrow');
     let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
@@ -365,8 +336,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 }, false);
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const selectElements = document.querySelectorAll('.select');
     const selectDropdowns = document.querySelectorAll('.select-dropdown');
@@ -407,9 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 //
-
 
 document.addEventListener('DOMContentLoaded', () => {
     let collapseAll = document.querySelector('.contactPopup_top p');
@@ -433,3 +400,32 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to update images based on the body's class
+    function updateImages() {
+        let tableidLk = document.querySelectorAll('.custom-checkbox img');
+        if (document.body.classList.contains('_light')) {
+            tableidLk.forEach(el => {
+                el.src = './img/lk-light.png';
+            });
+        } else {
+            tableidLk.forEach(el => {
+                el.src = './img/lk.png';
+            });
+        }
+    }
+
+    updateImages();
+
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            if (mutation.attributeName === 'class') {
+                updateImages();
+            }
+        }
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+}, false);

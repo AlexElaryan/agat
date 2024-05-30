@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 contactToolMain[i].classList.remove('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.remove('toolArrowOpen');
-                
+
             }
         };
     });
@@ -457,9 +457,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let collapseAllArrow = document.querySelectorAll('.contactPopup_top p svg');
     let collapseConts = document.querySelectorAll('.contactPopup_tool-main');
     let collapseContsArrow = document.querySelectorAll('.toolArrow');
-    
+
     collapseAll.onclick = () => {
-        collapseConts.forEach((el,i) => {
+        collapseConts.forEach((el, i) => {
             if (el.classList.contains('contactPopup_tool-mainOpen')) {
                 el.classList.remove('contactPopup_tool-mainOpen');
                 collapseContsArrow[i].classList.remove('toolArrowOpen');
@@ -474,3 +474,34 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to update images based on the body's class
+    function updateImages() {
+        let tableidLk = document.querySelectorAll('.custom-checkbox img');
+        if (document.body.classList.contains('_light')) {
+            tableidLk.forEach(el => {
+                el.src = './img/lk-light.png';
+            });
+        } else {
+            tableidLk.forEach(el => {
+                el.src = './img/lk.png';
+            });
+        }
+    }
+
+    updateImages();
+
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            if (mutation.attributeName === 'class') {
+                updateImages();
+            }
+        }
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+}, false);
