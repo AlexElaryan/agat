@@ -4,83 +4,51 @@ document.addEventListener('DOMContentLoaded', function () {
     let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
     let collapseAllArrow = document.querySelectorAll('.contactPopup_top p svg');
 
+    let listAdd = document.querySelectorAll('.listAdd');
+    let listAddDropdown = document.querySelector('.listAdd-dropdown');
+    let isListAD = false;
+
     toolSelect.forEach((el, i) => {
-        el.onclick = () => {
-            if (!contactToolMain[i].classList.contains('contactPopup_tool-mainOpen')) {
+        el.addEventListener('click', (event) => {
+            if (!contactToolMain[i].classList.contains('contactPopup_tool-mainOpen') && !listAddDropdown.contains(event.target)) {
                 contactToolMain[i].classList.add('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.add('toolArrowOpen');
                 collapseAllArrow.forEach(ar => {
                     ar.classList.add('collapseArrowOpen');
-                })
+                });
             } else {
                 contactToolMain[i].classList.remove('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.remove('toolArrowOpen');
-                collapseAllArrow.forEach(ar => {
-                    ar.classList.remove('collapseArrowOpen');
-                })
             }
-        };
+        });
     });
 
-
-    let listAdd = document.querySelectorAll('.listAdd');
-    let listAddDropdown = document.querySelector('.listAdd-dropdown');
-    let islistAD = false;
-
     listAdd.forEach(el => {
-        el.onclick = () => {
-            if (!islistAD) {
+        el.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the click event from bubbling up to the toolSelect handler
+            if (!isListAD) {
                 if (listAddDropdown) {
                     listAddDropdown.classList.add('listAdd-dropdownOpen');
                 }
-                islistAD = true;
+                isListAD = true;
             } else {
                 if (listAddDropdown) {
                     listAddDropdown.classList.remove('listAdd-dropdownOpen');
                 }
-                islistAD = false;
+                isListAD = false;
             }
-        };
+        });
     });
 
     document.addEventListener('click', (event) => {
         let clickedInsideListAdd = Array.from(listAdd).some(el => el.contains(event.target));
         if (!clickedInsideListAdd && listAddDropdown && !listAddDropdown.contains(event.target)) {
             listAddDropdown.classList.remove('listAdd-dropdownOpen');
-            islistAD = false;
+            isListAD = false;
         }
     });
 }, false);
 
-
-let toolSelect = document.querySelectorAll('.contactPopup-tool_select');
-let toolArrow = document.querySelectorAll('.toolArrow');
-let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
-
-toolSelect.forEach((el, i) => {
-    el.onclick = () => {
-        contactToolMain[i].classList.toggle('contactPopup_tool-mainOpen');
-        toolArrow[i].classList.toggle('toolArrowOpen');
-    };
-});
-
-let listAdd = document.querySelector('.listAdd');
-let listAddDropdown = document.querySelector('.listAdd-dropdown');
-let isListAddOpen = false;
-
-listAdd.onclick = () => {
-    isListAddOpen = !isListAddOpen;
-    listAddDropdown.classList.toggle('listAdd-dropdownOpen', isListAddOpen);
-};
-document.addEventListener('click', (event) => {
-    if (!listAdd.contains(event.target) && !listAddDropdown.contains(event.target)) {
-        listAddDropdown.classList.remove('listAdd-dropdownOpen');
-        islistAD = false;
-    }
-});
-
-
-// Pagination
 var Pagination = {
     code: '',
     Extend: function (data) {
