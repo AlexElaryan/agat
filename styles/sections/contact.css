@@ -581,6 +581,7 @@
 	justify-content: space-between;
 	gap: 10px;
 	background: var(--color-17);
+	cursor: pointer;
 }
 
 .toolArrow {
@@ -941,6 +942,7 @@ body .lk-light , ._light .lk-dark  {
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	background: transparent;
 	position: relative;
+	cursor: pointer;
 }
 
 .selectRadius {
@@ -957,7 +959,7 @@ body .lk-light , ._light .lk-dark  {
 	flex-direction: column;
 	gap: 10px;
 	z-index: 2;
-	background: #fff;
+	background: var(--color-17);
 	border-radius: 0px 0px 8px 8px;
 	border: 1px solid #ebebeb;
 	padding: 15px 15px 20px 15px;
@@ -967,6 +969,10 @@ body .lk-light , ._light .lk-dark  {
 .select-dropdown-open{
 	display: flex;
 	border-top: none;
+}
+
+.popup-content-resize {
+	z-index: 1111;
 }
 
 .tableScroll > tbody > tr > td, #table > tbody > tr > td {
@@ -1001,11 +1007,18 @@ thead .table-id .checkbox span {
 	left: 31px;
 }
 
-@media screen and (max-width:1730px) {
-	.table-fullName  {
-		width: 266px;
-	}
+.table-fullName {
+	width: 266px;
 }
+
+/* @media screen and (max-width:1730px) {	
+	.table-fullName {
+		width: 275px !important;
+	}
+	.table-source {
+		width: 183px !important;
+	}
+} */
 
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
@@ -1013,6 +1026,11 @@ thead .table-id .checkbox span {
 	}
 }
 
+@media screen and (min-width:1681px) {
+	.table-id .tableIdPhoto {
+		left: 56px;
+	}
+}
 @media screen and (min-width:1682px) {
 	.lk-check {
 		right: 45px;
@@ -1072,10 +1090,6 @@ thead .table-id .checkbox span {
 	.contact-table_top, .contact-table_body > div {
 		grid-template-columns: 0.6fr 1fr 1.3fr 1fr 1fr 1fr 1fr;
 	}
-}
-
-@media screen and (max-width:1385px) {
-	
 }
 
 @media screen and (max-width:1360px) {
@@ -1149,11 +1163,19 @@ thead .table-id .checkbox span {
 		left: 15px;
 		height: fit-content;
 	}
-}
 
-@media screen and (max-width:1300px) {
 	body._error .menu__box {
 		top: 45px;
 		height: calc(100% - 45px);
+	}
+
+	.section-event-log-top {
+		padding-left: 14px;
+	}
+	.tableScroll > tbody > tr > td:first-child, #table > tbody > tr > td:first-child, .tableScroll > thead > tr > th:first-child, #table > thead > tr > th:first-child {
+		padding-left: 14px !important;
+	}
+	.table-id .tableIdPhoto {
+		left: 21px;
 	}
 }
