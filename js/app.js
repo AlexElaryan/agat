@@ -663,8 +663,12 @@ window.addEventListener('resize', () => {
 document.querySelector('.section-event-log-content-popup-content').style.width =
 	popupWidth + 'px'
 
-let table
+let table;
 $(document).ready(function () {
+	if ($.fn.DataTable.isDataTable('#table1')) {
+        // Destroy the existing DataTable instance
+        $('#table1').DataTable().destroy();
+    }
 	$('#table1').DataTable({
 		scrollX: true,
 		autoWidth: false,
@@ -704,8 +708,8 @@ $(document).ready(function () {
 	})
 })
 
-const itemsWindow = document.getElementById('windowVisibleColumns')
-const nameColumns = document.querySelectorAll('table thead th')
+const itemsWindow = document.getElementById('windowVisibleColumns');
+const nameColumns = document.querySelectorAll('table thead th');
 
 nameColumns.forEach(elem => {
 	itemsWindow.innerHTML += `
@@ -718,13 +722,16 @@ nameColumns.forEach(elem => {
 `
 })
 
+let table2 = $('#table1').DataTable();
 let itemsWindowBtns = itemsWindow.querySelectorAll('.custom-radio input')
 
 itemsWindowBtns.forEach((elem, i) => {
 	elem.addEventListener('change', () => {
-		table.column(i).visible(elem.checked)
+		table2.column(i).visible(elem.checked);
+		// table.column(i).visible(elem.checked);
 	})
 })
+
 
 const btnMenuOpen = document.querySelector('.btn-menu-open')
 const leftMenu = document.querySelector('.left-menu-desktop')
