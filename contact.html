@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="./styles/jquery-ui.css">
     <link rel="stylesheet" href="./styles/newStyle.css">
     <link rel="stylesheet" href="./styles/sections/contact.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script> -->
+
 </head>
 <!-- _light -->
 
@@ -389,7 +392,7 @@
                                 </div>
                             </label>
 
-                            <label for="contactList">Работа со списками</label>
+                            <label for="contactList" class="forContactList">Работа со списками</label>
                         </div>
                     </div>
                 </div>
@@ -812,8 +815,12 @@
                 <div class="section-event-log-top">
                     <button class="btn-menu-open _active">
                         <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="#FF9900"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z" fill="#FF9900"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z"
+                                fill="#FF9900"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z"
+                                fill="#FF9900"></path>
                         </svg>
                     </button>
                     <div class="section-event-log-top-left">
@@ -864,9 +871,12 @@
                                             fill="#FF9900" />
                                     </svg>
                                     Фильтр
-                                    <!-- <svg id='filterRemove' width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.51321 6L0 1.48679L1.48679 0L6 4.51321L10.5132 0L12 1.48679L7.48679 6L12 10.5132L10.5132 12L6 7.48679L1.48679 12L0 10.5132L4.51321 6Z" fill="#909090" />
-                                </svg> -->
+                                    <svg id='filterRemove' width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M4.51321 6L0 1.48679L1.48679 0L6 4.51321L10.5132 0L12 1.48679L7.48679 6L12 10.5132L10.5132 12L6 7.48679L1.48679 12L0 10.5132L4.51321 6Z"
+                                            fill="#909090" />
+                                    </svg>
                                 </button>
                                 <div class="dropdown-content dropdown-content-filter">
                                     <div class="radio">
@@ -1066,7 +1076,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="table-block">
                     <table id="table1" class='tableScroll colors'>
                         <thead>
@@ -1078,14 +1088,20 @@
                                             <span>Фото</span>
                                         </label>
                                     </div>
-                                    <svg class="tableIdPhoto lk-light" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#203F9A"/>
-                                        </svg>
-                                        <svg class="tableIdPhoto lk-dark" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#FF9900"/>
-                                            </svg>
-                                            
-                                        
+                                    <svg class="tableIdPhoto lk-light" width="12" height="8" viewBox="0 0 12 8"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
+                                            fill="#203F9A" />
+                                    </svg>
+                                    <svg class="tableIdPhoto lk-dark" width="12" height="8" viewBox="0 0 12 8"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
+                                            fill="#FF9900" />
+                                    </svg>
+
+
                                 </th>
                                 <th class="table-source">Источник</th>
                                 <th class="table-fullName">ФИО</th>
@@ -1251,51 +1267,55 @@
                 <div class="contact-bottom ">
                     <div>
                         <div class="contact-bottom_left">
-                            
+
                             <div class="dropdown _top">
                                 <button>
                                     Пагинаторы
-                                    <svg class="lk-light" width="7" height="12" viewBox="0 0 7 12"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M3.77448 6.5L-4.08854e-07 2.64652L1.61276 1L7 6.5L1.61276 12L-7.19716e-08 10.3535L3.77448 6.5Z"
-                                        fill="#203F9A" />
-                                </svg>
-                                <svg class="lk-dark" width="7" height="12" viewBox="0 0 7 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M3.77497 6.5L0.000487872 2.64652L1.61325 1L7.00049 6.5L1.61325 12L0.000488209 10.3535L3.77497 6.5Z"
-                                        fill="#FF9900" />
-                                </svg>
+                                    <svg class="lk-light" width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.77448 6.5L-4.08854e-07 2.64652L1.61276 1L7 6.5L1.61276 12L-7.19716e-08 10.3535L3.77448 6.5Z"
+                                            fill="#203F9A" />
+                                    </svg>
+                                    <svg class="lk-dark" width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.77497 6.5L0.000487872 2.64652L1.61325 1L7.00049 6.5L1.61325 12L0.000488209 10.3535L3.77497 6.5Z"
+                                            fill="#FF9900" />
+                                    </svg>
                                 </button>
                                 <div class="dropdown-content dropdown-content-filter">
                                     <div class="radio">
                                         <label class="custom-radio">
-                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="top">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible"
+                                                value="top">
                                             <span>Включить только верхний</span>
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label class="custom-radio">
-                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="bottom">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible"
+                                                value="bottom">
                                             <span>Включить только нижний</span>
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label class="custom-radio">
-                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="all" checked>
+                                            <input class='pagination-visible' type="radio" name="paginationVisible"
+                                                value="all" checked>
                                             <span>Включить все</span>
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label class="custom-radio">
-                                            <input class='pagination-visible' type="radio" name="paginationVisible" value="none">
+                                            <input class='pagination-visible' type="radio" name="paginationVisible"
+                                                value="none">
                                             <span>отключить все</span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div>
                                 Строки
                                 <input type="number" value="50">
@@ -1462,7 +1482,7 @@
                                 <div>
                                     <div class="contactPopup_tool-main-top" style="justify-content: space-between;">
                                         <span>Организация</span>
-                                        <input type="text" value="Наша организация" readonly>
+                                        <input type="text" value="Наша организация" >
 
                                         <div class="checkbox ourOrganization">
                                             <label class="custom-checkbox">
@@ -1471,7 +1491,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="contactPopup_tool-middle" style="background: var(--color-2);">
+                                    <div class="contactPopup_tool-middle">
                                         <div class="listObl-cont">
                                             <span>Должность</span>
                                             <input type="text" value="..." readonly class="list-obligation">
@@ -1531,17 +1551,17 @@
                                         </div>
                                         <div>
                                             <span>Роль</span>
-                                            <input type="text" value="Богданов" readonly>
+                                            <input type="text" value="Богданов" >
                                         </div>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div class="textarea">
                                         <textarea name="" id="" placeholder="Комментарий"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="contactPopup_tools">
+                        <div class="contactPopup_tools contactPopup_toolsContact">
                             <div class="contactPopup-tool_select">
                                 <div>
                                     <svg class="lk-light" width="34" height="35" viewBox="0 0 34 35" fill="none"
@@ -1588,8 +1608,8 @@
                                     <h3>Контакты</h3>
                                 </div>
                                 <div>
-                                    <svg class="lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-light listAdd listContactAdd" width="28" height="29"
+                                        viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
                                         <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
@@ -1597,8 +1617,8 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-dark listAdd listContactAdd" width="28" height="29"
+                                        viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
                                         <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
@@ -1618,16 +1638,16 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable">
-                                    <div>
+                                <div id="listContact" class="list-contactTable list-contactTable-Contact">
+                                    <div class="draggableFalse">
                                         <span>№</span>
                                         <span>Адресная информ.</span>
                                         <span>Тип</span>
                                         <span>Переадресация</span>
                                         <span>Длит. вызова, сек.</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    <div>
+                                        <p class="numOfList"> <svg class="changeSort" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -1639,7 +1659,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             0</p>
-                                        <input type="text" readonly value="5555">
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -1691,19 +1711,8 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
-                                                    fill="#C0C0C0" />
-                                                <path
-                                                    d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
-                                                    fill="#C0C0C0" />
-                                                <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            1</p>
-                                        <input type="text" readonly value="sipnet">
+                                        <p class="numOfList"></p>
+                                        <input type="text"  value="sipnet">
 
                                         <div class="select">
                                             <p>Рабочий</p>
@@ -1753,8 +1762,8 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    <div>
+                                        <p class="numOfList"> <svg class="changeSort" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -1766,7 +1775,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             2</p>
-                                        <input type="text" readonly value="5555">
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -1816,6 +1825,7 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -1850,8 +1860,8 @@
                                     <h3>Адреса</h3>
                                 </div>
                                 <div style="position: relative;">
-                                    <svg class="listAdd lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="listLocationAdd lk-light" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
                                         <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
@@ -1859,8 +1869,8 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="listAdd lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="listLocationAdd lk-dark" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
                                         <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
@@ -1883,8 +1893,8 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-Location">
-                                    <div>
+                                <div id="listLocation" class="list-contactTable list-contactTable-Location ">
+                                    <div class="draggableFalse">
                                         <span>Тип адреса</span>
                                         <span>Индекс</span>
                                         <span>Страна</span>
@@ -1892,7 +1902,7 @@
                                         <span>Улица</span>
                                         <span>Дом/К./Под./Кв.</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div>
                                         <div style=" display: flex;align-items: center;">
                                             <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1926,11 +1936,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Россия">
-                                        <input type="text" readonly value="Москва">
-                                        <input type="text" readonly value="Парковая">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text"  value="99999999">
+                                        <input type="text"  value="Россия">
+                                        <input type="text"  value="Москва">
+                                        <input type="text"  value="Парковая">
+                                        <input type="text"  value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -1973,11 +1983,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Казахстан">
-                                        <input type="text" readonly value="Москва">
-                                        <input type="text" readonly value="Вишнековская">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text"  value="99999999">
+                                        <input type="text"  value="Казахстан">
+                                        <input type="text"  value="Москва">
+                                        <input type="text"  value="Вишнековская">
+                                        <input type="text"  value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -1986,7 +1996,7 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div>
                                         <div style=" display: flex;align-items: center;">
                                             <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2020,11 +2030,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Россия">
-                                        <input type="text" readonly value="Волгоград">
-                                        <input type="text" readonly value="Большая Трубная">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text"  value="99999999">
+                                        <input type="text"  value="Россия">
+                                        <input type="text"  value="Волгоград">
+                                        <input type="text"  value="Большая Трубная">
+                                        <input type="text"  value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -2073,8 +2083,8 @@
                                     <h3>Знаменательные события</h3>
                                 </div>
                                 <div>
-                                    <svg class="lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-light listEventsAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
                                         <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
@@ -2082,8 +2092,8 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-dark listEventsAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
                                         <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
@@ -2104,13 +2114,13 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-Star">
-                                    <div>
+                                <div id="listEvent" class="list-contactTable list-contactTable-Event">
+                                    <div class="draggableFalse">
                                         <span>Тип</span>
                                         <span>Дата</span>
                                         <span>Комментарий</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div>
                                         <div style="display: flex;align-items: center;" class="custom-select-wrapper">
                                             <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2192,7 +2202,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" readonly value="...">
+                                        <input type="text"  value="..." class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2283,7 +2293,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" readonly value="...">
+                                        <input type="text"  value="..." class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -2292,13 +2302,11 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
 
-                        <div class="contactPopup_tools">
+                        <div class="contactPopup_tools contactPopup_toolsContact">
                             <div class="contactPopup-tool_select">
                                 <div>
                                     <svg class="lk-light" width="34" height="35" viewBox="0 0 34 35" fill="none"
@@ -2328,8 +2336,8 @@
                                     <h3>Документы</h3>
                                 </div>
                                 <div>
-                                    <svg class="lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-light listDocumentAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
                                         <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
@@ -2337,8 +2345,8 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-dark listDocumentAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
                                         <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
@@ -2359,16 +2367,16 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-document">
-                                    <div>
+                                <div id="listDocument" class="list-contactTable list-contactTable-document">
+                                    <div class="draggableFalse">
                                         <span>№</span>
                                         <span>Наименование.</span>
                                         <span>Тип</span>
                                         <span>Комментарий</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
+                                    <div>
+                                        <p class="numOfList2"> <svg width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -2379,7 +2387,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             0</p>
-                                        <input type="text" readonly value="5555">
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -2400,7 +2408,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" value="..." readonly>
+                                        <input type="text" value="..."  class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -2410,19 +2418,8 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
-                                                    fill="#C0C0C0" />
-                                                <path
-                                                    d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
-                                                    fill="#C0C0C0" />
-                                                <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                            1</p>
-                                        <input type="text" readonly value="sipnet">
+                                        <p class="numOfList2"></p>
+                                        <input type="text"  value="sipnet">
 
 
                                         <div class="select">
@@ -2445,7 +2442,7 @@
                                             </svg>
                                         </div>
 
-                                        <input type="text" readonly value="Участвует">
+                                        <input type="text"  value="Участвует" class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2455,9 +2452,9 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
+                                    <div>
+                                        <p class="numOfList2"> <svg width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -2468,7 +2465,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             2</p>
-                                        <input type="text" readonly value="5555">
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -2489,7 +2486,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" value="..." readonly>
+                                        <input type="text" value="..."  class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2503,7 +2500,7 @@
                             </div>
                         </div>
 
-                        <div class="contactPopup_tools">
+                        <div class="contactPopup_tools contactPopup_toolsContact">
                             <div class="contactPopup-tool_select">
                                 <div>
                                     <svg class="lk-light" width="34" height="35" viewBox="0 0 34 35" fill="none"
@@ -2551,8 +2548,8 @@
                                     <h3>Участвует в списках</h3>
                                 </div>
                                 <div>
-                                    <svg class="lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-light listParticipantAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
                                         <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
@@ -2560,8 +2557,8 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="lk-dark listParticipantAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
                                         <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
@@ -2581,15 +2578,15 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-list">
-                                    <div>
+                                <div id="listParticipant" class="list-contactTable list-contactTable-Participant">
+                                    <div class="draggableFalse">
                                         <span>Наименование списка</span>
                                         <span>Запсией</span>
                                         <span>Комментарий</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div>
 
-                                        <input type="text" readonly value="5555">
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -2610,7 +2607,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" value="..." readonly>
+                                        <input type="text" value="..."  class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -2620,7 +2617,7 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <input type="text" readonly value="sipnet">
+                                        <input type="text"  value="sipnet">
 
 
                                         <div class="select">
@@ -2642,7 +2639,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" readonly value="Участвует">
+                                        <input type="text"  value="Участвует" class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2652,8 +2649,8 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <input type="text" readonly value="5555">
+                                    <div>
+                                        <input type="text"  value="5555">
 
                                         <div class="select">
                                             <p>Внутренний</p>
@@ -2674,7 +2671,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" value="..." readonly>
+                                        <input type="text" value="..."  class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
