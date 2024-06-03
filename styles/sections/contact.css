@@ -23,6 +23,7 @@
 .contact-head_left {
 	display: flex;
 	flex-direction: column;
+	row-gap: 7px;
 }
 
 .contact-head_left > div {
@@ -57,7 +58,7 @@
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 7px;
 	right: 20px;
 }
 
@@ -69,9 +70,6 @@
 	padding: 0px 10px;
 }
 
-.section-event-log-top {
-	border-top: 1px solid var(--color-20);
-}
 
 .contact-container .btn-filter {
 	border: 1px solid var(--color-1);
@@ -106,6 +104,22 @@
     height: 31px;
     margin: auto 0;
     background-color: var(--color-20);
+}
+
+.section-event-log-top {
+	border-bottom: none;
+}
+._light .section-event-log-top {
+	border-bottom: 1px solid (--color-1);
+}
+
+
+table .table-tr {
+	background: var(--color-2) !important;
+}
+
+.colors tbody tr:nth-child(2n + 1) {
+	background: var(--color-25) !important;
 }
 
 .contact-container {
@@ -379,6 +393,7 @@
 
   .contact_header-list {
 	padding: 10px 14px;
+	padding-left: 50px;
 	display: none;
 	width: 100%;
 	border-bottom: 1px solid var(--color-1);
@@ -581,7 +596,7 @@
 	justify-content: space-between;
 	gap: 10px;
 	background: var(--color-17);
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 .toolArrow {
@@ -627,6 +642,7 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	cursor: pointer;
 }
 
 /*  */
@@ -702,6 +718,14 @@
 	gap: 20px;
 	align-items: unset;
 	justify-content: unset;
+	background: var(--color-2);
+}
+.textarea {
+	background: var(--color-2);
+}
+
+.contactPopup_tool-main > div > div:nth-child(2n + 1) {
+	background: var(--color-2);
 }
 
 .contactPopup_tool-middle > div {
@@ -769,6 +793,10 @@ textarea {
 	width: 100% !important;
 }
 
+.list-contactTable .inputLastof {
+	width: calc(100% - 10px) !important;
+}
+
 .list-contactTable select {
 	padding: 5px;
 	border-radius: 8px;
@@ -783,6 +811,7 @@ textarea {
 .removeListContact {
 	position: absolute;
 	right: 10px;
+	cursor: pointer;
 }
 
 .list-contactTable-Location > div {
@@ -798,7 +827,7 @@ textarea {
     width: 100%;
 }
 
-.list-contactTable-Star select {
+.list-contactTable-Event select {
     width: 100%;
     cursor: pointer;
     appearance: none;
@@ -813,16 +842,33 @@ textarea {
 	transform: translateY(-50%);
 }
 
+.numOfList , .numOfList2 {
+	color: var(--color-9);
+}
 
-.list-contactTable-Star > div {
+.list-contactTable-Event > div {
 	grid-template-columns: 1fr 1fr 3fr;
+}
+
+.changeSort {
+	cursor: grab;
+}
+
+.draggable {
+    cursor: grab;
+    user-select: none; 
+}
+
+.dragging {
+    z-index: 1000; 
+    cursor: grabbing;
 }
 
 .list-contactTable-document > div {
 	grid-template-columns: 0.2fr 0.9fr 0.9fr 2fr ;
 }
 
-.list-contactTable-list > div {
+.list-contactTable-Participant > div {
 	grid-template-columns: 1fr 1fr 3fr;
 }
 
@@ -899,7 +945,7 @@ body .lk-light , ._light .lk-dark  {
 }
 
 .section-event-log-top-line {
-	background: var(--color-7);
+	background: var(--color-2);
 	color: var(--color-4);
 	font-size: 17px;
 	font-weight: 400;
@@ -908,7 +954,11 @@ body .lk-light , ._light .lk-dark  {
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	justify-content: center;
 	padding: 0px;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--color-1);
+}
+
+header {
+	background: var(--color-2);
 }
 
 .header-logo {
@@ -922,7 +972,7 @@ body .lk-light , ._light .lk-dark  {
 .contact_header-middle {
 	/* padding: 20px 14px; */
 	padding: 10px 14px;
-	border-left: 1px solid var(--color-1);
+	/* border-left: 1px solid var(--color-1); */
 }
 
 .checkbox input:checked + span::before{
@@ -950,6 +1000,11 @@ body .lk-light , ._light .lk-dark  {
 	border-bottom: none;
 }
 
+.selectRadius > div {
+	display: flex;
+	border-top: none;
+}
+
 .select-dropdown {
 	width: 100%;
 	display: none;
@@ -961,9 +1016,15 @@ body .lk-light , ._light .lk-dark  {
 	z-index: 2;
 	background: var(--color-17);
 	border-radius: 0px 0px 8px 8px;
-	border: 1px solid #ebebeb;
+	border: 1px solid var(--color-24);
 	padding: 15px 15px 20px 15px;
 	gap: 20px;
+}
+
+
+.dropdown-content {
+	overflow-y: auto !important;
+	top: 101%;
 }
 
 .select-dropdown-open{
@@ -1011,6 +1072,41 @@ thead .table-id .checkbox span {
 	width: 266px;
 }
 
+.forContactListActive {
+	color: var(--color-21) !important;
+}
+
+.section-event-log-content-popup-content-open {
+	top: 62px;
+}
+
+.contactPopup_user input:first-of-type {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 19px;
+}
+
+
+.contactPopup_tool-main > div > div {
+	user-select: none;
+}
+
+.list-contactTable-Contact , .list-contactTable-Location , .list-contactTable-Participant , .list-contactTable-Event , .list-contactTable-document {
+	position: relative;
+	padding-top: 30px;
+}
+
+.contactPopup_tool-main > div .draggableFalse {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.tableScroll {
+	min-width: 100% !important;
+}
+
 /* @media screen and (max-width:1730px) {	
 	.table-fullName {
 		width: 275px !important;
@@ -1019,6 +1115,10 @@ thead .table-id .checkbox span {
 		width: 183px !important;
 	}
 } */
+
+.tableScroll > thead > tr > th, #table > thead > tr > th {
+	padding: 18px 25px !important;
+}
 
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
@@ -1042,7 +1142,7 @@ thead .table-id .checkbox span {
 }
 
 @media screen and (max-width: 1680px) {
-	.contact-table_body > div , .contact-table_top {
+	.contact-table_body > div , .contact-table_top , .contact_header-list{
 		padding-left: 25px;
 	}
 
@@ -1065,6 +1165,10 @@ thead .table-id .checkbox span {
 	.tableScroll > tbody > tr > td, #table > tbody > tr > td {
 		padding: 18px 15px;
 	}
+	
+.tableScroll > thead > tr > th, #table > thead > tr > th {
+	padding: 18px 15px !important;
+}
 }
 
 @media screen and (max-width:1500px) {
@@ -1119,7 +1223,6 @@ thead .table-id .checkbox span {
 		transform: translateY(-50%) translateX(-50%);
 		width: 752px;
 		padding: 20px 30px;
-		background: #fff;
 		border-radius: 20px;
 		z-index: 11;
 	}
@@ -1135,7 +1238,7 @@ thead .table-id .checkbox span {
 
 	.contact_header-list > h1 {
 		display: block;
-		color: #202020;
+		color: var(--color-9);
 		font-family: Roboto;
 		font-size: 24px;
 		font-weight: 500;
