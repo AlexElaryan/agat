@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+* {
+	font-family: 'Roboto' !important;
+}
+
 .contact_header-middle {
 	width: calc(100% - 288px);
 	display: grid;
@@ -339,7 +344,7 @@ table .table-tr {
 	height: 100%;
 	background-color: transparent;
 	border-radius: 20px;
-	box-shadow: inset 0 0 0 2px #ccc;
+	box-shadow: inset 0 0 0 2px var(--color-24);
 	transition: background-color 0.3s ease-in-out;
   }
   
@@ -350,7 +355,7 @@ table .table-tr {
 	left: 5px;
 	width: 20px;
 	height: 20px;
-	background-color: #ebebeb;
+	background-color: var(--color-24);
 	border-radius: 50%;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 	transition: transform 0.3s ease-in-out;
@@ -549,6 +554,24 @@ table .table-tr {
 	justify-content: space-between;	
 	border-bottom: 1px solid #DADADA;
 	padding: 10px 30px;
+	gap: 10px;
+}
+
+
+.air-datepicker {
+	--adp-background-color: var(--color-2);
+	border: transparent;
+	--adp-color: var(--color-16);
+	--adp-day-name-color: var(--color-4);
+	--adp-cell-background-color-selected: var(--color-26);
+	--adp-cell-background-color-selected-hover: var(--color-26);
+	--adp-accent-color: ;
+	--adp-border-color-inner: var(--color-12);
+}
+
+.air-datepicker--pointer:after {
+	background: var(--color-2);
+	border: transparent;
 }
 
 .contactPopup_user p {
@@ -570,6 +593,13 @@ table .table-tr {
 }
 
 .contactPopup_user input {
+	width: 100%;
+	height: 100%;
+	font-style: italic;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	color: #808080;
 	padding: 10px 15px;
 	border: 1px solid #DADADA;
 	border-radius: 8px;
@@ -953,8 +983,9 @@ body .lk-light , ._light .lk-dark  {
 	text-align: center;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	justify-content: center;
-	padding: 0px;
+	padding: 3px;
 	border-bottom: 1px solid var(--color-1);
+	
 }
 
 header {
@@ -998,19 +1029,26 @@ header {
 .selectRadius {
 	border-radius: 8px 8px 0px 0px;
 	border-bottom: none;
+	border: none;
+}
+
+.selectRadius > p {
+	color: #fff;
 }
 
 .selectRadius > div {
 	display: flex;
-	border-top: none;
+	/* border-top: none; */
+	border-radius: 8px;
+	border: 1px solid var(--color-24);
 }
 
 .select-dropdown {
-	width: 100%;
+	width: calc(100% + 1.5px);
 	display: none;
 	position: absolute;
-	top: 100%;
-	left: 0;
+	top: calc(100% - 1px);
+	left: -1px;
 	flex-direction: column;
 	gap: 10px;
 	z-index: 2;
@@ -1118,6 +1156,23 @@ thead .table-id .checkbox span {
 
 .tableScroll > thead > tr > th, #table > thead > tr > th {
 	padding: 18px 25px !important;
+}
+
+#filterRemove {
+	margin-left: 0px;
+}
+
+.left-menu .accordion {
+	padding: 18px 0px;
+}
+
+.left-menu .accordion {
+	
+	min-width: calc(288px - 40px);
+}
+
+.left-menu-link {
+	padding: 0px 20px;
 }
 
 @media screen and (max-width:1700px) {
