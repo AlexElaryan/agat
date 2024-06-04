@@ -35,7 +35,8 @@ body {
 	--color-22: #4C4C4C;
 	--color-23: #505050;
 	--color-24: #505050;
-;
+	--color-25: #2c2c2c;	
+	--color-26: #FF9900;	
 }
 body._light {
 	--color-1: #ebebeb;
@@ -71,6 +72,8 @@ body._light {
 	--color-22: #E4F1FF;
 	--color-23: #fff;
 	--color-24: #ebebeb;
+	--color-25: #f7f8f8;	
+	--color-26: #5cc4ef;	
 }
 * {
 	box-sizing: border-box;
@@ -428,7 +431,8 @@ body._light .active > .accordion-text path {
 }
 .accordion-text:after {
 	display: contents;
-	content: url('/img/arr-accordion.svg');
+	content: url('../img/arr-accordion.svg');
+	/* content: url('data:image/svg+xml,<svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="%23C0C0C0"/></svg>'); */
 	transition: 0.4s;
 }
 
@@ -1051,8 +1055,6 @@ body._light .custom-radio > input:checked + span::before {
 .custom-radio > input:checked + span {
 	color: var(--color-5);
 }
-
-
 
 .dropbtn {
 	color: var(--color-4);
