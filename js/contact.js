@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function createSVGIcon(i) {
-    return `<svg class="changeSort" width="21" height="21" viewBox="0 0 21 21" fill="none"
+    return `<svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <path
         d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newElementHTML = `
                 <div class="contact-item">
                     <p class="numOfList"> 
-                        <svg class="changeSort" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z" fill="#C0C0C0" />
                             <path d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z" fill="#C0C0C0" />
                             <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -337,7 +337,7 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
                 event.stopPropagation();
                 const newElementHTML = `
                 <div>
-                                        <p class="numOfList2"> <svg class="changeSort" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                        <p class="numOfList2"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -902,10 +902,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const itemsWindow = document.getElementById('windowVisibleColumns')
-//     itemsWindow.firstElementChild.firstElementChild.lastElementChild.textContent = 'Фото';
-// }, false);
+document.addEventListener('DOMContentLoaded', () => {
+    const itemsWindow = document.getElementById('windowVisibleColumns')
+    itemsWindow.firstElementChild.firstElementChild.lastElementChild.textContent = 'Фото';
+}, false);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -924,87 +924,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 }, false);
-
-
-
-//-----------------dragg--------
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Drag area 1
-    const dragArea1 = document.getElementById('listContact');
-    let isFirstDrag1 = true;
-
-    if (dragArea1) {
-        new Sortable(dragArea1, {
-            animation: 350,
-            filter: '.ignore-drag',
-            onStart: function (evt) {
-                if (!evt.target.classList.contains('changeSort')) {
-                    evt.preventDefault(); 
-                }
-                
-                if (isFirstDrag1) {
-                    this.option("filter", "");
-                    isFirstDrag1 = false;
-                }
-            },
-            onEnd: function (evt) {
-                console.log('Element dragged:', evt.item);
-            }
-        });
-    } else {
-        console.error('Element with ID "listContact" not found.');
-    }
-
-    // Drag area 2
-    const dragArea2 = document.getElementById('listLocation');
-    if (dragArea2) {
-        new Sortable(dragArea2, {
-            animation: 350,
-            onStart: function (evt) {
-                if (!evt.target.classList.contains('changeSort')) {
-                    evt.preventDefault();
-                }
-            },
-        });
-    } 
-
-    // Drag area 3
-    const dragArea3 = document.getElementById('listEvent');
-    if (dragArea3) {
-        new Sortable(dragArea3, {
-            animation: 350,
-            onStart: function (evt) {
-                if (!evt.target.classList.contains('changeSort')) {
-                    evt.preventDefault();
-                }
-            },
-        });
-    } 
-
-    // Drag area 4
-    const dragArea4 = document.getElementById('listDocument');
-    if (dragArea4) {
-        new Sortable(dragArea4, {
-            animation: 350,
-            onStart: function (evt) {
-                if (!evt.target.classList.contains('changeSort')) {
-                    evt.preventDefault();
-                }
-            },
-        });
-    } 
-
-    // Drag area 5
-    const dragArea5 = document.getElementById('listParticipant');
-    if (dragArea5) {
-        new Sortable(dragArea5, {
-            animation: 350,
-            onStart: function (evt) {
-                if (!evt.target.classList.contains('changeSort')) {
-                    evt.preventDefault();
-                }
-            },
-        });
-    } 
-});
