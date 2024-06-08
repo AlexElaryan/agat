@@ -880,7 +880,7 @@ textarea {
 	grid-template-columns: 1fr 1fr 3fr;
 }
 
-.changeSort {
+.arrow {
 	cursor: grab;
 }
 
@@ -890,8 +890,7 @@ textarea {
 }
 
 .dragging {
-    z-index: 1000; 
-    cursor: grabbing;
+	opacity: 0.5;
 }
 
 .list-contactTable-document > div {
@@ -899,7 +898,7 @@ textarea {
 }
 
 .list-contactTable-Participant > div {
-	grid-template-columns: 1fr 1fr 3fr;
+	grid-template-columns: 1.1fr 1fr 3fr;
 }
 
 .listObl-cont {
@@ -931,6 +930,10 @@ textarea {
 	display: none;
 	flex-direction: column;
 	gap: 5px;
+}
+
+.active .accordion-text::after {
+	content: url('data:image/svg+xml,%3Csvg%20width%3D%227%22%20height%3D%2211%22%20viewBox%3D%220%200%207%2011%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3.22552%205.5L7%209.35348L5.38724%2011L0%205.5L5.38724%20-6.8471e-08L7%201.64652L3.22552%205.5Z%22%20fill%3D%22%23909090%22%2F%3E%3C%2Fsvg%3E');
 }
 
 .listObl-cont2 .list-obligation_dropdown {
@@ -1033,7 +1036,7 @@ header {
 }
 
 .selectRadius > p {
-	color: #fff;
+	color: var(--color-4);
 }
 
 .selectRadius > div {
@@ -1128,17 +1131,12 @@ thead .table-id .checkbox span {
 .contactPopup_tool-main > div > div {
 	user-select: none;
 }
-
-.list-contactTable-Contact , .list-contactTable-Location , .list-contactTable-Participant , .list-contactTable-Event , .list-contactTable-document {
-	position: relative;
-	padding-top: 30px;
+.contactPopup_tool-main > div > div:first-of-type {
+	z-index: 1111;
 }
 
-.contactPopup_tool-main > div .draggableFalse {
-	width: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+.ui-state-default {
+	border: none !important;
 }
 
 .tableScroll {
