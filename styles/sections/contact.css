@@ -1164,6 +1164,10 @@ thead .table-id .checkbox span {
 	padding: 18px 0px;
 }
 
+.btn-menu-open {
+	top: 0px !important;
+}
+
 .left-menu .accordion {
 	
 	min-width: calc(288px - 40px);
