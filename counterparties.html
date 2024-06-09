@@ -7,7 +7,7 @@
     <title>agant</title>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/adaptive.css">
-    <link rel="icon" href="./img/icon.png" type="image/x-icon">
+    <!-- <link rel="icon" href="./img/icon.png" type="image/x-icon"> -->
     <link href="./styles/datapicker.css" rel="stylesheet">
     <link rel="stylesheet" href='./styles/lib.css' />
     <link rel="stylesheet" href="./styles/swiper.css" />
@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="./styles/newStyle.css">
     <link rel="stylesheet" href="./styles/sections/contact.css">
     <link rel="stylesheet" href="./styles/sections/counterparties.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body class=' _error _light'>
@@ -394,6 +397,32 @@
                         <img src="./img/lk-light.png" alt>
                     </div>
                     <img src="./img/loginCheck.png" alt class="lk-check">
+                    <div class="userStatus">
+                        <div class="statusOption">
+                            <img src="./img/loginCheck.png" class="loginCheck activeStatus">
+                            <p>В сети</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Выход.png" class="statusPng">
+                            <img src="./img/ВыходLight.png" class="statusPngLight">
+                            <p>Выход</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Невидимка.png" class="statusPng">
+                            <img src="./img/НевидимкаLight.png" class="statusPngLight">
+                            <p>Невидимка</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Занят.png" class="statusPng">
+                            <img src="./img/ЗанятLight.png" class="statusPngLight">
+                            <p>Занят</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Ненаместе.png" class="statusPng">
+                            <img src="./img/НенаместеLight.png" class="statusPngLight">
+                            <p>Не на месте</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1079,7 +1108,21 @@
                 </div>
 
                 <div class="table-block">
-                    <table id="table1" class='tableScroll colors'>
+                    <div class="table-id-block">
+                        <div class="checkbox">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="color-1" value="indigo">
+                                <span>На всех страницах</span>
+                            </label>   
+                        </div>
+                        <div>
+                            <p>Выделить все</p>
+                            <p>Выделить активные</p>
+                            <p>Снять выделение</p>
+                            <p>Снять выделение с активных</p>
+                        </div>
+                    </div>
+                    <table style="border-collapse: collapse;" id="table1" class='tableScroll colors'>
                         <thead>
                             <tr class="table-tr">
                                 <th class="table-id">
@@ -1087,16 +1130,23 @@
                                         <label class="custom-checkbox">
                                             <input type="checkbox" name="color-1" value="indigo">
                                             <span>Фото</span>
-                                        </label>
+                                        </label>   
                                     </div>
-                                    <svg class="tableIdPhoto lk-light" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#203F9A"/>
-                                        </svg>
-                                        <svg class="tableIdPhoto lk-dark" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="#FF9900"/>
-                                            </svg>
-                                            
-                                        
+                                    
+                                    <svg class="tableIdPhoto lk-light tableIdArrow" width="12" height="8" viewBox="0 0 12 8"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
+                                            fill="#203F9A" />
+                                    </svg>
+                                    <svg class="tableIdPhoto lk-dark tableIdArrow" width="12" height="8" viewBox="0 0 12 8"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
+                                            fill="#FF9900" />
+                                    </svg>
+
+
                                 </th>
                                 <th class="table-source">Источник</th>
                                 <th class="table-fullName">ФИО</th>
@@ -1729,51 +1779,50 @@
                             <div class="contactPopup-tool_select">
                                 <div>
                                     <svg class="lk-light" width="34" height="35" viewBox="0 0 34 35" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M30 15.0909C30 22.6514 22.8321 29.4098 19.1413 32.3887C17.8775 33.4088 16.1225 33.4088 14.8587 32.3887C11.1679 29.4098 4 22.6514 4 15.0909C4 11.619 5.36964 8.28926 7.80761 5.83424C10.2456 3.37922 13.5522 2 17 2C20.4478 2 23.7544 3.37922 26.1924 5.83424C28.6304 8.28926 30 11.619 30 15.0909Z"
-                                        stroke="#203F9A" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M17 21C20.3137 21 23 18.3137 23 15C23 11.6863 20.3137 9 17 9C13.6863 9 11 11.6863 11 15C11 18.3137 13.6863 21 17 21Z"
-                                        stroke="#203F9A" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                                <svg class="lk-dark" width="34" height="35" viewBox="0 0 34 35" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M30 15.0909C30 22.6514 22.8321 29.4098 19.1413 32.3887C17.8775 33.4088 16.1225 33.4088 14.8587 32.3887C11.1679 29.4098 4 22.6514 4 15.0909C4 11.619 5.36964 8.28926 7.80761 5.83424C10.2456 3.37922 13.5522 2 17 2C20.4478 2 23.7544 3.37922 26.1924 5.83424C28.6304 8.28926 30 11.619 30 15.0909Z"
-                                        stroke="#FF9900" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M17 21C20.3137 21 23 18.3137 23 15C23 11.6863 20.3137 9 17 9C13.6863 9 11 11.6863 11 15C11 18.3137 13.6863 21 17 21Z"
-                                        stroke="#FF9900" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M30 15.0909C30 22.6514 22.8321 29.4098 19.1413 32.3887C17.8775 33.4088 16.1225 33.4088 14.8587 32.3887C11.1679 29.4098 4 22.6514 4 15.0909C4 11.619 5.36964 8.28926 7.80761 5.83424C10.2456 3.37922 13.5522 2 17 2C20.4478 2 23.7544 3.37922 26.1924 5.83424C28.6304 8.28926 30 11.619 30 15.0909Z"
+                                            stroke="#203F9A" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17 21C20.3137 21 23 18.3137 23 15C23 11.6863 20.3137 9 17 9C13.6863 9 11 11.6863 11 15C11 18.3137 13.6863 21 17 21Z"
+                                            stroke="#203F9A" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <svg class="lk-dark" width="34" height="35" viewBox="0 0 34 35" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M30 15.0909C30 22.6514 22.8321 29.4098 19.1413 32.3887C17.8775 33.4088 16.1225 33.4088 14.8587 32.3887C11.1679 29.4098 4 22.6514 4 15.0909C4 11.619 5.36964 8.28926 7.80761 5.83424C10.2456 3.37922 13.5522 2 17 2C20.4478 2 23.7544 3.37922 26.1924 5.83424C28.6304 8.28926 30 11.619 30 15.0909Z"
+                                            stroke="#FF9900" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M17 21C20.3137 21 23 18.3137 23 15C23 11.6863 20.3137 9 17 9C13.6863 9 11 11.6863 11 15C11 18.3137 13.6863 21 17 21Z"
+                                            stroke="#FF9900" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
 
                                     <h3>Адреса</h3>
                                 </div>
                                 <div style="position: relative;">
-                                   
-                                    <svg class=" listAdd lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
-                                        stroke-width="2" />
-                                    <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <svg class=" listAdd lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
-                                        stroke-width="2" />
-                                    <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M14 8.00049L14 20.0005" stroke="#FF9900" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
+                                    <svg class="listLocationAdd lk-light" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
+                                            stroke-width="2" />
+                                        <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <svg class="listLocationAdd lk-dark" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
+                                            stroke-width="2" />
+                                        <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M14 8.00049L14 20.0005" stroke="#FF9900" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
                                     <div class="listAdd-dropdown">
                                         <p>День рождения</p>
                                         <p>Другое</p>
@@ -1789,7 +1838,7 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-Location">
+                                <div class="sortable list-contactTable list-contactTable-Location ">
                                     <div>
                                         <span>Тип адреса</span>
                                         <span>Индекс</span>
@@ -1798,10 +1847,10 @@
                                         <span>Улица</span>
                                         <span>Дом/К./Под./Кв.</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div class="ui-state-default">
                                         <div style=" display: flex;align-items: center;">
-                                            <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -1811,6 +1860,7 @@
                                                 <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
+
                                             <div class="select">
                                                 <p>Внутренний</p>
                                                 <div class="select-dropdown">
@@ -1831,11 +1881,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Россия">
-                                        <input type="text" readonly value="Москва">
-                                        <input type="text" readonly value="Парковая">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text" value="99999999">
+                                        <input type="text" value="Россия">
+                                        <input type="text" value="Москва">
+                                        <input type="text" value="Парковая">
+                                        <input type="text" value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -1844,10 +1894,10 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div>
+                                    <div class="ui-state-default">
                                         <div style=" display: flex;align-items: center;">
-                                            <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -1857,7 +1907,7 @@
                                                 <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
-                                            
+
                                             <div class="select">
                                                 <p>Рабочий</p>
                                                 <div class="select-dropdown">
@@ -1878,11 +1928,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Казахстан">
-                                        <input type="text" readonly value="Москва">
-                                        <input type="text" readonly value="Вишнековская">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text" value="99999999">
+                                        <input type="text" value="Казахстан">
+                                        <input type="text" value="Москва">
+                                        <input type="text" value="Вишнековская">
+                                        <input type="text" value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -1891,10 +1941,10 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
+                                    <div class="ui-state-default">
                                         <div style=" display: flex;align-items: center;">
-                                            <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -1904,7 +1954,7 @@
                                                 <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
-                                            
+
                                             <div class="select">
                                                 <p>Домашний</p>
                                                 <div class="select-dropdown">
@@ -1925,11 +1975,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <input type="text" readonly value="99999999">
-                                        <input type="text" readonly value="Россия">
-                                        <input type="text" readonly value="Волгоград">
-                                        <input type="text" readonly value="Большая Трубная">
-                                        <input type="text" readonly value="99 / 9 / 9 / 999">
+                                        <input type="text" value="99999999">
+                                        <input type="text" value="Россия">
+                                        <input type="text" value="Волгоград">
+                                        <input type="text" value="Большая Трубная">
+                                        <input type="text" value="99 / 9 / 9 / 999" class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -1947,51 +1997,56 @@
                             <div class="contactPopup-tool_select">
                                 <div>
                                     <svg class="lk-light" width="34" height="35" viewBox="0 0 34 35" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_2896_14305)">
-                                        <path
-                                            d="M15.6549 3.72548C16.2051 2.61061 17.7949 2.61061 18.3451 3.72548L21.6472 10.4162C21.8657 10.8589 22.288 11.1658 22.7766 11.2368L30.1602 12.3097C31.3905 12.4884 31.8818 14.0004 30.9915 14.8682L25.6487 20.0762C25.2952 20.4208 25.1338 20.9173 25.2173 21.4039L26.4786 28.7577C26.6887 29.9831 25.4026 30.9175 24.3021 30.339L17.698 26.867C17.261 26.6372 16.739 26.6372 16.302 26.867L9.69786 30.339C8.59742 30.9175 7.31127 29.9831 7.52143 28.7577L8.78271 21.4039C8.86617 20.9173 8.70485 20.4208 8.35132 20.0762L3.00846 14.8682C2.11819 14.0004 2.60945 12.4884 3.83978 12.3097L11.2234 11.2368C11.712 11.1658 12.1343 10.8589 12.3528 10.4162L15.6549 3.72548Z"
-                                            stroke="#203F9A" stroke-width="2" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_2896_14305">
-                                            <rect width="34" height="34" fill="white" transform="translate(0 1)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-
-                                <svg class="lk-dark" width="34" height="35" viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_2938_50733)">
-                                    <path d="M15.6549 3.72548C16.2051 2.61061 17.7949 2.61061 18.3451 3.72548L21.6472 10.4162C21.8657 10.8589 22.288 11.1658 22.7766 11.2368L30.1602 12.3097C31.3905 12.4884 31.8818 14.0004 30.9915 14.8682L25.6487 20.0762C25.2952 20.4208 25.1338 20.9173 25.2173 21.4039L26.4786 28.7577C26.6887 29.9831 25.4026 30.9175 24.3021 30.339L17.698 26.867C17.261 26.6372 16.739 26.6372 16.302 26.867L9.69786 30.339C8.59742 30.9175 7.31127 29.9831 7.52143 28.7577L8.78271 21.4039C8.86617 20.9173 8.70485 20.4208 8.35132 20.0762L3.00846 14.8682C2.11819 14.0004 2.60945 12.4884 3.83978 12.3097L11.2234 11.2368C11.712 11.1658 12.1343 10.8589 12.3528 10.4162L15.6549 3.72548Z" stroke="#FF9900" stroke-width="2"/>
-                                    </g>
-                                    <defs>
-                                    <clipPath id="clip0_2938_50733">
-                                    <rect width="34" height="34" fill="white" transform="translate(0 1)"/>
-                                    </clipPath>
-                                    </defs>
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2896_14305)">
+                                            <path
+                                                d="M15.6549 3.72548C16.2051 2.61061 17.7949 2.61061 18.3451 3.72548L21.6472 10.4162C21.8657 10.8589 22.288 11.1658 22.7766 11.2368L30.1602 12.3097C31.3905 12.4884 31.8818 14.0004 30.9915 14.8682L25.6487 20.0762C25.2952 20.4208 25.1338 20.9173 25.2173 21.4039L26.4786 28.7577C26.6887 29.9831 25.4026 30.9175 24.3021 30.339L17.698 26.867C17.261 26.6372 16.739 26.6372 16.302 26.867L9.69786 30.339C8.59742 30.9175 7.31127 29.9831 7.52143 28.7577L8.78271 21.4039C8.86617 20.9173 8.70485 20.4208 8.35132 20.0762L3.00846 14.8682C2.11819 14.0004 2.60945 12.4884 3.83978 12.3097L11.2234 11.2368C11.712 11.1658 12.1343 10.8589 12.3528 10.4162L15.6549 3.72548Z"
+                                                stroke="#203F9A" stroke-width="2" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_2896_14305">
+                                                <rect width="34" height="34" fill="white" transform="translate(0 1)" />
+                                            </clipPath>
+                                        </defs>
                                     </svg>
+
+                                    <svg class="lk-dark" width="34" height="35" viewBox="0 0 34 35" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_2938_50733)">
+                                            <path
+                                                d="M15.6549 3.72548C16.2051 2.61061 17.7949 2.61061 18.3451 3.72548L21.6472 10.4162C21.8657 10.8589 22.288 11.1658 22.7766 11.2368L30.1602 12.3097C31.3905 12.4884 31.8818 14.0004 30.9915 14.8682L25.6487 20.0762C25.2952 20.4208 25.1338 20.9173 25.2173 21.4039L26.4786 28.7577C26.6887 29.9831 25.4026 30.9175 24.3021 30.339L17.698 26.867C17.261 26.6372 16.739 26.6372 16.302 26.867L9.69786 30.339C8.59742 30.9175 7.31127 29.9831 7.52143 28.7577L8.78271 21.4039C8.86617 20.9173 8.70485 20.4208 8.35132 20.0762L3.00846 14.8682C2.11819 14.0004 2.60945 12.4884 3.83978 12.3097L11.2234 11.2368C11.712 11.1658 12.1343 10.8589 12.3528 10.4162L15.6549 3.72548Z"
+                                                stroke="#FF9900" stroke-width="2" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_2938_50733">
+                                                <rect width="34" height="34" fill="white" transform="translate(0 1)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
 
                                     <h3>Знаменательные события</h3>
                                 </div>
                                 <div>
-                                    <svg class="lk-light" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
-                                        stroke-width="2" />
-                                    <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <svg class="lk-dark" width="28" height="29" viewBox="0 0 28 29" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
-                                        stroke-width="2" />
-                                    <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M14 8.00049L14 20.0005" stroke="#FF9900" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
+                                    <svg class="lk-light listEventsAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
+                                            stroke-width="2" />
+                                        <path d="M8.00024 13.9995L20.0002 13.9995" stroke="#203F9A" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <svg class="lk-dark listEventsAdd" width="28" height="29" viewBox="0 0 28 29"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
+                                            stroke-width="2" />
+                                        <path d="M8 13.9995L20 13.9995" stroke="#FF9900" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M14 8.00049L14 20.0005" stroke="#FF9900" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+
 
 
                                     <svg class="toolArrow" width="11" height="7" viewBox="0 0 11 7" fill="none"
@@ -2004,16 +2059,16 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-Star">
+                                <div class="sortable list-contactTable list-contactTable-Event">
                                     <div>
                                         <span>Тип</span>
                                         <span>Дата</span>
                                         <span>Комментарий</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <div style=" display: flex;align-items: center;">
-                                            <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <div class="ui-state-default">
+                                        <div style="display: flex;align-items: center;" class="custom-select-wrapper">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -2023,7 +2078,7 @@
                                                 <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
-                                            
+
                                             <div class="select">
                                                 <p>День рождения</p>
                                                 <div class="select-dropdown">
@@ -2043,14 +2098,41 @@
                                                         fill="#C0C0C0" />
                                                 </svg>
                                             </div>
+                                            <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                            <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+
                                         </div>
 
-                                       
-                                        <div class="select">
-                                            <p>19 сент. 2024</p>
-                                            <div class="select-dropdown">
-                                                <div class="select-option" data-value="Внутренний">Внутренний</div>
-                                                <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                        <div class="custom-select-wrapper">
+
+                                            <div class="select">
+                                                <p>19 сент. 2024</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                    <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
                                             </div>
                                             <svg class="custom-select-arrow lk-light" width="21" height="21"
                                                 viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2065,7 +2147,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" readonly value="...">
+                                        <input type="text" value="..." class="inputLastof">
 
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2075,10 +2157,10 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div>
-                                        <div style=" display: flex;align-items: center;">
-                                            <svg style="margin-left: -10px;" width="21" height="21" viewBox="0 0 21 21"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <div class="ui-state-default">
+                                        <div style="display: flex;align-items: center;" class="custom-select-wrapper">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
                                                     fill="#C0C0C0" />
@@ -2088,7 +2170,7 @@
                                                 <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
-                                           
+
                                             <div class="select">
                                                 <p>Другой</p>
                                                 <div class="select-dropdown">
@@ -2108,13 +2190,40 @@
                                                         fill="#C0C0C0" />
                                                 </svg>
                                             </div>
+                                            <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                            <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+
                                         </div>
-                                       
-                                        <div class="select">
-                                            <p>6 нояб. 2024</p>
-                                            <div class="select-dropdown">
-                                                <div class="select-option" data-value="Внутренний">Внутренний</div>
-                                                <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                        <div class="custom-select-wrapper">
+
+                                            <div class="select">
+                                                <p>6 нояб. 2024</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                    <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
                                             </div>
                                             <svg class="custom-select-arrow lk-light" width="21" height="21"
                                                 viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2129,7 +2238,7 @@
                                                     fill="#C0C0C0" />
                                             </svg>
                                         </div>
-                                        <input type="text" readonly value="...">
+                                        <input type="text" value="..." class="inputLastof">
                                         <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
@@ -2138,8 +2247,6 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -2199,7 +2306,7 @@
 
                             </div>
                             <div class="contactPopup_tool-main">
-                                <div class="list-contactTable list-contactTable-document list-countTable-document">
+                                <div class="sortable list-contactTable list-contactTable-document list-countTable-document">
                                     <div>
                                         <span>№</span>
                                         <span>Наименование.</span>
@@ -2208,8 +2315,8 @@
                                         <span>Окончание <br> действия</span>
                                         <span>Комментарий</span>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    <div class="ui-state-default" style="background: var(--color-2);">
+                                        <p> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -2252,8 +2359,8 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div>
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    <div class="ui-state-default">
+                                        <p> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -2299,8 +2406,8 @@
                                                 stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
-                                    <div style="background: var(--color-2);">
-                                        <p> <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                    <div class="ui-state-default" style="background: var(--color-2);">
+                                        <p> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -2357,15 +2464,27 @@
     </section>
 
 
-    <script src="./js/counterparties.js"></script>
-    <script src="./js/jquery.js"></script>
+    <!-- <script src="./js/jquery.js"></script> -->
     <script src="./js/datatable.js"></script>
     <script src="./js/jquery.dataTables.colResize.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
     <link rel="stylesheet" href="./styles/jquery.dataTables.colResize.css">
     <script src="./js/datapicker.js"></script>
     <script src='./js/dualraneg.min.js'></script>
     <script src="./js/app.js"></script>
     <script src='./js/script.js'></script>
+    <script src="./js/contact.js"></script>
+
+
+    <script>
+        $(function() {
+           $(".sortable").sortable({
+               handle: ".arrow"
+           });
+           $(".sortable").disableSelection();
+       });
+   </script>
 </body>
 
 </html>
