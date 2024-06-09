@@ -410,6 +410,32 @@
                         <img src="./img/lk-light.png" alt>
                     </div>
                     <img src="./img/loginCheck.png" alt class="lk-check">
+                    <div class="userStatus">
+                        <div class="statusOption">
+                            <img src="./img/loginCheck.png" class="loginCheck activeStatus">
+                            <p>В сети</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Выход.png" class="statusPng">
+                            <img src="./img/ВыходLight.png" class="statusPngLight">
+                            <p>Выход</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Невидимка.png" class="statusPng">
+                            <img src="./img/НевидимкаLight.png" class="statusPngLight">
+                            <p>Невидимка</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Занят.png" class="statusPng">
+                            <img src="./img/ЗанятLight.png" class="statusPngLight">
+                            <p>Занят</p>
+                        </div>
+                        <div class="statusOption">
+                            <img src="./img/Ненаместе.png" class="statusPng">
+                            <img src="./img/НенаместеLight.png" class="statusPngLight">
+                            <p>Не на месте</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -750,6 +776,16 @@
             </div>
         </div>
         <div class="section-event-log-container contact-container">
+            <button class="btn-menu-open _active">
+                <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z"
+                        fill="#FF9900"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z"
+                        fill="#FF9900"></path>
+                </svg>
+            </button>
             <div class="contact_header-list">
                 <h1>Работа со списками</h1>
                 <svg class="closeContactlist" width="12" height="12" viewBox="0 0 12 12" fill="none"
@@ -817,7 +853,7 @@
             <div class="contact_header-list-filter"></div>
             <div class="section-event-log-content">
                 <div class="section-event-log-top">
-                    <button class="btn-menu-open _active">
+                    <!-- <button class="btn-menu-open _active">
                         <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z"
@@ -826,7 +862,7 @@
                                 d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z"
                                 fill="#FF9900"></path>
                         </svg>
-                    </button>
+                    </button> -->
                     <div class="section-event-log-top-left">
                         <div class="section-event-log-top-btns">
                             <svg class="reload-btn" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
@@ -1082,6 +1118,20 @@
 
 
                 <div class="table-block">
+                    <div class="table-id-block">
+                        <div class="checkbox">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="color-1" value="indigo">
+                                <span>На всех страницах</span>
+                            </label>   
+                        </div>
+                        <div>
+                            <p>Выделить все</p>
+                            <p>Выделить активные</p>
+                            <p>Снять выделение</p>
+                            <p>Снять выделение с активных</p>
+                        </div>
+                    </div>
                     <table style="border-collapse: collapse;" id="table1" class='tableScroll colors'>
                         <thead>
                             <tr class="table-tr">
@@ -1090,15 +1140,16 @@
                                         <label class="custom-checkbox">
                                             <input type="checkbox" name="color-1" value="indigo">
                                             <span>Фото</span>
-                                        </label>
+                                        </label>   
                                     </div>
-                                    <svg class="tableIdPhoto lk-light" width="12" height="8" viewBox="0 0 12 8"
+                                    
+                                    <svg class="tableIdPhoto lk-light tableIdArrow" width="12" height="8" viewBox="0 0 12 8"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
                                             fill="#203F9A" />
                                     </svg>
-                                    <svg class="tableIdPhoto lk-dark" width="12" height="8" viewBox="0 0 12 8"
+                                    <svg class="tableIdPhoto lk-dark tableIdArrow" width="12" height="8" viewBox="0 0 12 8"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
