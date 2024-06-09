@@ -59,12 +59,45 @@
 	border-left: none;
 }
 
+.userStatus {
+	min-width: 174px;
+	position: absolute;
+	top: calc(100% + 10px);
+	padding: 15px 40px 20px 15px;
+	border: 1px solid var(--color-24);
+	background: var(--color-2);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	z-index: 11111;
+	display: none;
+}
+
+.statusOption {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	cursor: pointer;
+}
+
+.statusOption p {
+	font-size: 15px;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	color: var(--color-9);
+}
+
+.activeStatus {
+	opacity: 0.2;
+}
+
 .lk-check {
 	width: 20px;
 	height: 20px;
 	position: absolute;
 	bottom: 7px;
 	right: 20px;
+	cursor: pointer;
 }
 
 .contact-container .section-event-log-top-part {
@@ -703,6 +736,7 @@ table .table-tr {
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	background: transparent;
 	color: var(--color-9);
+	font-size: 15px;
 }
 
 .contactPopup_tool-main input[type = 'text']::placeholder {
@@ -750,9 +784,6 @@ table .table-tr {
 	justify-content: unset;
 	background: var(--color-2);
 }
-.textarea {
-	background: var(--color-2);
-}
 
 .contactPopup_tool-main > div > div:nth-child(2n + 1) {
 	background: var(--color-2);
@@ -773,11 +804,13 @@ textarea {
 	width: 100% !important;
 	border-radius: 10px;
 	min-height: 120px;
-	border: 1px solid #808080;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	padding: 15px 20px;
 	color: var(--color-9);
 	background: transparent;
+	font-size: 15px;
+	border: 1px solid var(--color-24);
+	background: var(--color-2);
 }
 
 @media screen and (max-width:1450px) {
@@ -812,6 +845,7 @@ textarea {
 	display: flex;
 	align-items: center;
 	justify-self: center;
+	font-size: 15px;
 }
 
 .list-contactTable p svg {
@@ -932,8 +966,22 @@ textarea {
 	gap: 5px;
 }
 
+.contact-container {
+	overflow: hidden;
+	overflow-y: auto;
+	position: relative;
+}
+
+.section-event-log-content-popup-content-open {
+	top: 0px !important;
+}
+
 .active .accordion-text::after {
-	content: url('data:image/svg+xml,%3Csvg%20width%3D%227%22%20height%3D%2211%22%20viewBox%3D%220%200%207%2011%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3.22552%205.5L7%209.35348L5.38724%2011L0%205.5L5.38724%20-6.8471e-08L7%201.64652L3.22552%205.5Z%22%20fill%3D%22%23909090%22%2F%3E%3C%2Fsvg%3E');
+	content: url('data:image/svg+xml,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z" fill="%23FF9900"/></svg>');
+}
+
+.active > .accordion-text {
+	color: var(--color-9);
 }
 
 .listObl-cont2 .list-obligation_dropdown {
@@ -1109,16 +1157,54 @@ thead .table-id .checkbox span {
 	left: 31px;
 }
 
+.forTableIdPopUp {
+	position: relative;
+}
+
+.table-id-block {
+	padding-bottom: 15px;
+	min-width: 341px;
+	display: none;
+	flex-direction: column;
+	border-radius: 8px;
+	border: 1px solid var(--color-24);
+	background: var(--color-2);
+	position: absolute;
+	top: 66px;
+	left: 30px;
+	z-index: 111;
+}
+
+.table-id-block .custom-checkbox > span {
+	color: #808080 !important;
+}
+
+.table-id-block p {
+	font-size: 17px;
+	color: var(--color-21);
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.table-id-block .checkbox {
+	padding: 15px 16px;
+	border-bottom: 1px solid var(--color-24);
+}
+
+.table-id-block > div:last-of-type {
+	padding: 15px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
 .table-fullName {
 	width: 266px;
 }
 
 .forContactListActive {
 	color: var(--color-21) !important;
-}
-
-.section-event-log-content-popup-content-open {
-	top: 0px;
 }
 
 .contactPopup_user input:first-of-type {
@@ -1143,6 +1229,10 @@ thead .table-id .checkbox span {
 	min-width: 100% !important;
 }
 
+.btn-menu-open {
+	top: 0px !important;
+}
+
 /* @media screen and (max-width:1730px) {	
 	.table-fullName {
 		width: 275px !important;
@@ -1164,10 +1254,6 @@ thead .table-id .checkbox span {
 	padding: 18px 0px;
 }
 
-.btn-menu-open {
-	top: 0px !important;
-}
-
 .left-menu .accordion {
 	
 	min-width: calc(288px - 40px);
@@ -1187,8 +1273,7 @@ thead .table-id .checkbox span {
 	.table-id .tableIdPhoto {
 		left: 56px;
 	}
-}
-@media screen and (min-width:1682px) {
+
 	.lk-check {
 		right: 45px;
 	}
@@ -1196,11 +1281,14 @@ thead .table-id .checkbox span {
 	.custom-checkbox svg {
 		left: 9px;
 	}
+	.table-id-block {
+		left: 40px;
+	}
 }
 
 @media screen and (max-width: 1680px) {
 	.contact-table_body > div , .contact-table_top , .contact_header-list{
-		padding-left: 25px;
+		padding-left: 40px;
 	}
 
 	.section-actions {
@@ -1208,7 +1296,14 @@ thead .table-id .checkbox span {
 	}
 
 	.tableScroll > tbody > tr > td:first-child, #table > tbody > tr > td:first-child , .tableScroll > thead > tr > th:first-child, #table > thead > tr > th:first-child {
-		padding-left: 25px !important;
+		padding-left: 40px !important;
+	}
+
+	.section-event-log-top {
+		padding-left: 40px;
+	}
+	.table-id .tableIdPhoto {
+		left: 46px;
 	}
 }
 
@@ -1337,5 +1432,8 @@ thead .table-id .checkbox span {
 	}
 	.table-id .tableIdPhoto {
 		left: 21px;
+	}
+	.table-id-block {
+		left: 5px;
 	}
 }
