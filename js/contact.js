@@ -924,3 +924,126 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 }, false);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const statusPngs = document.querySelectorAll('.statusOption > img');
+    const statusOption = document.querySelectorAll('.statusOption');
+    const activeStatus = document.querySelector('.lk-check');
+    const statusBlock = document.querySelector('.userStatus');
+    let isOpen = false;
+
+    const updateStatusPngs = () => {
+        const isLightMode = document.body.classList.contains('_light');
+
+        statusPngs.forEach(el => {
+            const isStatusPngLight = el.classList.contains('statusPngLight');
+            const isLoginCheck = el.classList.contains('loginCheck');
+            const activeOption = el.parentElement.classList.contains('activeBlock');
+
+            el.classList.remove('activeStatusMode');
+            el.classList.remove('activeStatus');
+
+            if (isLightMode) {
+                if (!isStatusPngLight && !isLoginCheck) {
+                    el.style.display = 'none';
+                } else {
+                    el.classList.add('activeStatusMode');
+                    el.style.display = 'block';
+                    if (activeOption) {
+                        el.classList.add('activeStatus');
+                    }
+                }
+            } else {
+                if (isStatusPngLight && !isLoginCheck) {
+                    el.style.display = 'none';
+                } else {
+                    el.classList.add('activeStatusMode');
+                    el.style.display = 'block';
+                    if (activeOption) {
+                        el.classList.add('activeStatus');
+                    }
+                }
+            }
+            if (activeOption) {
+                const activeStatusModeElement = el.parentElement.querySelector('.activeStatusMode');
+                if (activeStatusModeElement) {
+                    activeStatus.src = activeStatusModeElement.src;
+                }
+            }
+        });
+    };
+
+    updateStatusPngs();
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+                updateStatusPngs();
+            }
+        });
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    statusOption.forEach((opt, ind) => {
+        opt.onclick = () => {
+            const activeStatusModes = document.querySelectorAll('.activeStatusMode');
+            if (activeStatusModes[ind]) {
+                activeStatus.src = activeStatusModes[ind].src;
+                activeStatusModes.forEach(el => {
+                    el.classList.remove('activeStatus');
+                });
+                activeStatusModes[ind].classList.add('activeStatus');
+                statusOption.forEach(el => {
+                    el.classList.remove('activeBlock');
+                })
+                opt.classList.add('activeBlock');
+                statusBlock.style.display = 'none';
+                isOpen = false;
+            }
+        };
+    });
+
+    // Toggle status block display
+    activeStatus.onclick = () => {
+        if (!isOpen) {
+            statusBlock.style.display = 'flex';
+            isOpen = true;
+        } else {
+            statusBlock.style.display = 'none';
+            isOpen = false;
+        }
+    };
+    // Close status block when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!statusBlock.contains(event.target) && event.target !== activeStatus) {
+            statusBlock.style.display = 'none';
+            isOpen = false;
+        }
+    });
+    const loginCheckImg = document.querySelector('.loginCheck');
+    if (loginCheckImg) {
+        loginCheckImg.classList.add('activeStatus');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tableIdArrows = document.querySelectorAll('.tableIdArrow');
+    const tableIdArrowBlock = document.querySelector('.table-id-block');
+    let isOpen = false;
+
+    tableIdArrows.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tableIdArrowBlock.style.display = isOpen ? 'none' : 'flex';
+            isOpen = !isOpen;
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!tableIdArrowBlock.contains(event.target) && !Array.from(tableIdArrows).includes(event.target)) {
+            tableIdArrowBlock.style.display = 'none';
+            isOpen = false;
+        }
+    });
+});
