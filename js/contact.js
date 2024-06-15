@@ -483,46 +483,81 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
 });
 
 // select
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//     const selectElements = document.querySelectorAll('.select');
+//     const selectDropdowns = document.querySelectorAll('.select-dropdown');
+//     const selectOptions = document.querySelectorAll('.select-option');
+//     const filterDropDowns = document.querySelectorAll('.filterDropDowns');
+//     const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
 
-    const selectElements = document.querySelectorAll('.select');
-    const selectDropdowns = document.querySelectorAll('.select-dropdown');
-    const selectOptions = document.querySelectorAll('.select-option');
+//     selectElements.forEach((selectElement, index) => {
+//         selectElement.addEventListener('click', (event) => {
+//             event.stopPropagation();
+//             const isOpen = selectDropdowns[index].classList.contains('select-dropdown-open');
 
-    selectElements.forEach((selectElement, index) => {
-        selectElement.addEventListener('click', (event) => {
-            event.stopPropagation();
-            selectDropdowns.forEach((dropdown, dropdownIndex) => {
-                if (dropdownIndex !== index) {
-                    dropdown.classList.remove('select-dropdown-open');
-                    selectElements[dropdownIndex].classList.remove('selectRadius');
-                }
-            });
-            selectDropdowns[index].classList.toggle('select-dropdown-open');
-            selectElement.classList.toggle('selectRadius');
-        });
+//             // Close all dropdowns first
+//             selectDropdowns.forEach((dropdown, dropdownIndex) => {
+//                 dropdown.classList.remove('select-dropdown-open');
+//                 selectElements[dropdownIndex].classList.remove('selectRadius');
+//             });
+//             filterDropDowns.forEach(el => {
+//                 el.classList.remove('filterDropDownsOpen');
+//             })
+//             popupBackBtn.classList.remove('forFilter-popup-back');
 
-        document.addEventListener('click', (event) => {
-            if (!selectElement.contains(event.target)) {
-                selectDropdowns[index].classList.remove('select-dropdown-open');
-                selectElement.classList.remove('selectRadius');
-            }
-        });
-    });
+//             // Open the clicked dropdown if it was closed
+//             if (!isOpen) {
+//                 selectDropdowns[index].classList.add('select-dropdown-open');
+//                 selectElement.classList.add('selectRadius');
+//                 // filterDropDowns.classList.add('filterDropDownsOpen');
+//                 filterDropDowns.forEach(el => {
+//                     el.classList.add('filterDropDownsOpen');
+//                 })
+//                 popupBackBtn.classList.add('forFilter-popup-back');
 
-    selectOptions.forEach((option, index) => {
-        option.addEventListener('click', (event) => {
-            const selectedValue = event.target.getAttribute('data-value');
-            const selectedText = event.target.textContent;
-            const selectWrapper = event.target.closest('.select');
-            const selectP = selectWrapper.querySelector('p');
-            selectP.textContent = selectedText;
-            selectDropdowns[index].classList.remove('select-dropdown-open');
-            selectElements[index].classList.remove('selectRadius');
-        });
-    });
-});
+//             }
+//         });
+//     });
 
+//     document.addEventListener('click', (event) => {
+//         if (!Array.from(selectElements).some(select => select.contains(event.target))) {
+//             selectDropdowns.forEach((dropdown, dropdownIndex) => {
+//                 dropdown.classList.remove('select-dropdown-open');
+//                 selectElements[dropdownIndex].classList.remove('selectRadius');
+//             });
+//             // filterDropDowns.classList.remove('filterDropDownsOpen');
+//             filterDropDowns.forEach(el => {
+//                 el.classList.remove('filterDropDownsOpen');
+//             })
+//             popupBackBtn.classList.remove('forFilter-popup-back');
+
+//         }
+//     });
+
+//     selectOptions.forEach((option) => {
+//         option.addEventListener('click', (event) => {
+//             event.stopPropagation();
+//             const selectedValue = event.target.getAttribute('data-value');
+//             const selectedText = event.target.textContent;
+//             const selectWrapper = event.target.closest('.select');
+//             const selectP = selectWrapper.querySelector('p');
+
+//             selectP.textContent = selectedText;
+
+//             // Close all dropdowns
+//             selectDropdowns.forEach((dropdown, dropdownIndex) => {
+//                 dropdown.classList.remove('select-dropdown-open');
+//                 selectElements[dropdownIndex].classList.remove('selectRadius');
+//             });
+//             // filterDropDowns.classList.remove('filterDropDownsOpen');
+//             filterDropDowns.forEach(el => {
+//                 el.classList.remove('filterDropDownsOpen');
+//             })
+//             popupBackBtn.classList.remove('forFilter-popup-back');
+
+//         });
+//     });
+// });
 
 
 // pagination
@@ -783,34 +818,193 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 }, false);
 
-//
+// Group Edit
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Selecting necessary elements
     let groupEdit = document.getElementById('groupEdit');
-    let infoContacts = document.querySelectorAll('.contactPopup_tool-mainInfoContact > div > div');
+    let infoContacts = document.querySelectorAll('.contactPopup_tool-middle > div');
+    let infoContactOrg = document.querySelectorAll('.infoContactOrg');
+    let infoContactCheck = document.querySelector('.contactPopup_tool-mainInfoContact .infoContactOurOrg');
+    let forDisable = document.querySelectorAll('.forDisable');
 
-    if (groupEdit && infoContacts.length > 0) {
-        function setOpacity(opacity) {
-            infoContacts.forEach(function (infoContact) {
-                infoContact.style.opacity = opacity;
-            });
-        }
+    // Function to disable or enable elements based on checkbox state
+    function handleGroupEditChange() {
+        let disabled = groupEdit.checked; // Determine if elements should be disabled
 
-        if (groupEdit.checked) {
-            setOpacity('0.7');
-        }
-
-        groupEdit.addEventListener('change', function () {
-            if (groupEdit.checked) {
-                setOpacity('0.7');
+        // Disable or enable infoContacts
+        infoContacts.forEach(function (infoContact) {
+            if (disabled) {
+                infoContact.classList.add('disabled');
             } else {
-                setOpacity('1');
+                infoContact.classList.remove('disabled');
             }
+        });
+
+        // Disable or enable infoContactOrg
+        infoContactOrg.forEach(function (infoContactOrg) {
+            if (disabled) {
+                infoContactOrg.classList.add('disabled');
+            } else {
+                infoContactOrg.classList.remove('disabled');
+            }
+        });
+
+        // Disable or enable infoContactCheck
+        if (disabled) {
+            infoContactCheck.classList.add('disabled');
+        } else {
+            infoContactCheck.classList.remove('disabled');
+        }
+
+        // Disable or enable forDisable checkboxes and their parents
+        forDisable.forEach(function (checkbox) {
+            if (disabled) {
+                checkbox.style.display = 'block';
+            } else {
+                checkbox.style.display = 'none';
+            }
+            checkbox.onclick = () => {
+                if (checkbox.checked) {
+                    checkbox.parentElement.classList.remove('disabled');
+                } else {
+                    checkbox.parentElement.classList.add('disabled');
+                }
+            }
+        });
+    }
+
+    // Initial setup based on the initial state of groupEdit checkbox
+    if (groupEdit) {
+        handleGroupEditChange();
+    }
+
+    // Event listener for changes in groupEdit checkbox
+    if (groupEdit) {
+        groupEdit.addEventListener('change', function () {
+            handleGroupEditChange();
         });
     }
 });
 
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     let listObligations = document.querySelectorAll('.list-obligation');
+//     let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
+
+//     listObligations.forEach((input, index) => {
+//         let dropdown = listObligationDropdowns[index];
+
+//         input.addEventListener('click', (event) => {
+//             // Prevent event propagation to document click listener
+//             event.stopPropagation();
+
+//             // Close all dropdowns first
+//             listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
+
+//             // Toggle the current dropdown
+//             dropdown.classList.toggle('list-obligation_dropdownOpen');
+//         });
+
+//         let dropdownItems = dropdown.querySelectorAll('p');
+//         dropdownItems.forEach(item => {
+//             item.addEventListener('click', () => {
+//                 input.value = item.textContent;
+//                 dropdown.classList.remove('list-obligation_dropdownOpen');
+//             });
+//         });
+//     });
+
+//     // Close dropdowns when clicking outside
+//     document.addEventListener('click', () => {
+//         listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
+//     });
+// });
+
+
+
+//
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Filter dropdowns
+    const selectElements = document.querySelectorAll('.select');
+    const selectDropdowns = document.querySelectorAll('.select-dropdown');
+    const selectOptions = document.querySelectorAll('.select-option');
+    const filterDropDowns = document.querySelectorAll('.filterDropDowns');
+    const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+
+    selectElements.forEach((selectElement, index) => {
+        selectElement.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = selectDropdowns[index].classList.contains('select-dropdown-open');
+
+            // Close all dropdowns first
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+
+            // Open the clicked dropdown if it was closed
+            if (!isOpen) {
+                selectDropdowns[index].classList.add('select-dropdown-open');
+                selectElement.classList.add('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.add('filterDropDownsOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.add('forFilter-popup-back');
+                }
+            }
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!Array.from(selectElements).some(select => select.contains(event.target))) {
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+        }
+    });
+
+    selectOptions.forEach((option) => {
+        option.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const selectedValue = event.target.getAttribute('data-value');
+            const selectedText = event.target.textContent;
+            const selectWrapper = event.target.closest('.select');
+            const selectP = selectWrapper.querySelector('p');
+
+            selectP.textContent = selectedText;
+
+            // Close all dropdowns
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+        });
+    });
+
+    // List obligations
     let listObligations = document.querySelectorAll('.list-obligation');
     let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
 
@@ -826,6 +1020,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Toggle the current dropdown
             dropdown.classList.toggle('list-obligation_dropdownOpen');
+
+            // Open filter dropdowns when list obligation dropdown is opened
+            if (dropdown.classList.contains('list-obligation_dropdownOpen')) {
+                filterDropDowns.forEach(el => {
+                    el.classList.add('filterDropDownsOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.add('forFilter-popup-back');
+                }
+            } else {
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDropDownsOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilter-popup-back');
+                }
+            }
         });
 
         let dropdownItems = dropdown.querySelectorAll('p');
@@ -838,14 +1049,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Close dropdowns when clicking outside
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
         listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
+        filterDropDowns.forEach(el => {
+            el.classList.remove('filterDropDownsOpen');
+        });
+        if (popupBackBtn) {
+            popupBackBtn.classList.remove('forFilter-popup-back');
+        }
+    });
+
+    // Ensure clicking filter dropdowns doesn't close list obligations dropdowns
+    document.addEventListener('click', (event) => {
+        if (!Array.from(selectElements).some(select => select.contains(event.target))) {
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+        }
     });
 });
 
 
-
-//
 
 document.addEventListener('DOMContentLoaded', () => {
     let collapseAll = document.querySelector('.contactPopup_top p');
@@ -907,23 +1138,6 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsWindow.firstElementChild.firstElementChild.lastElementChild.textContent = 'Фото';
 }, false);
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Получаем список всех элементов с классом ".select-dropdown"
-    const selectDropdowns = document.querySelectorAll('.select-dropdown');
-    const contactpopContactDrowpdown = document.querySelectorAll('.contactPopup_toolsContact .select-dropdown');
-
-    // Перебираем каждый элемент и применяем стиль
-    selectDropdowns.forEach((dropdown) => {
-        const parentBackground = window.getComputedStyle(dropdown.parentElement.parentElement.parentElement).getPropertyValue('background');
-        dropdown.style.background = parentBackground;
-    });
-    contactpopContactDrowpdown.forEach((dropdown) => {
-        const parentBackground = window.getComputedStyle(dropdown.parentElement.parentElement).getPropertyValue('background');
-        dropdown.style.background = parentBackground;
-    });
-
-}, false);
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1045,5 +1259,42 @@ document.addEventListener('DOMContentLoaded', () => {
             tableIdArrowBlock.style.display = 'none';
             isOpen = false;
         }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const table = document.getElementById("table1");
+    let selectedRow = null;
+
+    table.addEventListener("click", function (event) {
+        const target = event.target;
+
+        if (target.tagName === "TD") {
+            const row = target.parentNode;
+
+            if (selectedRow === row) {
+                row.classList.remove("highlight");
+                selectedRow = null;
+            } else {
+                if (selectedRow) {
+                    selectedRow.classList.remove("highlight");
+                }
+
+                row.classList.add("highlight");
+                selectedRow = row;
+            }
+        }
+    });
+});
+
+// Работа со списками
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.listFilters');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            button.classList.toggle('listFilters-active');
+        });
     });
 });
