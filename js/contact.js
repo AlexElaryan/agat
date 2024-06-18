@@ -56,10 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let toolArrow = document.querySelectorAll('.toolArrow');
     let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
     let collapseAllArrow = document.querySelectorAll('.contactPopup_top p svg');
+    let listAddAll = document.querySelectorAll('.listAddAll');
 
     toolSelect.forEach((el, i) => {
         el.addEventListener('click', (event) => {
             if (!contactToolMain[i].classList.contains('contactPopup_tool-mainOpen')) {
+                el.classList.remove('mainCloseSelect');
                 contactToolMain[i].classList.add('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.add('toolArrowOpen');
                 collapseAllArrow.forEach(ar => {
@@ -68,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 contactToolMain[i].classList.remove('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.remove('toolArrowOpen');
+                el.classList.add('mainCloseSelect');
+
             }
         });
     });
@@ -958,6 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // List obligations
     let listObligations = document.querySelectorAll('.list-obligation');
     let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
+    let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll'); 
 
     listObligations.forEach((input, index) => {
         let dropdown = listObligationDropdowns[index];
@@ -971,12 +976,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Toggle the current dropdown
             dropdown.classList.toggle('list-obligation_dropdownOpen');
+            popupRightScroll.classList.toggle('scrollHidden');
+
 
             // Open filter dropdowns when list obligation dropdown is opened
             if (dropdown.classList.contains('list-obligation_dropdownOpen')) {
                 filterDropDowns.forEach(el => {
                     el.classList.add('filterDropDownsOpen');
                 });
+                popupRightScroll.classList.add('scrollHidden');
                 if (popupBackBtn) {
                     popupBackBtn.classList.add('forFilter-popup-back');
                 }
@@ -984,6 +992,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterDropDowns.forEach(el => {
                     el.classList.remove('filterDropDownsOpen');
                 });
+                popupRightScroll.classList.remove('scrollHidden');
+
                 if (popupBackBtn) {
                     popupBackBtn.classList.remove('forFilter-popup-back');
                 }
@@ -1008,6 +1018,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (popupBackBtn) {
             popupBackBtn.classList.remove('forFilter-popup-back');
         }
+        popupRightScroll.classList.remove('scrollHidden');
     });
 
     // Ensure clicking filter dropdowns doesn't close list obligations dropdowns
@@ -1023,6 +1034,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
+            popupRightScroll.classList.remove('scrollHidden');
         }
     });
 });
@@ -1056,7 +1068,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Function to update images based on the body's class
     function updateImages() {
-        let tableidLk = document.querySelectorAll('.custom-checkbox img');
+        let tableidLk = document.querySelectorAll('.table-photo img');
         if (document.body.classList.contains('_light')) {
             tableidLk.forEach(el => {
                 el.src = './img/lk-light.png';
@@ -1269,16 +1281,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const selects = document.querySelectorAll('.select');
+    const selectsObl = document.querySelectorAll('.list-obligation');
     const container = document.querySelector('.section-event-log-content-popup-content-scroll');
 
     selects.forEach(select => {
         // Add click event listener to each select element
         select.addEventListener('click', function () {
-            // Calculate the position of the select element
             const selectRect = select.getBoundingClientRect();
-            // Scroll the container to make the select element visible
-            console.log(selectRect);
             container.scrollTop = selectRect.top + selectRect.height;
         });
     });
+    selectsObl.forEach(select => {
+        select.addEventListener('click', function () {
+            const selectRect = select.getBoundingClientRect();
+            container.scrollTop = selectRect.top + selectRect.height;
+        });
+    })
 });
