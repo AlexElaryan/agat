@@ -161,12 +161,12 @@ var Pagination = {
 	Create: function (e) {
 		var html = [
 			'<a><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">\n' +
-				'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.22552 5.5L7 9.35348L5.38724 11L-9.34969e-07 5.5L5.38724 -7.0496e-08L7 1.64652L3.22552 5.5Z" fill="white"></path>\n' +
-				'                        </svg></a>', // previous button
+			'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.22552 5.5L7 9.35348L5.38724 11L-9.34969e-07 5.5L5.38724 -7.0496e-08L7 1.64652L3.22552 5.5Z" fill="white"></path>\n' +
+			'                        </svg></a>', // previous button
 			'<span></span>', // pagination container
 			'<a><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">\n' +
-				'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 -6.8471e-08L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="white"></path>\n' +
-				'                        </svg></a>', // next button
+			'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 -6.8471e-08L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="white"></path>\n' +
+			'                        </svg></a>', // next button
 		]
 
 		e.innerHTML = html.join('')
@@ -335,12 +335,12 @@ var Pagination2 = {
 	Create: function (e) {
 		var html = [
 			'<a><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">\n' +
-				'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.22552 5.5L7 9.35348L5.38724 11L-9.34969e-07 5.5L5.38724 -7.0496e-08L7 1.64652L3.22552 5.5Z" fill="white"></path>\n' +
-				'                        </svg></a>', // previous button
+			'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.22552 5.5L7 9.35348L5.38724 11L-9.34969e-07 5.5L5.38724 -7.0496e-08L7 1.64652L3.22552 5.5Z" fill="white"></path>\n' +
+			'                        </svg></a>', // previous button
 			'<span></span>', // pagination2 container
 			'<a><svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">\n' +
-				'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 -6.8471e-08L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="white"></path>\n' +
-				'                        </svg></a>', // next button
+			'                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 -6.8471e-08L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z" fill="white"></path>\n' +
+			'                        </svg></a>', // next button
 		]
 
 		e.innerHTML = html.join('')
@@ -492,7 +492,7 @@ function newElements() {
 			}
 
 			remove.addEventListener('click', removeActionItemHandler)
-		} catch (err) {}
+		} catch (err) { }
 	}
 
 	let itemsRange = document.querySelectorAll(
@@ -583,10 +583,6 @@ function getPopupWidth() {
 	popupWidth =
 		document.querySelector('.section-event-log-content-popup-content')
 			.scrollWidth + 3
-	// console.log(
-	// 	'Вызываем функцию getPopupWidth и получаем ширину модального окна  в переменной (popupWidth) ='
-	// )
-	// console.log(popupWidth)
 }
 popupEventOpen.addEventListener('click', e => {
 	if (popupEventOpen.classList.toggle('_active')) {
@@ -666,9 +662,9 @@ document.querySelector('.section-event-log-content-popup-content').style.width =
 let table;
 $(document).ready(function () {
 	if ($.fn.DataTable.isDataTable('#table1')) {
-        // Destroy the existing DataTable instance
-        $('#table1').DataTable().destroy();
-    }
+		// Destroy the existing DataTable instance
+		$('#table1').DataTable().destroy();
+	}
 	$('#table1').DataTable({
 		scrollX: true,
 		autoWidth: false,
@@ -711,15 +707,17 @@ $(document).ready(function () {
 const itemsWindow = document.getElementById('windowVisibleColumns');
 const nameColumns = document.querySelectorAll('table thead th');
 
-nameColumns.forEach(elem => {
-	itemsWindow.innerHTML += `
-<div class="radio">
-<label class="custom-radio">
-	<input type="checkbox" name="color" value="windowColumn" checked>
-	<span>${elem.firstElementChild === null ? elem.textContent : 'ID'}</span>
-</label>
-</div>
-`
+nameColumns.forEach((elem, i) => {
+	if (i !== 0) {
+		itemsWindow.innerHTML += `
+	<div class="radio">
+	<label class="custom-radio">
+		<input type="checkbox" name="color" value="windowColumn" checked>
+		<span>${elem.firstElementChild === null ? elem.textContent : 'ID'}</span>
+	</label>
+	</div>
+	`
+	}
 })
 
 let table2 = $('#table1').DataTable();
@@ -733,48 +731,6 @@ itemsWindowBtns.forEach((elem, i) => {
 })
 
 
-// const btnMenuOpen = document.querySelector('.btn-menu-open')
-// const leftMenu = document.querySelector('.left-menu-desktop')
-// const leftMenuBurger = document.querySelector('.menu__btn')
-// const tableContent = document.querySelector('.section-event-log-container')
-// const tableResize = document.querySelector('.table-block')
-
-// btnMenuOpen.addEventListener('click', () => {
-// 	if (btnMenuOpen.classList.toggle('_active')) {
-// 		leftMenu.classList.add('_hide')
-// 		tableContent.style.maxWidth = '100%'
-// 		tableResize.style.maxWidth = '100%'
-// 	} else {
-// 		leftMenu.classList.remove('_hide')
-// 		tableContent.style.maxWidth = 'calc(100% - 288px)'
-// 	}
-// })
-
-// leftMenuBurger.addEventListener('click', () => {
-// 	if (
-// 		window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
-// 			.matches
-// 	) {
-// 		if (btnMenuOpen.classList.toggle('_active')) {
-// 			leftMenu.classList.add('_hide')
-// 			tableContent.style.maxWidth = '100%'
-// 			tableResize.style.maxWidth = '100%'
-// 		} else {
-// 			leftMenu.classList.remove('_hide')
-// 			tableContent.style.maxWidth = 'calc(100% - 288px)'
-// 		}
-// 	}
-// })
-
-// window.addEventListener('resize', () => {
-// 	document.querySelector('#menu__toggle').checked = false
-// 	btnMenuOpen.classList.add('_active')
-// 	leftMenu.classList.add('_hide')
-// 	tableContent.style.maxWidth = '100%'
-// 	tableResize.style.maxWidth = '100%'
-// })
-
-
 const btnMenuOpen = document.querySelector('.btn-menu-open');
 const leftMenu = document.querySelector('.left-menu-desktop');
 const leftMenuBurger = document.querySelector('.menu__btn');
@@ -783,45 +739,45 @@ const tableResize = document.querySelector('.table-block');
 
 // Helper function to set the menu state
 function setMenuState(isActive) {
-    if (isActive) {
-        leftMenu.classList.add('_hide');
-        tableContent.style.maxWidth = '100%';
-        tableResize.style.maxWidth = '100%';
-    } else {
-        leftMenu.classList.remove('_hide');
-        tableContent.style.maxWidth = 'calc(100% - 288px)';
-        tableResize.style.maxWidth = 'calc(100% - 288px)'; // Ensure tableResize width is adjusted
-    }
+	if (isActive) {
+		leftMenu.classList.add('_hide');
+		tableContent.style.maxWidth = '100%';
+		tableResize.style.maxWidth = '100%';
+	} else {
+		leftMenu.classList.remove('_hide');
+		tableContent.style.maxWidth = 'calc(100% - 288px)';
+		tableResize.style.maxWidth = 'calc(100% - 288px)'; // Ensure tableResize width is adjusted
+	}
 }
 
 // Click event for btnMenuOpen
 btnMenuOpen.addEventListener('click', () => {
-    const isActive = btnMenuOpen.classList.toggle('_active');
-    setMenuState(isActive);
+	const isActive = btnMenuOpen.classList.toggle('_active');
+	setMenuState(isActive);
 });
 
 // Click event for leftMenuBurger with media query condition
 leftMenuBurger.addEventListener('click', () => {
-    if (
-        window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
-            .matches
-    ) {
-        const isActive = btnMenuOpen.classList.toggle('_active');
-        setMenuState(isActive);
-    }
+	if (
+		window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
+			.matches
+	) {
+		const isActive = btnMenuOpen.classList.toggle('_active');
+		setMenuState(isActive);
+	}
 });
 
 // Resize event listener
 window.addEventListener('resize', () => {
-    document.querySelector('#menu__toggle').checked = false;
+	document.querySelector('#menu__toggle').checked = false;
 
-    // Preserve the state of the menu on resize
-    const isActive = btnMenuOpen.classList.contains('_active');
-    setMenuState(isActive);
+	// Preserve the state of the menu on resize
+	const isActive = btnMenuOpen.classList.contains('_active');
+	setMenuState(isActive);
 });
 
 // Initial state setup to ensure correct layout on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const isActive = btnMenuOpen.classList.contains('_active');
-    setMenuState(isActive);
+	const isActive = btnMenuOpen.classList.contains('_active');
+	setMenuState(isActive);
 });
