@@ -219,7 +219,12 @@ body._light .moduleSwitching__probing > button {
 	visibility: visible;
 }
 
+table .checkbox:hover .custom-checkbox::before {
+	border: 2px solid #5cc4ef;
+}
+
 table .custom-checkbox {
+	transition: all 0.2s ease 0s;
     cursor: pointer;
     position: relative;
     display: inline-flex;
