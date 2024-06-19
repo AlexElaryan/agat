@@ -703,32 +703,44 @@ $(document).ready(function () {
 		})
 	})
 })
-
 const itemsWindow = document.getElementById('windowVisibleColumns');
+const itemsWindowContact = document.getElementById('windowVisibleColumnsContact');
 const nameColumns = document.querySelectorAll('table thead th');
 
 nameColumns.forEach((elem, i) => {
-	if (i !== 0) {
-		itemsWindow.innerHTML += `
-	<div class="radio">
-	<label class="custom-radio">
-		<input type="checkbox" name="color" value="windowColumn" checked>
-		<span>${elem.firstElementChild === null ? elem.textContent : 'ID'}</span>
-	</label>
-	</div>
-	`
-	}
-})
+    if (i !== 0) { // Exclude the first column
+        const html = `
+            <div class="radio">
+                <label class="custom-radio">
+                    <input type="checkbox" name="color" value="windowColumn" checked>
+                    <span>${elem.firstElementChild === null ? elem.textContent : 'ID'}</span>
+                </label>
+            </div>
+        `;
+        if (itemsWindowContact) {
+            itemsWindowContact.innerHTML += html;
+        } else if (itemsWindow) {
+            itemsWindow.innerHTML += html;
+        }
+    }
+});
 
-let table2 = $('#table1').DataTable();
-let itemsWindowBtns = itemsWindow.querySelectorAll('.custom-radio input')
+const initializeCheckboxListeners = (container) => {
+    if (container) {
+        let table = $('#table1').DataTable();
+        let itemsWindowBtns = container.querySelectorAll('.custom-radio input');
 
-itemsWindowBtns.forEach((elem, i) => {
-	elem.addEventListener('change', () => {
-		table2.column(i + 1).visible(elem.checked);
-		// table.column(i).visible(elem.checked);
-	})
-})
+        itemsWindowBtns.forEach((elem, i) => {
+            elem.addEventListener('change', () => {
+                table.column(i + 1).visible(elem.checked);
+            });
+        });
+    }
+};
+
+initializeCheckboxListeners(itemsWindow);
+initializeCheckboxListeners(itemsWindowContact);
+
 
 
 const btnMenuOpen = document.querySelector('.btn-menu-open');

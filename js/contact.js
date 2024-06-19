@@ -1097,7 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const itemsWindow = document.getElementById('windowVisibleColumns')
+    const itemsWindow = document.getElementById('windowVisibleColumnsContact')
     itemsWindow.firstElementChild.firstElementChild.lastElementChild.textContent = 'Фото';
 }, false);
 
@@ -1298,3 +1298,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })
 });
+
