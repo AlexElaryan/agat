@@ -727,49 +727,101 @@ let itemsWindowBtns = itemsWindow.querySelectorAll('.custom-radio input')
 
 itemsWindowBtns.forEach((elem, i) => {
 	elem.addEventListener('change', () => {
-		table2.column(i).visible(elem.checked);
+		table2.column(i + 1).visible(elem.checked);
 		// table.column(i).visible(elem.checked);
 	})
 })
 
 
-const btnMenuOpen = document.querySelector('.btn-menu-open')
-const leftMenu = document.querySelector('.left-menu-desktop')
-const leftMenuBurger = document.querySelector('.menu__btn')
-const tableContent = document.querySelector('.section-event-log-container')
-const tableResize = document.querySelector('.table-block')
+// const btnMenuOpen = document.querySelector('.btn-menu-open')
+// const leftMenu = document.querySelector('.left-menu-desktop')
+// const leftMenuBurger = document.querySelector('.menu__btn')
+// const tableContent = document.querySelector('.section-event-log-container')
+// const tableResize = document.querySelector('.table-block')
 
+// btnMenuOpen.addEventListener('click', () => {
+// 	if (btnMenuOpen.classList.toggle('_active')) {
+// 		leftMenu.classList.add('_hide')
+// 		tableContent.style.maxWidth = '100%'
+// 		tableResize.style.maxWidth = '100%'
+// 	} else {
+// 		leftMenu.classList.remove('_hide')
+// 		tableContent.style.maxWidth = 'calc(100% - 288px)'
+// 	}
+// })
+
+// leftMenuBurger.addEventListener('click', () => {
+// 	if (
+// 		window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
+// 			.matches
+// 	) {
+// 		if (btnMenuOpen.classList.toggle('_active')) {
+// 			leftMenu.classList.add('_hide')
+// 			tableContent.style.maxWidth = '100%'
+// 			tableResize.style.maxWidth = '100%'
+// 		} else {
+// 			leftMenu.classList.remove('_hide')
+// 			tableContent.style.maxWidth = 'calc(100% - 288px)'
+// 		}
+// 	}
+// })
+
+// window.addEventListener('resize', () => {
+// 	document.querySelector('#menu__toggle').checked = false
+// 	btnMenuOpen.classList.add('_active')
+// 	leftMenu.classList.add('_hide')
+// 	tableContent.style.maxWidth = '100%'
+// 	tableResize.style.maxWidth = '100%'
+// })
+
+
+const btnMenuOpen = document.querySelector('.btn-menu-open');
+const leftMenu = document.querySelector('.left-menu-desktop');
+const leftMenuBurger = document.querySelector('.menu__btn');
+const tableContent = document.querySelector('.section-event-log-container');
+const tableResize = document.querySelector('.table-block');
+
+// Helper function to set the menu state
+function setMenuState(isActive) {
+    if (isActive) {
+        leftMenu.classList.add('_hide');
+        tableContent.style.maxWidth = '100%';
+        tableResize.style.maxWidth = '100%';
+    } else {
+        leftMenu.classList.remove('_hide');
+        tableContent.style.maxWidth = 'calc(100% - 288px)';
+        tableResize.style.maxWidth = 'calc(100% - 288px)'; // Ensure tableResize width is adjusted
+    }
+}
+
+// Click event for btnMenuOpen
 btnMenuOpen.addEventListener('click', () => {
-	if (btnMenuOpen.classList.toggle('_active')) {
-		leftMenu.classList.add('_hide')
-		tableContent.style.maxWidth = '100%'
-		tableResize.style.maxWidth = '100%'
-	} else {
-		leftMenu.classList.remove('_hide')
-		tableContent.style.maxWidth = 'calc(100% - 288px)'
-	}
-})
+    const isActive = btnMenuOpen.classList.toggle('_active');
+    setMenuState(isActive);
+});
 
+// Click event for leftMenuBurger with media query condition
 leftMenuBurger.addEventListener('click', () => {
-	if (
-		window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
-			.matches
-	) {
-		if (btnMenuOpen.classList.toggle('_active')) {
-			leftMenu.classList.add('_hide')
-			tableContent.style.maxWidth = '100%'
-			tableResize.style.maxWidth = '100%'
-		} else {
-			leftMenu.classList.remove('_hide')
-			tableContent.style.maxWidth = 'calc(100% - 288px)'
-		}
-	}
-})
+    if (
+        window.matchMedia('(max-width: 1260px) and (min-aspect-ratio: 16/9)')
+            .matches
+    ) {
+        const isActive = btnMenuOpen.classList.toggle('_active');
+        setMenuState(isActive);
+    }
+});
 
+// Resize event listener
 window.addEventListener('resize', () => {
-	document.querySelector('#menu__toggle').checked = false
-	btnMenuOpen.classList.add('_active')
-	leftMenu.classList.add('_hide')
-	tableContent.style.maxWidth = '100%'
-	tableResize.style.maxWidth = '100%'
-})
+    document.querySelector('#menu__toggle').checked = false;
+
+    // Preserve the state of the menu on resize
+    const isActive = btnMenuOpen.classList.contains('_active');
+    setMenuState(isActive);
+});
+
+// Initial state setup to ensure correct layout on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const isActive = btnMenuOpen.classList.contains('_active');
+    setMenuState(isActive);
+});
