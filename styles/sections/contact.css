@@ -1390,6 +1390,15 @@ table .checkbox span {
 }
 
 
+.mainCloseSelect .listAddAll {
+	display: none !important;
+}
+
+
+.scrollHidden {
+	overflow-y: hidden !important;
+}
+
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
 		font-size: 17px;

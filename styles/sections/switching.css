@@ -157,6 +157,7 @@ body._light .moduleSwitching__probing > button {
 	border-bottom: 1px solid var(--color-1);
 	border-top: 1px solid var(--color-1);
 }
+
 .checkbox {
 	cursor: pointer;
 	position: relative;
@@ -204,19 +205,75 @@ body._light .moduleSwitching__probing > button {
 	margin: auto 0;
 	width: 10px;
 	height: 10px;
-	background: #74cf00;
+	background: #203F9A;
 	border-radius: 2px;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.2s ease 0s;
 }
 .checkbox input:checked + span::before {
-	border-color: #74cf00;
+	border-color: #203F9A;
 }
 .checkbox input:checked + span::after {
 	opacity: 1;
 	visibility: visible;
 }
+
+table .custom-checkbox {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 39px; /* Adjust this value for checkbox size */
+}
+
+table .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+table .custom-checkbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #909090;
+    border-radius: 5px;
+    transition: all 0.2s ease 0s;
+}
+
+table .custom-checkbox::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: #203F9A;
+    border-radius: 2px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease 0s;
+}
+
+table .custom-checkbox.customChecked::before {
+    border: 2px solid #203F9A;
+}
+
+table .custom-checkbox.customChecked::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
 .moduleSwitching__item > span {
 	font-weight: 400;
 	font-size: 15px;
