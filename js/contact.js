@@ -1097,13 +1097,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const itemsWindow = document.getElementById('windowVisibleColumnsContact')
-    itemsWindow.firstElementChild.firstElementChild.lastElementChild.textContent = 'Фото';
-}, false);
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
     const statusPngs = document.querySelectorAll('.statusOption > img');
     const statusOption = document.querySelectorAll('.statusOption');
     const activeStatus = document.querySelector('.lk-check');
