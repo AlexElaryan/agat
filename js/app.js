@@ -577,12 +577,12 @@ let popupEventOpen = document.querySelector(
 	'.section-event-log-content-popup-content-open'
 )
 let tableContainer = document.querySelector('.table-block')
-let popupWidth
+let popupWidth;
 
 function getPopupWidth() {
 	popupWidth =
 		document.querySelector('.section-event-log-content-popup-content')
-			.scrollWidth + 3
+			.scrollWidth + 3;
 }
 popupEventOpen.addEventListener('click', e => {
 	if (popupEventOpen.classList.toggle('_active')) {
@@ -597,8 +597,8 @@ popupEventOpen.addEventListener('click', e => {
 			+tableContainer.parentElement.offsetWidth + 'px'
 	}
 })
-let paginationTop = pagination.parentElement.parentElement
-let paginationBottom = pagination2.parentElement.parentElement
+let paginationTop = pagination.parentElement.parentElement;
+let paginationBottom = pagination2.parentElement.parentElement;
 
 function paginationVisible() {
 	let items = document.querySelectorAll('.pagination-visible')
@@ -639,7 +639,7 @@ function paginationValueSwitch(value) {
 window.addEventListener('load', () => {
 	paginationVisible()
 	columWidthGive()
-	firstColumnsWidth = columnsWidth
+	firstColumnsWidth = columnsWidth;
 	getPopupWidth()
 	newElements()
 })
@@ -657,7 +657,8 @@ window.addEventListener('resize', () => {
 // Инициализация
 //получать popupWidth
 document.querySelector('.section-event-log-content-popup-content').style.width =
-	popupWidth + 'px'
+	popupWidth + 'px';
+
 
 let table;
 $(document).ready(function () {
@@ -793,3 +794,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	const isActive = btnMenuOpen.classList.contains('_active');
 	setMenuState(isActive);
 });
+

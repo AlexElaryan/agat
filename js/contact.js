@@ -888,6 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectOptions = document.querySelectorAll('.select-option');
     const filterDropDowns = document.querySelectorAll('.filterDropDowns');
     const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+    let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll');
 
     selectElements.forEach((selectElement, index) => {
         selectElement.addEventListener('click', (event) => {
@@ -905,6 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
+            popupRightScroll.classList.remove('scrollHidden');
 
             // Open the clicked dropdown if it was closed
             if (!isOpen) {
@@ -916,6 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (popupBackBtn) {
                     popupBackBtn.classList.add('forFilter-popup-back');
                 }
+                popupRightScroll.classList.add('scrollHidden');
             }
         });
     });
@@ -932,6 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
+            popupRightScroll.classList.remove('scrollHidden');
         }
     });
 
@@ -956,13 +960,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
+            popupRightScroll.classList.remove('scrollHidden');
+
         });
     });
 
     // List obligations
     let listObligations = document.querySelectorAll('.list-obligation');
     let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
-    let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll'); 
 
     listObligations.forEach((input, index) => {
         let dropdown = listObligationDropdowns[index];
@@ -1093,8 +1098,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(document.body, { attributes: true });
 
 }, false);
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const statusPngs = document.querySelectorAll('.statusOption > img');
@@ -1272,23 +1275,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// scroll
+
 document.addEventListener('DOMContentLoaded', function () {
     const selects = document.querySelectorAll('.select');
+    const selectsDropdown = document.querySelectorAll('.select-dropdown');
     const selectsObl = document.querySelectorAll('.list-obligation');
+    const selectsOblDropdown = document.querySelectorAll('.list-obligation_dropdown');
     const container = document.querySelector('.section-event-log-content-popup-content-scroll');
 
-    selects.forEach(select => {
-        // Add click event listener to each select element
+
+    function scrollToElement(select) {
+        const selectRect = select.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        if (selectRect.bottom > containerRect.bottom) {
+            container.scrollTop += (selectRect.bottom - containerRect.bottom);
+        } else if (selectRect.top < containerRect.top) {
+            container.scrollTop -= (containerRect.top - selectRect.top);
+        }
+    }
+
+    selects.forEach((select, ind) => {
         select.addEventListener('click', function () {
-            const selectRect = select.getBoundingClientRect();
-            container.scrollTop = selectRect.top + selectRect.height;
+            scrollToElement(selectsDropdown[ind]);
         });
     });
-    selectsObl.forEach(select => {
+
+    selectsObl.forEach((select, ind) => {
         select.addEventListener('click', function () {
-            const selectRect = select.getBoundingClientRect();
-            container.scrollTop = selectRect.top + selectRect.height;
+            scrollToElement(selectsOblDropdown[ind]);
         });
-    })
+    });
 });
 
+// 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let sectionEventLogTopSearch = document.querySelector('.section-event-log-top-search');
+    const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+    popupBackBtn.onclick = () => {
+        sectionEventLogTopSearch.classList.toggle('section-event-log-top-search-open');
+    }
+});
