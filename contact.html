@@ -861,16 +861,6 @@
             <div class="contact_header-list-filter"></div>
             <div class="section-event-log-content">
                 <div class="section-event-log-top">
-                    <!-- <button class="btn-menu-open _active">
-                        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.77448 5.5L1.22656e-06 1.64652L1.61276 2.11488e-07L7 5.5L1.61276 11L2.15915e-07 9.35348L3.77448 5.5Z"
-                                fill="#FF9900"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.7745 5.5L8 1.64652L9.61276 2.11488e-07L15 5.5L9.61276 11L8 9.35348L11.7745 5.5Z"
-                                fill="#FF9900"></path>
-                        </svg>
-                    </button> -->
                     <div class="section-event-log-top-left">
                         <div class="section-event-log-top-btns">
                             <svg class="reload-btn" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
@@ -1026,10 +1016,21 @@
                                             fill="#FF9900" />
                                     </svg>
                                 </button>
-                                <div id='windowVisibleColumns' class="dropdown-content dropdown-content-filter">
+                                <div id='windowVisibleColumnsContact' class="dropdown-content dropdown-content-filter">
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="section-event-log-top-search">
+                            <form action="">
+                                <input type="text" placeholder="Поиск">
+                                <button type="submit">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L19.2929 20.7071ZM20.7071 19.2929L15.5642 14.15L14.15 15.5642L19.2929 20.7071L20.7071 19.2929ZM9.71429 16.4286C6.00609 16.4286 3 13.4225 3 9.71429H1C1 14.5271 4.90152 18.4286 9.71429 18.4286V16.4286ZM16.4286 9.71429C16.4286 13.4225 13.4225 16.4286 9.71429 16.4286V18.4286C14.5271 18.4286 18.4286 14.5271 18.4286 9.71429H16.4286ZM9.71429 3C13.4225 3 16.4286 6.00609 16.4286 9.71429H18.4286C18.4286 4.90152 14.5271 1 9.71429 1V3ZM9.71429 1C4.90152 1 1 4.90152 1 9.71429H3C3 6.00609 6.00609 3 9.71429 3V1Z" fill="#C0C0C0"/>
+                                        </svg>
+                                        
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div class="section-event-log-navigation">
@@ -1140,7 +1141,8 @@
                             <p>Снять выделение с активных</p>
                         </div>
                     </div>
-                    <table style="border-collapse: collapse;" id="table1" class='tableScroll colors'>
+                    
+                    <table style="border-collapse: collapse;" id="table1" class='tableScroll colors tableContact'>
                         <thead>
                             <tr class="table-tr">
                                 <th class="table-id">
@@ -1322,7 +1324,8 @@
                     </table>
                 </div>
 
-                <div class="contact-bottom ">
+                <div class="contact-bottom">
+                    <div id="filterDropDowns3" class="filterDropDowns"></div>
                     <div>
                         <div class="contact-bottom_left">
 
@@ -2777,6 +2780,7 @@
     <script src="./js/app.js"></script>
     <script src='./js/script.js'></script>
     <script src="./js/contact.js"></script>
+    
 
 
     <script>
