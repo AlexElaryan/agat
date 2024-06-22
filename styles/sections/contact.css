@@ -126,7 +126,14 @@
 
 .contact-container .section-event-log-top-btn-modal {
 	gap: 15px;
+	flex-wrap: nowrap;
 }
+
+.section-event-log-top-left {
+	width: 100%;
+	flex-wrap: nowrap;
+}
+
 
 /* .tableScroll {
 	border-collapse: collapse;
@@ -152,6 +159,7 @@
 
 .section-event-log-top {
 	border-bottom: none;
+	gap: 30px;
 }
 ._light .section-event-log-top {
 	border-bottom: 1px solid var(--color-1);
@@ -368,12 +376,64 @@ table .table-tr {
 
 .contact-container .section-event-log-top-btns {
 	gap: 10px;
+	flex-wrap: nowrap;
 }
 
 .contact-container .section-event-log-top-part:last-of-type {
 	padding-left: 0px;
 	border-left: none;
 }
+
+.section-event-log-top-search {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-event-log-top-search form {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.section-event-log-top-search input {
+	width: 100%;
+	height: 100%;
+	padding: 10px 15px;
+	border: 1px solid var(--color-1);
+	outline: none;
+	border-radius: 8px;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 19.5px;
+	text-align: left;
+	color: #808080;	
+}
+
+.section-event-log-top-search input::placeholder {
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 19.5px;
+	text-align: left;
+	color: #808080;
+}
+
+.section-event-log-top-search button {
+	background: transparent;
+	border: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 15px;
+}
+
+.section-event-log-top-search-open {
+	display: none;
+}
+
 
 .toggle-switch {
 	position: relative;
@@ -1135,15 +1195,26 @@ header {
 	top: 0;
 	background: #161E321A;
 	z-index: 99999;
-	display: none;
+	display: none !important;
 }
 
 .filterDropDowns2 {
 	height: 100%;
 }
 
+#filterDropDowns3 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #161E321A;
+	z-index: 99999;
+}
+
+
 .filterDropDownsOpen , .filterDOpen {
-	display: flex;
+	display: flex !important;
 }
 
 .section-event-log-content-popup-content-open.forFilter-popup-back {
@@ -1170,6 +1241,7 @@ header {
 }
 
 .section-event-log-content-popup {
+	height: calc(100% - 150px);
 	z-index: 1000000;
 }
 
@@ -1234,7 +1306,7 @@ table .checkbox {
 
 .table-id .tableIdPhoto {
 	position: absolute;
-	top: 71%;
+	top: 80%;
 	left: 31px;
 }
 
@@ -1357,11 +1429,11 @@ table .checkbox span {
 .left-menu-link-block:first-of-type {
 	border-top: 1px solid var(--color-1);
 }
-
+/* 
 .table-block {
 	width: 100% ;
-	max-width: 100% !important;
-}
+	max-width: 100%;
+} */
 
 .tableScroll > thead > tr > th, #table > thead > tr > th {
 	padding: 18px 25px !important;
@@ -1397,6 +1469,18 @@ table .checkbox span {
 
 .scrollHidden {
 	overflow-y: hidden !important;
+}
+
+.section-event-log-content-popup {
+	top: 90px;
+}
+
+.contact-bottom {
+	z-index: 1111111;
+}
+
+.contact-container {
+	overflow: hidden;
 }
 
 @media screen and (max-width:1700px) {
