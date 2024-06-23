@@ -1,16 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
+    let contactListSwitch = document.getElementById('contactList');
+    let contactList = document.querySelector('.contact_header-list');
+    let contactListFilter = document.querySelector('.contact_header-list-filter');
+    let closeContactlist = document.querySelector('.closeContactlist');
+    let forContactList = document.querySelector('.forContactList');
+
+    // Функция для обновления отображения списка контактов
+    function updateContactListDisplay() {
+        if (contactListSwitch && contactList && contactListFilter) {
+            let windowLength = window.innerWidth;
+            if (contactListSwitch.checked) {
+                contactList.style.display = 'flex';
+                if (windowLength < 1300) {
+                    contactListFilter.style.display = 'block';
+                } else {
+                    contactListFilter.style.display = 'none';
+                }
+                // Добавляем активный класс для forContactList
+                forContactList.classList.add('forContactListActive');
+            } else {
+                contactList.style.display = 'none';
+                contactListFilter.style.display = 'none';
+                // Удаляем активный класс для forContactList
+                forContactList.classList.remove('forContactListActive');
+            }
+        }
+    }
+
+    // Обработчик для кнопки закрытия списка контактов
+    if (closeContactlist) {
+        closeContactlist.onclick = () => {
+            if (contactList) {
+                contactList.style.display = 'none';
+            }
+            if (contactListFilter) {
+                contactListFilter.style.display = 'none';
+            }
+            // Удаляем активный класс для forContactList при закрытии
+            forContactList.classList.remove('forContactListActive');
+        };
+    }
+
+    // Обновление отображения при загрузке страницы
+    if (contactListSwitch) {
+        updateContactListDisplay();
+        contactListSwitch.addEventListener('change', updateContactListDisplay);
+    }
+
+    // Обновление отображения при изменении размера окна
+    window.addEventListener('resize', updateContactListDisplay);
+}, false);
+
+document.addEventListener('DOMContentLoaded', function () {
     let toolSelect = document.querySelectorAll('.contactPopup-tool_select');
     let toolArrow = document.querySelectorAll('.toolArrow');
     let contactToolMain = document.querySelectorAll('.contactPopup_tool-main');
     let collapseAllArrow = document.querySelectorAll('.contactPopup_top p svg');
-
-    let listAdd = document.querySelectorAll('.listAdd');
-    let listAddDropdown = document.querySelector('.listAdd-dropdown');
-    let isListAD = false;
+    let listAddAll = document.querySelectorAll('.listAddAll');
 
     toolSelect.forEach((el, i) => {
         el.addEventListener('click', (event) => {
-            if (!contactToolMain[i].classList.contains('contactPopup_tool-mainOpen') && !listAddDropdown.contains(event.target)) {
+            if (!contactToolMain[i].classList.contains('contactPopup_tool-mainOpen')) {
+                el.classList.remove('mainCloseSelect');
                 contactToolMain[i].classList.add('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.add('toolArrowOpen');
                 collapseAllArrow.forEach(ar => {
@@ -19,35 +70,427 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 contactToolMain[i].classList.remove('contactPopup_tool-mainOpen');
                 toolArrow[i].classList.remove('toolArrowOpen');
+                el.classList.add('mainCloseSelect');
+
             }
         });
     });
 
-    listAdd.forEach(el => {
-        el.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent the click event from bubbling up to the toolSelect handler
-            if (!isListAD) {
-                if (listAddDropdown) {
-                    listAddDropdown.classList.add('listAdd-dropdownOpen');
-                }
-                isListAD = true;
-            } else {
-                if (listAddDropdown) {
-                    listAddDropdown.classList.remove('listAdd-dropdownOpen');
-                }
-                isListAD = false;
-            }
-        });
-    });
 
-    document.addEventListener('click', (event) => {
-        let clickedInsideListAdd = Array.from(listAdd).some(el => el.contains(event.target));
-        if (!clickedInsideListAdd && listAddDropdown && !listAddDropdown.contains(event.target)) {
-            listAddDropdown.classList.remove('listAdd-dropdownOpen');
-            isListAD = false;
-        }
-    });
 }, false);
+
+
+function createSVGIcon(i) {
+    return `<svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+        fill="#C0C0C0" />
+    <path
+        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+        fill="#C0C0C0" />
+    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg> ${i}`;
+}
+function numbersOfList() {
+    let removeListContact = document.querySelectorAll('.removeListContact');
+    let numOfList = document.querySelectorAll('.numOfList');
+    let numOfList2 = document.querySelectorAll('.numOfList2');
+
+
+    numOfList.forEach((el, i) => {
+        el.innerHTML = createSVGIcon(i);
+    });
+
+    numOfList2.forEach((el, i) => {
+        el.innerHTML = createSVGIcon(i);
+    });
+
+    removeListContact.forEach((x) => {
+        x.addEventListener('click', () => {
+            x.parentElement.remove();
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    numbersOfList();
+});
+
+// new elements add in right popup
+document.addEventListener('DOMContentLoaded', () => {
+    // Contact
+    const handleNewContactAdd = () => {
+        const listLocation = document.querySelector('.list-counterparties-contact');
+        const listLocationAdd = document.querySelectorAll('.listContactAdd');
+
+        listLocationAdd.forEach((el, i) => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+                <div class="countlist-contactTable">
+                                        <div>
+                                            <div class="select ">
+                                                <p>Телефон</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="E-mail">E-mail</div>
+                                                    <div class="select-option" data-value="Skype">Skype</div>
+                                                    <div class="select-option" data-value="Telegram">Telegram</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                            </div>
+                                            <input type="text" readonly value="...">
+                                        </div>
+                                        <div>
+                                            <div class="select ">
+                                                <p>E-mail</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Телефон">Телефон</div>
+                                                    <div class="select-option" data-value="Skype">Skype</div>
+                                                    <div class="select-option" data-value="Telegram">Telegram</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                            </div>
+                                            <input type="text" readonly value="...">
+                                        </div>
+                                    </div>
+`;
+
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+            });
+        });
+    };
+
+    // Location
+    const handleNewLocationAdd = () => {
+        const listLocation = document.querySelector('.list-contactTable-Location');
+        const listLocationAdd = document.querySelectorAll('.listLocationAdd');
+
+        listLocationAdd.forEach(el => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+<div class="ui-state-default">
+                                        <div style=" display: flex;align-items: center;">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                    fill="#C0C0C0" />
+                                                <path
+                                                    d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                    fill="#C0C0C0" />
+                                                <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+
+                                            <div class="select">
+                                                <p>Внутренний</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                    <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <input type="text" value="99999999">
+                                        <input type="text" value="Россия">
+                                        <input type="text" value="Москва">
+                                        <input type="text" value="Парковая">
+                                        <input type="text" value="99 / 9 / 9 / 999" class="inputLastof">
+                                        <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+`;
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+            });
+        });
+    };
+
+    // Events
+    const handleNewEventsAdd = () => {
+        const listLocation = document.querySelector('.list-contactTable-Event');
+        const listLocationAdd = document.querySelectorAll('.listEventsAdd');
+
+        listLocationAdd.forEach(el => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+<div class="ui-state-default">
+                                        <div style="display: flex;align-items: center;" class="custom-select-wrapper">
+                                            <svg class="arrow" style="margin-left: -10px;" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                    fill="#C0C0C0" />
+                                                <path
+                                                    d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                    fill="#C0C0C0" />
+                                                <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+
+                                            <div class="select">
+                                                <p>День рождения</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                    <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                            </div>
+                                            <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                            <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+
+                                        </div>
+
+                                        <div class="custom-select-wrapper">
+
+                                            <div class="select">
+                                                <p>19 сент. 2024</p>
+                                                <div class="select-dropdown">
+                                                    <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                    <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                </div>
+                                                <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                    viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                                <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                    viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                        fill="#C0C0C0" />
+                                                </svg>
+                                            </div>
+                                            <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                            <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                        </div>
+                                        <input type="text" value="..." class="inputLastof">
+
+                                        <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+
+`;
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+            });
+        });
+    };
+
+
+    // Document
+    const handleNewDocumentAdd = () => {
+        const listLocation = document.querySelector('.list-contactTable-document');
+        const listLocationAdd = document.querySelectorAll('.listDocumentAdd');
+
+        listLocationAdd.forEach((el, i) => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+                <div class="ui-state-default">
+                                        <p> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                    fill="#C0C0C0" />
+                                                <path
+                                                    d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                    fill="#C0C0C0" />
+                                                <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            ${createSVGIcon(i)}</p>
+                                        <input type="text" readonly value="5555">
+                                        <div class="select">
+                                            <p>Внутренний</p>
+                                            <div class="select-dropdown">
+                                                <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                            </div>
+                                            <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                            <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                    fill="#C0C0C0" />
+                                            </svg>
+                                        </div>
+                                        <p>29/09/2021</p>
+                                        <p>29/09/2029</p>
+                                        <input type="text" value="..." readonly>
+                                        <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                `;
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+                numbersOfList();
+
+            });
+        });
+    };
+
+    // Remove
+    const handleRemove = (event) => {
+        const target = event.target.closest('.removeListContact, .removeListLocation');
+        if (target) {
+            target.closest('.ui-state-default, div').remove();
+            numbersOfList();
+        }
+    };
+
+    // Select
+    const handleDropdownClick = (event) => {
+        const target = event.target;
+        const select = target.closest('.select');
+        const option = target.closest('.select-option');
+        const filterDropDowns = document.querySelectorAll('.filterDropDowns');
+        const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+
+        // Close all select dropdowns except the target select
+        document.querySelectorAll('.select').forEach(openSelect => {
+            if (openSelect !== select) {
+                openSelect.classList.remove('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilterBack');
+                }
+            }
+        });
+
+        if (select) {
+            select.classList.toggle('selectRadius');
+            filterDropDowns.forEach(el => {
+                el.classList.toggle('filterDOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.toggle('forFilterBack');
+            }
+            if (option) {
+                const selectVal = select.querySelector('p');
+                selectVal.textContent = option.textContent.trim();
+                select.classList.remove('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilterBack');
+                }
+            }
+        }
+    };
+
+    const scroll = (event) => {
+        const selects = document.querySelectorAll('.select');
+        const container = document.querySelector('.section-event-log-content-popup-content-scroll');
+        selects.forEach(select => {
+            // Add click event listener to each select element
+            if (event.target.parentElement === select || event.target === select) {
+                const selectRect = select.getBoundingClientRect();
+                container.scrollTop = selectRect.top + selectRect.height;
+            }
+        });
+    }
+
+    //
+    document.addEventListener('click', handleRemove);
+    document.addEventListener('click', handleDropdownClick);
+    document.addEventListener('click', scroll);
+
+    //
+    handleNewContactAdd();
+    handleNewLocationAdd();
+    handleNewEventsAdd();
+    handleNewDocumentAdd();
+});
+
 
 var Pagination = {
     code: '',
@@ -304,56 +747,249 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 }, false);
 
+// Group Edit
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Selecting necessary elements
+    let groupEdit = document.getElementById('groupEdit');
+    let infoContacts = document.querySelectorAll('.contactPopup_tool-middle > div');
+    let infoContactOrg = document.querySelectorAll('.infoContactOrg');
+    let infoContactCheck = document.querySelector('.contactPopup_tool-mainInfoContact .infoContactOurOrg');
+    let forDisable = document.querySelectorAll('.forDisable');
+
+    // Function to disable or enable elements based on checkbox state
+    function handleGroupEditChange() {
+        let disabled = groupEdit.checked; // Determine if elements should be disabled
+
+        // Disable or enable infoContacts
+        infoContacts.forEach(function (infoContact) {
+            if (disabled) {
+                infoContact.classList.add('disabled');
+            } else {
+                infoContact.classList.remove('disabled');
+            }
+        });
+
+        // Disable or enable infoContactOrg
+        infoContactOrg.forEach(function (infoContactOrg) {
+            if (disabled) {
+                infoContactOrg.classList.add('disabled');
+            } else {
+                infoContactOrg.classList.remove('disabled');
+            }
+        });
+
+        // Disable or enable infoContactCheck
+        if (disabled) {
+            infoContactCheck.classList.add('disabled');
+        } else {
+            infoContactCheck.classList.remove('disabled');
+        }
+
+        // Disable or enable forDisable checkboxes and their parents
+        forDisable.forEach(function (checkbox) {
+            if (disabled) {
+                checkbox.style.display = 'block';
+            } else {
+                checkbox.style.display = 'none';
+            }
+            checkbox.onclick = () => {
+                if (checkbox.checked) {
+                    checkbox.parentElement.classList.remove('disabled');
+                } else {
+                    checkbox.parentElement.classList.add('disabled');
+                }
+            }
+        });
+    }
+
+    // Initial setup based on the initial state of groupEdit checkbox
+    if (groupEdit) {
+        handleGroupEditChange();
+    }
+
+    // Event listener for changes in groupEdit checkbox
+    if (groupEdit) {
+        groupEdit.addEventListener('change', function () {
+            handleGroupEditChange();
+        });
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Filter dropdowns
     const selectElements = document.querySelectorAll('.select');
     const selectDropdowns = document.querySelectorAll('.select-dropdown');
     const selectOptions = document.querySelectorAll('.select-option');
+    const filterDropDowns = document.querySelectorAll('.filterDropDowns');
+    const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+    let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll');
 
     selectElements.forEach((selectElement, index) => {
         selectElement.addEventListener('click', (event) => {
             event.stopPropagation();
-            selectDropdowns.forEach((dropdown, dropdownIndex) => {
-                if (dropdownIndex !== index) {
-                    dropdown.classList.remove('select-dropdown-open');
-                    selectElements[dropdownIndex].classList.remove('selectRadius');
-                }
-            });
-            selectDropdowns[index].classList.toggle('select-dropdown-open');
-            selectElement.classList.toggle('selectRadius');
-        });
+            const isOpen = selectDropdowns[index].classList.contains('select-dropdown-open');
 
-        document.addEventListener('click', (event) => {
-            if (!selectElement.contains(event.target)) {
-                selectDropdowns[index].classList.remove('select-dropdown-open');
-                selectElement.classList.remove('selectRadius');
+            // Close all dropdowns first
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+            popupRightScroll.classList.remove('scrollHidden');
+
+            // Open the clicked dropdown if it was closed
+            if (!isOpen) {
+                selectDropdowns[index].classList.add('select-dropdown-open');
+                selectElement.classList.add('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.add('filterDropDownsOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.add('forFilter-popup-back');
+                }
+                popupRightScroll.classList.add('scrollHidden');
             }
         });
     });
 
-    selectOptions.forEach(option => {
+    document.addEventListener('click', (event) => {
+        if (!Array.from(selectElements).some(select => select.contains(event.target))) {
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+            popupRightScroll.classList.remove('scrollHidden');
+        }
+    });
+
+    selectOptions.forEach((option) => {
         option.addEventListener('click', (event) => {
+            event.stopPropagation();
             const selectedValue = event.target.getAttribute('data-value');
             const selectedText = event.target.textContent;
             const selectWrapper = event.target.closest('.select');
             const selectP = selectWrapper.querySelector('p');
+
             selectP.textContent = selectedText;
-            const dropdown = selectWrapper.querySelector('.select-dropdown');
-            dropdown.classList.remove('select-dropdown-open');
-            selectWrapper.classList.remove('selectRadius');
+
+            // Close all dropdowns
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+            popupRightScroll.classList.remove('scrollHidden');
+
         });
+    });
+
+    // List obligations
+    let listObligations = document.querySelectorAll('.list-obligation');
+    let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
+
+    listObligations.forEach((input, index) => {
+        let dropdown = listObligationDropdowns[index];
+
+        input.addEventListener('click', (event) => {
+            // Prevent event propagation to document click listener
+            event.stopPropagation();
+
+            // Close all dropdowns first
+            listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
+
+            // Toggle the current dropdown
+            dropdown.classList.toggle('list-obligation_dropdownOpen');
+            popupRightScroll.classList.toggle('scrollHidden');
+
+
+            // Open filter dropdowns when list obligation dropdown is opened
+            if (dropdown.classList.contains('list-obligation_dropdownOpen')) {
+                filterDropDowns.forEach(el => {
+                    el.classList.add('filterDropDownsOpen');
+                });
+                popupRightScroll.classList.add('scrollHidden');
+                if (popupBackBtn) {
+                    popupBackBtn.classList.add('forFilter-popup-back');
+                }
+            } else {
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDropDownsOpen');
+                });
+                popupRightScroll.classList.remove('scrollHidden');
+
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilter-popup-back');
+                }
+            }
+        });
+
+        let dropdownItems = dropdown.querySelectorAll('p');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                input.value = item.textContent;
+                dropdown.classList.remove('list-obligation_dropdownOpen');
+            });
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (event) => {
+        listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
+        filterDropDowns.forEach(el => {
+            el.classList.remove('filterDropDownsOpen');
+        });
+        if (popupBackBtn) {
+            popupBackBtn.classList.remove('forFilter-popup-back');
+        }
+        popupRightScroll.classList.remove('scrollHidden');
+    });
+
+    // Ensure clicking filter dropdowns doesn't close list obligations dropdowns
+    document.addEventListener('click', (event) => {
+        if (!Array.from(selectElements).some(select => select.contains(event.target))) {
+            selectDropdowns.forEach((dropdown, dropdownIndex) => {
+                dropdown.classList.remove('select-dropdown-open');
+                selectElements[dropdownIndex].classList.remove('selectRadius');
+            });
+            filterDropDowns.forEach(el => {
+                el.classList.remove('filterDropDownsOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.remove('forFilter-popup-back');
+            }
+            popupRightScroll.classList.remove('scrollHidden');
+        }
     });
 });
 
-//
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let collapseAll = document.querySelector('.contactPopup_top p');
     let collapseAllArrow = document.querySelectorAll('.contactPopup_top p svg');
     let collapseConts = document.querySelectorAll('.contactPopup_tool-main');
     let collapseContsArrow = document.querySelectorAll('.toolArrow');
-    
+
     collapseAll.onclick = () => {
-        collapseConts.forEach((el,i) => {
+        collapseConts.forEach((el, i) => {
             if (el.classList.contains('contactPopup_tool-mainOpen')) {
                 el.classList.remove('contactPopup_tool-mainOpen');
                 collapseContsArrow[i].classList.remove('toolArrowOpen');
@@ -369,10 +1005,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
 document.addEventListener('DOMContentLoaded', () => {
     // Function to update images based on the body's class
     function updateImages() {
-        let tableidLk = document.querySelectorAll('.custom-checkbox img');
+        let tableidLk = document.querySelectorAll('.table-photo img');
         if (document.body.classList.contains('_light')) {
             tableidLk.forEach(el => {
                 el.src = './img/lk-light.png';
@@ -397,8 +1034,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(document.body, { attributes: true });
 
 }, false);
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const statusPngs = document.querySelectorAll('.statusOption > img');
@@ -520,4 +1155,102 @@ document.addEventListener('DOMContentLoaded', () => {
             isOpen = false;
         }
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const table = document.getElementById("table1");
+    let selectedRow = null;
+
+    table.addEventListener("click", function (event) {
+        const target = event.target;
+
+        if (target.tagName === "TD") {
+            const row = target.parentNode;
+
+            if (selectedRow === row) {
+                row.classList.remove("highlight");
+                selectedRow = null;
+            } else {
+                if (selectedRow) {
+                    selectedRow.classList.remove("highlight");
+                }
+
+                row.classList.add("highlight");
+                selectedRow = row;
+            }
+        }
+    });
+});
+
+// Работа со списками
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.listFilters');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            button.classList.toggle('listFilters-active');
+        });
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let customCheckbox = document.querySelectorAll('table .custom-checkbox input');
+    let labelCustomCheckbox = document.querySelectorAll('table .custom-checkbox');
+
+    customCheckbox.forEach((el, i) => {
+        el.onclick = () => {
+            if (el.checked) {
+                labelCustomCheckbox[i].classList.add('customChecked');
+            } else {
+                labelCustomCheckbox[i].classList.remove('customChecked');
+            }
+        }
+    })
+
+});
+
+// scroll
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selects = document.querySelectorAll('.select');
+    const selectsDropdown = document.querySelectorAll('.select-dropdown');
+    const selectsObl = document.querySelectorAll('.list-obligation');
+    const selectsOblDropdown = document.querySelectorAll('.list-obligation_dropdown');
+    const container = document.querySelector('.section-event-log-content-popup-content-scroll');
+
+
+    function scrollToElement(select) {
+        const selectRect = select.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        if (selectRect.bottom > containerRect.bottom) {
+            container.scrollTop += (selectRect.bottom - containerRect.bottom);
+        } else if (selectRect.top < containerRect.top) {
+            container.scrollTop -= (containerRect.top - selectRect.top);
+        }
+    }
+
+    selects.forEach((select, ind) => {
+        select.addEventListener('click', function () {
+            scrollToElement(selectsDropdown[ind]);
+        });
+    });
+
+    selectsObl.forEach((select, ind) => {
+        select.addEventListener('click', function () {
+            scrollToElement(selectsOblDropdown[ind]);
+        });
+    });
+});
+
+// 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let sectionEventLogTopSearch = document.querySelector('.section-event-log-top-search');
+    const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+    popupBackBtn.onclick = () => {
+        sectionEventLogTopSearch.classList.toggle('section-event-log-top-search-open');
+    }
 });
