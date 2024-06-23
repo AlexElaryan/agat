@@ -72,16 +72,19 @@
     width: 100% !important;
 }
 
-.selectWb {
+.countlist-contactTable .select  {
     border: none;
     background: none;
+}
+
+.countlist-contactTable .select > p {
     color: var(--color-9);
-    padding: 5px;
-    font-size: 15px;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .list-countTable-document > div {
 	grid-template-columns: 0.2fr 1fr 1fr 0.7fr 0.7fr 2.6fr ;
 }
 
+.contactPopup_tool-main > div > div:first-of-type {
+    z-index: unset;
+}
