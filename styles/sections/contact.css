@@ -135,15 +135,10 @@
 }
 
 
-/* .tableScroll {
-	border-collapse: collapse;
-	border:	none;
-}
 
-/* Apply border to table cells */
 .tableScroll th, .tableScroll td {
 	border: none;
-} */
+} 
 
 .contact-container > thead > tr th::after {
 	content: '';
@@ -322,12 +317,15 @@ table .table-tr {
 	bottom: 0;
 	left: 0;
 	padding: 20px;
+	padding-left: 0px;
 	border-top: 1px solid var(--color-1);
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
+	gap: 10px;
 	background: var(--color-15);
 }
+
 
 .contact-bottom > div {
 	display: flex;
@@ -344,6 +342,10 @@ table .table-tr {
 	font-weight: 400;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	color: var(--color-9);
+}
+
+.gradient-scroll {
+	left: 0;
 }
 
 .contact-bottom_left input {
@@ -1479,9 +1481,9 @@ table .checkbox span {
 	overflow: hidden;
 }
 
-.table-block::-webkit-scrollbar-thumb, .table-block::-webkit-scrollbar {
+/* .table-block::-webkit-scrollbar-thumb, .table-block::-webkit-scrollbar {
 	display: none;
-}
+} */
 
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
