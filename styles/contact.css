@@ -126,17 +126,19 @@
 
 .contact-container .section-event-log-top-btn-modal {
 	gap: 15px;
+	flex-wrap: nowrap;
 }
 
-/* .tableScroll {
-	border-collapse: collapse;
-	border:	none;
+.section-event-log-top-left {
+	width: 100%;
+	flex-wrap: nowrap;
 }
 
-/* Apply border to table cells */
+
+
 .tableScroll th, .tableScroll td {
 	border: none;
-} */
+} 
 
 .contact-container > thead > tr th::after {
 	content: '';
@@ -152,6 +154,7 @@
 
 .section-event-log-top {
 	border-bottom: none;
+	gap: 30px;
 }
 ._light .section-event-log-top {
 	border-bottom: 1px solid var(--color-1);
@@ -314,12 +317,15 @@ table .table-tr {
 	bottom: 0;
 	left: 0;
 	padding: 20px;
+	padding-left: 0px;
 	border-top: 1px solid var(--color-1);
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	align-items: center;
+	gap: 10px;
 	background: var(--color-15);
 }
+
 
 .contact-bottom > div {
 	display: flex;
@@ -336,6 +342,10 @@ table .table-tr {
 	font-weight: 400;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	color: var(--color-9);
+}
+
+.gradient-scroll {
+	left: 0;
 }
 
 .contact-bottom_left input {
@@ -368,12 +378,65 @@ table .table-tr {
 
 .contact-container .section-event-log-top-btns {
 	gap: 10px;
+	flex-wrap: nowrap;
 }
 
 .contact-container .section-event-log-top-part:last-of-type {
 	padding-left: 0px;
 	border-left: none;
 }
+
+.section-event-log-top-search {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-event-log-top-search form {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.section-event-log-top-search input {
+	width: 100%;
+	height: 100%;
+	padding: 10px 15px;
+	border: 1px solid var(--color-1);
+	outline: none;
+	border-radius: 8px;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 19.5px;
+	text-align: left;
+	background: transparent;
+	color: var(--color-4);	
+}
+
+.section-event-log-top-search input::placeholder {
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 19.5px;
+	text-align: left;
+	color: var(--color-4);	
+}
+
+.section-event-log-top-search button {
+	background: transparent;
+	border: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 15px;
+}
+
+.section-event-log-top-search-open {
+	display: none;
+}
+
 
 .toggle-switch {
 	position: relative;
@@ -981,7 +1044,7 @@ textarea {
 	top: 100%;
 	overflow-y: auto;
 	padding: 10px 0px;
-	border: 1px solid #DADADA;
+	border: 1px solid var(--color-24);
 	background: var(--color-23);
 	border-radius: 8px;
 	display: none;
@@ -1133,25 +1196,36 @@ header {
 	position: fixed;
 	left: 0;
 	top: 0;
-	background: #161E321A;
+	background: var(--color-28);
 	z-index: 99999;
-	display: none;
+	display: none !important;
 }
 
 .filterDropDowns2 {
 	height: 100%;
 }
 
+#filterDropDowns3 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #161E321A;
+	z-index: 99999;
+}
+
+
 .filterDropDownsOpen , .filterDOpen {
-	display: flex;
+	display: flex !important;
 }
 
 .section-event-log-content-popup-content-open.forFilter-popup-back {
-	background: #E7E8EA;
+	background: var(--color-29);
 }
 
 .section-event-log-content-popup-content-open.forFilterBack {
-	background: #E7E8EA;
+	background: var(--color-29);
 }
 
 .select-dropdown {
@@ -1170,6 +1244,7 @@ header {
 }
 
 .section-event-log-content-popup {
+	height: calc(100% - 150px);
 	z-index: 1000000;
 }
 
@@ -1234,7 +1309,7 @@ table .checkbox {
 
 .table-id .tableIdPhoto {
 	position: absolute;
-	top: 71%;
+	top: 80%;
 	left: 31px;
 }
 
@@ -1358,11 +1433,6 @@ table .checkbox span {
 	border-top: 1px solid var(--color-1);
 }
 
-.table-block {
-	width: 100% ;
-	max-width: 100% !important;
-}
-
 .tableScroll > thead > tr > th, #table > thead > tr > th {
 	padding: 18px 25px !important;
 }
@@ -1398,6 +1468,22 @@ table .checkbox span {
 .scrollHidden {
 	overflow-y: hidden !important;
 }
+
+.section-event-log-content-popup {
+	top: 90px;
+}
+
+.contact-bottom {
+	z-index: 1111111;
+}
+
+.contact-container {
+	overflow: hidden;
+}
+
+/* .table-block::-webkit-scrollbar-thumb, .table-block::-webkit-scrollbar {
+	display: none;
+} */
 
 @media screen and (max-width:1700px) {
 	.contact-table_top span , .contact-table_body p {
