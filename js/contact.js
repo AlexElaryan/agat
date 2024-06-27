@@ -812,18 +812,15 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 // Group Edit
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Selecting necessary elements
     let groupEdit = document.getElementById('groupEdit');
     let infoContacts = document.querySelectorAll('.contactPopup_tool-middle > div');
     let infoContactOrg = document.querySelectorAll('.infoContactOrg');
     let infoContactCheck = document.querySelector('.contactPopup_tool-mainInfoContact .infoContactOurOrg');
     let forDisable = document.querySelectorAll('.forDisable');
 
-    // Function to disable or enable elements based on checkbox state
     function handleGroupEditChange() {
-        let disabled = groupEdit.checked; // Determine if elements should be disabled
+        let disabled = groupEdit && groupEdit.checked; // Determine if elements should be disabled
 
         // Disable or enable infoContacts
         infoContacts.forEach(function (infoContact) {
@@ -835,19 +832,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Disable or enable infoContactOrg
-        infoContactOrg.forEach(function (infoContactOrg) {
+        infoContactOrg.forEach(function (infoContactOrgItem) {
             if (disabled) {
-                infoContactOrg.classList.add('disabled');
+                infoContactOrgItem.classList.add('disabled');
             } else {
-                infoContactOrg.classList.remove('disabled');
+                infoContactOrgItem.classList.remove('disabled');
             }
         });
 
         // Disable or enable infoContactCheck
-        if (disabled) {
-            infoContactCheck.classList.add('disabled');
-        } else {
-            infoContactCheck.classList.remove('disabled');
+        if (infoContactCheck) {
+            if (disabled) {
+                infoContactCheck.classList.add('disabled');
+            } else {
+                infoContactCheck.classList.remove('disabled');
+            }
         }
 
         // Disable or enable forDisable checkboxes and their parents
@@ -867,18 +866,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Initial setup based on the initial state of groupEdit checkbox
     if (groupEdit) {
         handleGroupEditChange();
-    }
-
-    // Event listener for changes in groupEdit checkbox
-    if (groupEdit) {
-        groupEdit.addEventListener('change', function () {
-            handleGroupEditChange();
-        });
+        groupEdit.addEventListener('change', handleGroupEditChange);
     }
 });
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
