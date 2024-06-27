@@ -1,0 +1,316 @@
+.section-event-log-content-bottom-left {
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 0px;
+    gap: 10px;
+}
+
+.section-event-log-content-bottom-left-block {
+    width: fit-content !important;
+    height: 61px;
+    padding-top: 0px;
+    position: relative;
+    border: none;
+}
+
+.contact-container .section-event-log-top-part:nth-of-type(2) {
+    border-left: none;
+}
+
+.gradient-scroll , .gradient-scroll-right {
+    display: none;
+}
+
+.section-event-log-content-bottom-left-block-active::after {
+    content: "";
+    position: absolute; /* Add this line */
+    width: 100%;
+    height: 3px;
+    background: var(--color-5);
+    top: 0;
+}
+
+.contact-head_left > div > button {
+    padding: 9px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #808080;
+    border: 1px solid var(--color-1);
+    border-radius: 8px;
+    background: transparent;
+}
+
+.contact-head_left > div > button > p {
+    color: var(--color-4);    
+}
+
+.contactPopup_user p {
+    width: 190px;
+}
+
+.contactPopup-tool_select {
+    padding: 16px 30px;
+    border-bottom: 1px solid var(--color-1);
+}
+
+.section-event-log-content-popup {
+    top: 102.5px;
+}
+
+.contactPopup_tool-main > div > div.blockExit-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px 30px;
+}
+
+.blockExit-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactPopup_tool-mainOpen {
+    flex-direction: column;
+}
+
+.gateway-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactPopup_tool-main > div > div.gateway-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px 30px;
+}
+
+.gateway-item > p , .gateway-item-item p {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #808080;
+}
+
+.gateway-item-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.gateway-item > div a {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: right;
+    color: #203F9A;    
+}
+
+.gateway-item input {
+    width: 100% !important;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 8px;
+    padding: 10px 15px;    
+}
+
+.gateway-item-item > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gateway-item .select {
+    padding: 10px 15px;
+}
+
+.select p {
+    color: var(--color-5);
+}
+
+.selectRadius > p {
+    color: var(--color-4);
+}
+
+.mainifocontact-tool2 {
+    display: flex;
+    flex-direction: column;
+    background: #fff ;
+}
+
+.maininfocontact-tool2-select {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.contactPopup_tool-main > div > div.maininfocontact-tool2-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 30px;
+    border-bottom: 1px solid #EBEBEB;
+    justify-content: flex-start;
+}
+
+.maininfocontact-tool2-select h3 {
+    font-family: Roboto;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 24.7px;
+    text-align: left;
+    color: #202020;    
+}
+
+.gateway-block > .gateway-item:nth-child(2n) {
+    background: #f7f8f8;
+}
+.contactPopup_tool-main > div > div {
+    background: unset;
+    padding: 0px;
+}
+
+.contactPopup_tool-main > div > div.mainifocontact-tool2 {
+    padding: 0px;
+    align-items: flex-start;
+}
+
+.maininfocontact-tool2-select {
+    width: 100%;
+}
+
+.maininfocontact-tool2-select3 {
+    justify-content: space-between;
+}
+
+.maininfocontact-tool2-select3 > div:first-of-type {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.maininfocontact-tool2-main {
+    width: 100%;
+    display: none;
+}
+
+.toolinfoBlock-open .maininfocontact-tool2-main {
+    display: flex;
+}
+
+.toolinfoBlock-open .maininfocontact-tool2-select img , .toolinfoBlock-open .maininfocontact-tool2-select svg {
+    transform: rotate(90deg);
+}
+
+.gateway-block {
+    width: 100%;
+}
+
+.maininfocontact-tool2-main .gateway-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 30px;
+    align-items: center;
+}
+
+.gateway-block h4 {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: left;
+    color: #202020;    
+}
+
+.toolinfoBlock-open .maininfocontact-tool2-main2 {
+    padding: 20px 30px;
+}
+
+.chanelsRight .checkbox {
+    width: fit-content;
+}
+
+.chanelsRight {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.chanelsRightActive {
+    display: flex;
+}
+
+.passwordForRegister {
+    width: 100%;
+    position: relative;
+}
+
+.passwordForRegister svg {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.taphoneBtnsBlock > div > svg rect  {
+    stroke: var(--color-21);
+}
+
+.seePasswordActive path {
+    stroke: var(--color-21);
+}
+
+.gateway-block textarea {
+    width: 100%;
+}
+
+.sms-textarealast {
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.gateway-block input::placeholder , .gateway-block textarea::placeholder {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: left;
+    color: #808080;    
+}
+
+.gateway-block form button {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 19.5px;
+    text-align: left;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--color-21);    
+}
+
+.sms-gateway-block .gateway-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.section-event-log-content-popup {
+    height: calc(100% - 165px);
+}
