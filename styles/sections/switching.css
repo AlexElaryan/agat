@@ -219,11 +219,11 @@ body._light .moduleSwitching__probing > button {
 	visibility: visible;
 }
 
-.tableContact .checkbox:hover .custom-checkbox::before {
+.tableContact .checkbox:hover .custom-checkbox::before , .gateway-item .checkbox:hover .custom-checkbox::before {
 	border: 2px solid #5cc4ef;
 }
 
-.tableContact .custom-checkbox {
+.tableContact .custom-checkbox , .gateway-item .custom-checkbox {
 	transition: all 0.2s ease 0s;
     cursor: pointer;
     position: relative;
@@ -232,14 +232,14 @@ body._light .moduleSwitching__probing > button {
     padding-left: 39px; /* Adjust this value for checkbox size */
 }
 
-.tableContact .custom-checkbox input {
+.tableContact .custom-checkbox input , .gateway-item .custom-checkbox input {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.tableContact .custom-checkbox::before {
+.tableContact .custom-checkbox::before , .gateway-item .custom-checkbox::before{
     content: '';
     position: absolute;
     top: 50%;
@@ -253,7 +253,7 @@ body._light .moduleSwitching__probing > button {
     transition: all 0.2s ease 0s;
 }
 
-.tableContact .custom-checkbox::after {
+.tableContact .custom-checkbox::after , .gateway-item .custom-checkbox::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -268,11 +268,11 @@ body._light .moduleSwitching__probing > button {
     transition: all 0.2s ease 0s;
 }
 
-.tableContact .custom-checkbox.customChecked::before {
+.tableContact .custom-checkbox.customChecked::before , .gateway-item .custom-checkbox.customChecked::before {
     border: 2px solid #203F9A;
 }
 
-.tableContact .custom-checkbox.customChecked::after {
+.tableContact .custom-checkbox.customChecked::after , .gateway-item .custom-checkbox.customChecked::after {
     opacity: 1;
     visibility: visible;
 }

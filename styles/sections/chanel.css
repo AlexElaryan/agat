@@ -314,3 +314,16 @@
 .section-event-log-content-popup {
     height: calc(100% - 165px);
 }
+
+.gateway-item-for-disable {
+    position: relative;
+}
+
+.gateway-item-for-disable .forDisable {
+    width: fit-content !important;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}

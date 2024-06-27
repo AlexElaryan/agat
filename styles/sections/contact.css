@@ -326,6 +326,10 @@ table .table-tr {
 	background: var(--color-15);
 }
 
+.contact-bottom-counterparties {
+	justify-content: flex-end;
+}
+
 
 .contact-bottom > div {
 	display: flex;
