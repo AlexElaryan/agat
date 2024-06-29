@@ -1254,3 +1254,46 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionEventLogTopSearch.classList.toggle('section-event-log-top-search-open');
     }
 });
+
+// height 
+
+function adjustHeights() {
+    let sectionEventLogTop = document.querySelector('.section-event-log-top');
+    let tableTop = document.querySelector('thead');
+    let popupRightTop = document.querySelector('.contactPopup_top');
+    let popupRightUser = document.querySelector('.contactPopup_user');
+    let popupRightPadding = document.querySelector('.section-event-log-content-popup-content');
+
+    if (sectionEventLogTop && popupRightTop && popupRightUser) {
+        let sectionEventLogTopRect = sectionEventLogTop.getBoundingClientRect();
+        let tableTopRect = tableTop.getBoundingClientRect();
+        popupRightTop.style.height = sectionEventLogTopRect.height + 'px';
+        popupRightUser.style.height = tableTopRect.height + 'px';
+        popupRightPadding.style.paddingTop = sectionEventLogTopRect.height + 'px';
+    } else {
+        console.warn('One or more of the elements (.section-event-log-top, .contactPopup_top, .contactPopup_user) were not found.');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', adjustHeights);
+window.addEventListener('resize', adjustHeights);
+
+
+// error 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let topLine = document.querySelector('.section-event-log-top-line');
+    let topLineText = document.querySelector('.section-event-log-top-line > span');
+    let isError = false
+
+    topLine.addEventListener('dblclick', function () {
+        topLine.classList.toggle('section-event-log-top-line-error');
+        if (!isError) {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210 (Отсутствует соединение с сервером)';
+            isError = true;
+        } else {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210';
+            isError = false;
+        }
+    });
+});

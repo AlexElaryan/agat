@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     let customCheckbox = document.querySelectorAll('.gateway-item .custom-checkbox input');
     let labelCustomCheckbox = document.querySelectorAll('.gateway-item .custom-checkbox');
+    let customCheckboxTable = document.querySelectorAll('table .custom-checkbox input');
+    let labelCustomCheckboxTable = document.querySelectorAll('table .custom-checkbox');
 
     customCheckbox.forEach((el, i) => {
         el.onclick = () => {
@@ -11,7 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     })
-
+    
+    customCheckboxTable.forEach((el, i) => {
+        el.onclick = () => {
+            if (el.checked) {
+                labelCustomCheckboxTable[i].classList.add('customChecked');
+            } else {
+                labelCustomCheckboxTable[i].classList.remove('customChecked');
+            }
+        }
+    })
 });
 
 
@@ -385,9 +396,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Filter dropdowns
     const selectElements = document.querySelectorAll('.select');
@@ -472,58 +480,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // List obligations
-    let listObligations = document.querySelectorAll('.list-obligation');
-    let listObligationDropdowns = document.querySelectorAll('.list-obligation_dropdown');
-
-    listObligations.forEach((input, index) => {
-        let dropdown = listObligationDropdowns[index];
-
-        input.addEventListener('click', (event) => {
-            // Prevent event propagation to document click listener
-            event.stopPropagation();
-
-            // Close all dropdowns first
-            listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
-
-            // Toggle the current dropdown
-            dropdown.classList.toggle('list-obligation_dropdownOpen');
-            popupRightScroll.classList.toggle('scrollHidden');
-
-
-            // Open filter dropdowns when list obligation dropdown is opened
-            if (dropdown.classList.contains('list-obligation_dropdownOpen')) {
-                filterDropDowns.forEach(el => {
-                    el.classList.add('filterDropDownsOpen');
-                });
-                popupRightScroll.classList.add('scrollHidden');
-                if (popupBackBtn) {
-                    popupBackBtn.classList.add('forFilter-popup-back');
-                }
-            } else {
-                filterDropDowns.forEach(el => {
-                    el.classList.remove('filterDropDownsOpen');
-                });
-                popupRightScroll.classList.remove('scrollHidden');
-
-                if (popupBackBtn) {
-                    popupBackBtn.classList.remove('forFilter-popup-back');
-                }
-            }
-        });
-
-        let dropdownItems = dropdown.querySelectorAll('p');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', () => {
-                input.value = item.textContent;
-                dropdown.classList.remove('list-obligation_dropdownOpen');
-            });
-        });
-    });
-
     // Close dropdowns when clicking outside
     document.addEventListener('click', (event) => {
-        listObligationDropdowns.forEach(d => d.classList.remove('list-obligation_dropdownOpen'));
         filterDropDowns.forEach(el => {
             el.classList.remove('filterDropDownsOpen');
         });
@@ -532,26 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         popupRightScroll.classList.remove('scrollHidden');
     });
-
-    // Ensure clicking filter dropdowns doesn't close list obligations dropdowns
-    document.addEventListener('click', (event) => {
-        if (!Array.from(selectElements).some(select => select.contains(event.target))) {
-            selectDropdowns.forEach((dropdown, dropdownIndex) => {
-                dropdown.classList.remove('select-dropdown-open');
-                selectElements[dropdownIndex].classList.remove('selectRadius');
-            });
-            filterDropDowns.forEach(el => {
-                el.classList.remove('filterDropDownsOpen');
-            });
-            if (popupBackBtn) {
-                popupBackBtn.classList.remove('forFilter-popup-back');
-            }
-            popupRightScroll.classList.remove('scrollHidden');
-        }
-    });
 });
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     let collapseAll = document.querySelector('.contactPopup_top p');
@@ -838,3 +777,23 @@ function updateGradiantPosition() {
 selcBottomLeft.onscroll = updateGradiantPosition;
 window.addEventListener('resize', updateGradiantPosition);
 document.addEventListener('DOMContentLoaded', updateGradiantPosition);
+
+
+// error 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let topLine = document.querySelector('.section-event-log-top-line');
+    let topLineText = document.querySelector('.section-event-log-top-line > span');
+    let isError = false
+
+    topLine.addEventListener('dblclick', function () {
+        topLine.classList.toggle('section-event-log-top-line-error');
+        if (!isError) {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210 (Отсутствует соединение с сервером)';
+            isError = true;
+        } else {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210';
+            isError = false;
+        }
+    });
+});

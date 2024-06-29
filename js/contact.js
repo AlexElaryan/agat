@@ -1352,3 +1352,22 @@ function updateGradiantPosition() {
 selcBottomLeft.onscroll = updateGradiantPosition;
 window.addEventListener('resize', updateGradiantPosition);
 document.addEventListener('DOMContentLoaded', updateGradiantPosition);
+
+// error 
+
+document.addEventListener('DOMContentLoaded', function () {
+    let topLine = document.querySelector('.section-event-log-top-line');
+    let topLineText = document.querySelector('.section-event-log-top-line > span');
+    let isError = false
+
+    topLine.addEventListener('dblclick', function () {
+        topLine.classList.toggle('section-event-log-top-line-error');
+        if (!isError) {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210 (Отсутствует соединение с сервером)';
+            isError = true;
+        } else {
+            topLineText.textContent = 'IP-АТС АГАТ CU-7210';
+            isError = false;
+        }
+    });
+});

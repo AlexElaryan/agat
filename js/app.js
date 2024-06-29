@@ -758,8 +758,8 @@ function setMenuState(isActive) {
 		tableResize.style.maxWidth = '100%';
 	} else {
 		leftMenu.classList.remove('_hide');
-		tableContent.style.maxWidth = 'calc(100% - 288px)';
-		tableResize.style.maxWidth = 'calc(100% - 288px)'; // Ensure tableResize width is adjusted
+		//tableContent.style.maxWidth = 'calc(100% - 288px)';
+		//tableResize.style.maxWidth = 'calc(100% - 288px)'; // Ensure tableResize width is adjusted
 	}
 }
 
