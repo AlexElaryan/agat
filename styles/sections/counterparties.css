@@ -88,3 +88,7 @@
 .contactPopup_tool-main > div > div:first-of-type {
     z-index: unset;
 }
+
+.section-event-log-content-popup {
+    top: 89px;
+}

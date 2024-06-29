@@ -5,9 +5,13 @@
     gap: 10px;
 }
 
+.section-event-log-content-bottom-left > div {
+    height: 100%;
+}
+
 .section-event-log-content-bottom-left-block {
     width: fit-content !important;
-    height: 61px;
+    height: 100%;
     padding-top: 0px;
     position: relative;
     border: none;
@@ -23,7 +27,7 @@
 
 .section-event-log-content-bottom-left-block-active::after {
     content: "";
-    position: absolute; /* Add this line */
+    position: absolute;
     width: 100%;
     height: 3px;
     background: var(--color-5);
@@ -87,7 +91,8 @@
 .contactPopup_tool-main > div > div.gateway-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 15px 30px;
+    padding: 5px 30px;
+    min-height: 48px;
 }
 
 .gateway-item > p , .gateway-item-item p {
@@ -129,6 +134,22 @@
     gap: 10px;
 }
 
+.selectRadius {
+    z-index: 99999;
+}
+
+.selectRadius {
+    border: 1px solid var(--color-24);
+}
+
+.selectRadius > div {
+    width: calc(100% + 1.6px);
+    border-radius: 0px 0px 8px 8px;
+    left: -0.8px;
+}
+
+
+
 .gateway-item .select {
     padding: 10px 15px;
 }
@@ -138,7 +159,7 @@
 }
 
 .selectRadius > p {
-    color: var(--color-4);
+    color: var(--color-5);
 }
 
 .mainifocontact-tool2 {
@@ -148,7 +169,7 @@
 }
 
 .maininfocontact-tool2-select {
-    background: #fff;
+    background: var(--color-2);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -161,7 +182,7 @@
     align-items: center;
     gap: 10px;
     padding: 20px 30px;
-    border-bottom: 1px solid #EBEBEB;
+    border-bottom: 1px solid var(--color-1);
     justify-content: flex-start;
 }
 
@@ -171,11 +192,11 @@
     font-weight: 500;
     line-height: 24.7px;
     text-align: left;
-    color: #202020;    
+    color: var(--color-9);    
 }
 
 .gateway-block > .gateway-item:nth-child(2n) {
-    background: #f7f8f8;
+    background: var(--color-30);
 }
 .contactPopup_tool-main > div > div {
     background: unset;
@@ -219,9 +240,10 @@
 }
 
 .maininfocontact-tool2-main .gateway-item {
+    min-height: 48px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 10px 30px;
+    padding: 5px 30px;
     align-items: center;
 }
 

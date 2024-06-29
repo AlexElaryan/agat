@@ -76,7 +76,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	z-index: 11111;
+	z-index: 11111111111111111;
 	display: none;
 }
 
@@ -621,11 +621,19 @@ table .table-tr {
 
 .contactPopup_top {
 	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: var(--color-2);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid var(--color-1);
 	padding: 20px 30px;
+}
+
+.section-event-log-content-popup-content {
+	padding-top: 65.5px;
 }
 
 .disabled {
@@ -824,7 +832,7 @@ table .table-tr {
 	border: 1px solid var(--color-24);
 	border-radius: 8px;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
-	background: transparent;
+	background: var(--color-2);
 	color: var(--color-9);
 	font-size: 15px;
 }
@@ -869,7 +877,7 @@ table .table-tr {
 .contactPopup_tool-middle {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 20px;
+	gap: 30px;
 	align-items: unset;
 	justify-content: unset;
 	background: var(--color-2);
@@ -880,6 +888,7 @@ table .table-tr {
 }
 
 .contactPopup_tool-middle > div {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -1103,7 +1112,7 @@ textarea {
 }
 
 ._light .toolArrow path {
-	fill: #203F9A;
+	fill: var(--color-21);
 }
 
 
@@ -1126,7 +1135,13 @@ body .lk-light , ._light .lk-dark  {
 	justify-content: center;
 	padding: 3px;
 	border-bottom: 1px solid var(--color-1);
+	user-select: none;
 	
+}
+
+.section-event-log-top-line-error {
+	background:	linear-gradient(90deg, #FFFFFF 17.74%, #FF8C8C 34.04%, #FF0000 49.78%, #FF8C8C 68.19%, #FFFFFF 86.73%);
+	color: #fff;
 }
 
 header {
@@ -1156,10 +1171,10 @@ header {
 
 
 /* .checkbox input:checked + span::before{
-	border: 2px solid #203F9A;
+	border: 2px solid var(--color-21);
 } */
 .checkbox span::after {
-	background: #203F9A;
+	background: var(--color-21);
 }
 
 .select {
@@ -1167,10 +1182,10 @@ header {
 	padding: 5px;
 	border-radius: 8px;
 	border: 1px solid var(--color-24);
+	background: var(--color-2);
 	font-size: 15px;
 	color: var(--color-5);
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
-	background: transparent;
 	position: relative;
 	cursor: pointer;
 }
@@ -1374,10 +1389,19 @@ table .checkbox {
 }
 
 
+.disabled .checkbox input:checked + span::after {
+	background: #C0C0C0;
+}
+
+.disabled .checkbox input:checked + span::before {
+	border-color: #C0C0C0;
+}
+
 .contactPopup_tool-main > div > div {
 	user-select: none;
 }
 .contactPopup_tool-main > div > div:first-of-type {
+	padding: 10px 30px;
 	z-index: 1111;
 }
 
@@ -1385,8 +1409,12 @@ table .checkbox {
 	border: none !important;
 }
 
-.tableScroll {
+/* .tableScroll {
 	min-width: 100% !important;
+} */
+
+.table-block {
+	max-width: 100%;
 }
 
 .btn-menu-open {
@@ -1479,6 +1507,7 @@ table .checkbox span {
 
 .contact-bottom {
 	z-index: 1111111;
+	background: var(--color-30);
 }
 
 .contact-container {
