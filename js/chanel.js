@@ -797,3 +797,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// mobile event log top btns modal
+
+document.addEventListener('DOMContentLoaded', function () {
+    let btnopen = document.querySelector('.event-log-top-part-modal-btn');
+    let modal = document.querySelector('.event-log-top-part-modal-block');
+
+    btnopen.onclick = () => {
+        modal.classList.toggle('event-log-top-part-modal-open');
+    }
+
+    document.addEventListener('click', (event) => {
+        if (!modal.contains(event.target) && event.target !== btnopen && !btnopen.contains(event.target)) {
+            modal.classList.remove('event-log-top-part-modal-open');
+        }
+    });
+});
