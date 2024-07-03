@@ -842,7 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
 
             // Open the clicked dropdown if it was closed
             if (!isOpen) {
@@ -854,7 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (popupBackBtn) {
                     popupBackBtn.classList.add('forFilter-popup-back');
                 }
-                popupRightScroll.classList.add('scrollHidden');
+                // popupRightScroll.classList.add('scrollHidden');
             }
         });
     });
@@ -871,7 +871,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
         }
     });
 
@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
 
         });
     });
@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Toggle the current dropdown
             dropdown.classList.toggle('list-obligation_dropdownOpen');
-            popupRightScroll.classList.toggle('scrollHidden');
+            // popupRightScroll.classList.toggle('scrollHidden');
 
 
             // Open filter dropdowns when list obligation dropdown is opened
@@ -933,7 +933,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterDropDowns.forEach(el => {
                     el.classList.remove('filterDropDownsOpen');
                 });
-                popupRightScroll.classList.remove('scrollHidden');
+                // popupRightScroll.classList.remove('scrollHidden');
 
                 if (popupBackBtn) {
                     popupBackBtn.classList.remove('forFilter-popup-back');
@@ -959,7 +959,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (popupBackBtn) {
             popupBackBtn.classList.remove('forFilter-popup-back');
         }
-        popupRightScroll.classList.remove('scrollHidden');
+        // popupRightScroll.classList.remove('scrollHidden');
     });
 
     // Ensure clicking filter dropdowns doesn't close list obligations dropdowns
@@ -975,7 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
         }
     });
 });

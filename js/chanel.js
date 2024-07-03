@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
 
             // Open the clicked dropdown if it was closed
             if (!isOpen) {
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (popupBackBtn) {
                     popupBackBtn.classList.add('forFilter-popup-back');
                 }
-                popupRightScroll.classList.add('scrollHidden');
+                // popupRightScroll.classList.add('scrollHidden');
             }
         });
     });
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
         }
     });
 
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            popupRightScroll.classList.remove('scrollHidden');
+            // popupRightScroll.classList.remove('scrollHidden');
 
         });
     });
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (popupBackBtn) {
             popupBackBtn.classList.remove('forFilter-popup-back');
         }
-        popupRightScroll.classList.remove('scrollHidden');
+        // popupRightScroll.classList.remove('scrollHidden');
     });
 });
 
@@ -814,3 +814,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// scrollHidden 
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let scrollHidden = document.querySelector('.section-event-log-content-popup-content-scroll');
+//     if (scrollHidden) {
+//         scrollHidden.style.paddingRight = `${scrollHidden.offsetWidth - scrollHidden.clientWidth}px`;
+//     }
+// });
