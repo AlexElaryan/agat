@@ -357,7 +357,7 @@ table .table-tr {
 	height: 42px;
 	border-radius: 8px;
 	border: 1px solid #DADADA;
-	background: transparent;
+	background: var(--color-2);
 	color: var(--color-9);
 	text-align: center;
 }
@@ -372,7 +372,7 @@ table .table-tr {
 	align-items: center;
 	gap: 4px;
 	border-radius: 8px;
-	background-color: transparent;
+	background-color: var(--color-2);
 	border: 1px solid #DADADA;
 }
 

@@ -151,7 +151,11 @@
 
 
 .gateway-item .select {
-    padding: 10px 15px;
+    padding: 5px 15px;
+}
+
+.contactPopup_tool-main input[type = 'text'] {
+    padding: 8px 15px;
 }
 
 .select p {
@@ -199,8 +203,12 @@
     background: var(--color-30);
 }
 .contactPopup_tool-main > div > div {
-    background: unset;
+    /* background: unset; */
     padding: 0px;
+}
+
+.maininfocontact-tool2-main .gateway-item {
+    background: var(--color-2);
 }
 
 .contactPopup_tool-main > div > div.mainifocontact-tool2 {
@@ -241,6 +249,7 @@
 
 .maininfocontact-tool2-main .gateway-item {
     min-height: 48px;
+    max-height: 48px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 5px 30px;
@@ -347,9 +356,14 @@
     left: 5px;
     top: 50%;
     transform: translateY(-50%);
+    margin: unset;
     display: none;
 }
 
+.select-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+}
 
 .trunkPriority {
     color: var(--color-21);
