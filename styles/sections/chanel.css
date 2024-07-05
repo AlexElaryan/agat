@@ -435,6 +435,18 @@
     cursor: pointer;
 }
 
+.list-contactTable input {
+    width: calc(100% - 10px) !important;
+}
+
+.list-contactTable .select {
+    width: calc(100% - 10px) ;
+
+}
+
+.list-contactTable .select-dropdown {
+    padding-left: 10px;
+}
 
 @media screen and (max-width:1300px) {
     .section-event-log-top-btns .section-event-log-top-part {

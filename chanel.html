@@ -857,6 +857,20 @@
             </div>
             <div class="contact_header-list-filter"></div>
             <div class="section-event-log-content">
+                <div class="table-id-block">
+                    <div class="checkbox">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="color-1" value="indigo">
+                            <span>На всех страницах</span>
+                        </label>
+                    </div>
+                    <div>
+                        <p>Выделить все</p>
+                        <p>Выделить активные</p>
+                        <p>Снять выделение</p>
+                        <p>Снять выделение с активных</p>
+                    </div>
+                </div>
                 <div class="section-event-log-top">
                     <div class="section-event-log-top-left">
                         <div class="section-event-log-top-btns">
@@ -1202,7 +1216,7 @@
 
 
                 <div class="table-block">
-                    <div class="table-id-block">
+                    <!-- <div class="table-id-block">
                         <div class="checkbox">
                             <label class="custom-checkbox">
                                 <input type="checkbox" name="color-1" value="indigo">
@@ -1216,9 +1230,11 @@
                             <p>Снять выделение с активных</p>
                         </div>
                     </div>
-                    
+                     -->
                     <table style="border-collapse: collapse;" id="table1" class='tableScroll colors tableContact'>
                         <thead>
+                            
+                            
                             <tr class="table-tr">
                                 <th class="table-id">
                                     <div class="checkbox">
@@ -1239,6 +1255,7 @@
                                             d="M6.00098 4.31369L10.2048 0L12.001 1.84316L6.00098 8L0.000976563 1.84316L1.79718 0L6.00098 4.31369Z"
                                             fill="#FF9900" />
                                     </svg>
+                                    
                                 </th>
                                 <th class="table-source">Устройство</th>
                                 <th class="table-namechanel">Имя канала</th>
@@ -6094,7 +6111,7 @@
                                         <h3>Список оповещения</h3>
                                     </div>
                                     <div>
-                                        <svg class="lk-light listAdd listAddAll listDocumentAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                        <svg class="lk-light listAdd listAddAll listListAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
@@ -6103,7 +6120,7 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark listAdd listAddAll listDocumentAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    <svg class="lk-dark listAdd listAddAll listListAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
@@ -6124,14 +6141,14 @@
     
                                 </div>
                                 <div class="contactPopup_tool-main chanelTrunk_tools-main">
-                                    <div class="chanelTrunk_tools_main sortable list-contactTable list-contactTable-document list-countTable-document">
+                                    <div class="chanelTrunk_tools_main sortable list-contactTable list-contactTable-list list-countTable-document">
                                         <div>
                                             <span>№</span>
                                             <span>Наименование списка</span>
                                             <span>Количество записей в списке</span>
                                         </div>
                                         <div class="ui-state-default">
-                                            <p> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                            <p class="numOfList"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -6154,7 +6171,7 @@
                                             </svg>
                                         </div>
                                         <div class="ui-state-default">
-                                            <p> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                            <p class="numOfList"> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -6167,8 +6184,78 @@
                                                 </svg>
                                                 1</p>
                                                 <p>sipnet</p>
-                                                <p>1</p>
+                                                <input type="text" placeholder="...">
                                             <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="ui-state-default">
+                                            <p class="numOfList"> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                        fill="#C0C0C0" />
+                                                    <path
+                                                        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                        fill="#C0C0C0" />
+                                                    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                2</p>
+                                                <p>sipnet</p>
+                                                <div class="select">
+
+                                                    <p>Внутренний</p>
+                                                    <div class="select-dropdown">
+                                                        <div class="select-option" data-value="Внутренний">Внутренний</div>
+                                                        <div class="select-option" data-value="Мобильный">Мобильный</div>
+                                                    </div>
+                                                    <svg class="custom-select-arrow lk-light" width="21" height="21"
+                                                        viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M10.498 11.7745L14.3515 8L15.998 9.61276L10.498 15L4.99805 9.61276L6.64456 8L10.498 11.7745Z"
+                                                            fill="#C0C0C0" />
+                                                    </svg>
+                                                    <svg class="custom-select-arrow lk-dark" width="11" height="7"
+                                                        viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M5.49805 3.77448L9.35153 0L10.998 1.61276L5.49805 7L-0.00195313 1.61276L1.64456 0L5.49805 3.77448Z"
+                                                            fill="#C0C0C0" />
+                                                    </svg>
+                                                </div>
+                                                <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="ui-state-default">
+                                            <p class="numOfList"> <svg  class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                        fill="#C0C0C0" />
+                                                    <path
+                                                        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                        fill="#C0C0C0" />
+                                                    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                3</p>
+                                                <p>sipnet</p>
+                                                <div class="checkbox ourOrganization">
+                                                    <label class="custom-checkbox">
+                                                        <input type="checkbox" name="color-1" value="indigo">
+                                                        <span>Наша организация</span>
+                                                    </label>
+                                                </div>
+                                                <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
@@ -6220,7 +6307,7 @@
                                         <h3>Каналы для оповещения внешних абонентов</h3>
                                     </div>
                                     <div>
-                                        <svg class="lk-light listAdd listAddAll listDocumentAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                        <svg class="lk-light listAdd listAddAll listChanelsAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#203F9A"
                                             stroke-width="2" />
@@ -6229,7 +6316,7 @@
                                         <path d="M13.9998 8.00049L13.9998 20.0005" stroke="#203F9A" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-                                    <svg class="lk-dark listAdd listAddAll listDocumentAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    <svg class="lk-dark listAdd listAddAll listChanelsAdd" width="28" height="29" viewBox="0 0 28 29" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect x="1" y="1" width="26" height="26" rx="13" stroke="#FF9900"
                                             stroke-width="2" />
@@ -6249,7 +6336,7 @@
                                     </div>
                                 </div>
                                 <div class="contactPopup_tool-main  chanelTrunk_tools-main">
-                                    <div class="chanelTrunk_tools_main1 sortable list-contactTable list-contactTable-document list-countTable-document">
+                                    <div class="chanelTrunk_tools_main1 sortable list-contactTable list-contactTable-Chanel list-countTable-document">
                                         <div>
                                             <span>№</span>
                                             <span>Имя канала</span>
@@ -6258,7 +6345,7 @@
                                             <span>Одновр. вызов</span>
                                         </div>
                                         <div class="ui-state-default">
-                                            <p> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                            <p class="numOfList2"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
@@ -6283,7 +6370,7 @@
                                             </svg>
                                         </div>
                                         <div class="ui-state-default">
-                                            <p> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                            <p class="numOfList2"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"

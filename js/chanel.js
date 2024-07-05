@@ -823,3 +823,193 @@ document.addEventListener('DOMContentLoaded', function () {
 //         scrollHidden.style.paddingRight = `${scrollHidden.offsetWidth - scrollHidden.clientWidth}px`;
 //     }
 // });
+
+function createSVGIcon(i) {
+    return `<svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+        fill="#C0C0C0" />
+    <path
+        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+        fill="#C0C0C0" />
+    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg> ${i}`;
+}
+function numbersOfList() {
+    let removeListContact = document.querySelectorAll('.removeListContact');
+    let numOfList = document.querySelectorAll('.numOfList');
+    let numOfList2 = document.querySelectorAll('.numOfList2');
+
+
+    numOfList.forEach((el, i) => {
+        el.innerHTML = createSVGIcon(i);
+    });
+
+    numOfList2.forEach((el, i) => {
+        el.innerHTML = createSVGIcon(i);
+    });
+
+    removeListContact.forEach((x) => {
+        x.addEventListener('click', () => {
+            x.parentElement.remove();
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // List
+    const handleNewListAdd = () => {
+        const listLocation = document.querySelector('.list-contactTable-list');
+        const listLocationAdd = document.querySelectorAll('.listListAdd');
+
+        listLocationAdd.forEach((el, i) => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+                <div class="ui-state-default">
+                                            <p class="numOfList"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                        fill="#C0C0C0" />
+                                                    <path
+                                                        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                        fill="#C0C0C0" />
+                                                    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                ${createSVGIcon(i)}</p>
+                                            <p>q1</p>
+                                            <p>1</p>
+                                            <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                `;
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+                numbersOfList();
+
+            });
+        });
+    };
+
+    // Chanels
+    const handleNewChanelsAdd = () => {
+        const listLocation = document.querySelector('.list-contactTable-Chanel');
+        const listLocationAdd = document.querySelectorAll('.listChanelsAdd');
+
+        listLocationAdd.forEach(el => {
+            el.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const newElementHTML = `
+                    <div class="ui-state-default">
+                                            <p class="numOfList2"> <svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5 2L11.1644 1.25259C10.7855 0.915803 10.2145 0.915803 9.83564 1.25259L10.5 2ZM5.33564 5.25259C4.92285 5.61951 4.88567 6.25158 5.25259 6.66436C5.61951 7.07715 6.25158 7.11433 6.66436 6.74741L5.33564 5.25259ZM14.3356 6.74741C14.7484 7.11433 15.3805 7.07715 15.7474 6.66436C16.1143 6.25158 16.0771 5.61951 15.6644 5.25259L14.3356 6.74741ZM9.83564 1.25259L5.33564 5.25259L6.66436 6.74741L11.1644 2.74741L9.83564 1.25259ZM9.83564 2.74741L14.3356 6.74741L15.6644 5.25259L11.1644 1.25259L9.83564 2.74741Z"
+                                                        fill="#C0C0C0" />
+                                                    <path
+                                                        d="M10.5 19L9.83564 19.7474C10.2145 20.0842 10.7855 20.0842 11.1644 19.7474L10.5 19ZM15.6644 15.7474C16.0771 15.3805 16.1143 14.7484 15.7474 14.3356C15.3805 13.9229 14.7484 13.8857 14.3356 14.2526L15.6644 15.7474ZM6.66436 14.2526C6.25158 13.8857 5.61951 13.9229 5.25259 14.3356C4.88567 14.7484 4.92285 15.3805 5.33564 15.7474L6.66436 14.2526ZM11.1644 19.7474L15.6644 15.7474L14.3356 14.2526L9.83564 18.2526L11.1644 19.7474ZM11.1644 18.2526L6.66436 14.2526L5.33564 15.7474L9.83564 19.7474L11.1644 18.2526Z"
+                                                        fill="#C0C0C0" />
+                                                    <path d="M10.5 17L10.5 4" stroke="#C0C0C0" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                                ${createSVGIcon(i)}</p>
+                                            <p>q1</p>
+                                            <p>sms_gateway</p>
+                                            <p class="trunkPriority">0 (в последнюю очередь)</p>
+                                            <p>10</p>
+                                            <svg class="removeListContact" width="21" height="21" viewBox="0 0 21 21"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 5L15.9993 16" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M16 5L5.00072 15.9999" stroke="#C0C0C0" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                `;
+                listLocation.insertAdjacentHTML('beforeend', newElementHTML);
+                numbersOfList();
+            });
+        });
+    };
+
+    // Remove
+    const handleRemove = (event) => {
+        const target = event.target.closest('.removeListContact, .removeListLocation');
+        if (target) {
+            target.closest('.ui-state-default, div').remove();
+            numbersOfList();
+        }
+    };
+
+    // Select
+    const handleDropdownClick = (event) => {
+        const target = event.target;
+        const select = target.closest('.select');
+        const option = target.closest('.select-option');
+        const filterDropDowns = document.querySelectorAll('.filterDropDowns');
+        const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
+
+        // Close all select dropdowns except the target select
+        document.querySelectorAll('.select').forEach(openSelect => {
+            if (openSelect !== select) {
+                openSelect.classList.remove('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilterBack');
+                }
+            }
+        });
+
+        if (select) {
+            select.classList.toggle('selectRadius');
+            filterDropDowns.forEach(el => {
+                el.classList.toggle('filterDOpen');
+            });
+            if (popupBackBtn) {
+                popupBackBtn.classList.toggle('forFilterBack');
+            }
+            if (option) {
+                const selectVal = select.querySelector('p');
+                selectVal.textContent = option.textContent.trim();
+                select.classList.remove('selectRadius');
+                filterDropDowns.forEach(el => {
+                    el.classList.remove('filterDOpen');
+                });
+                if (popupBackBtn) {
+                    popupBackBtn.classList.remove('forFilterBack');
+                }
+            }
+        }
+    };
+
+    const scroll = (event) => {
+        const selects = document.querySelectorAll('.select');
+        const container = document.querySelector('.section-event-log-content-popup-content-scroll');
+        selects.forEach(select => {
+            // Add click event listener to each select element
+            if (event.target.parentElement === select || event.target === select) {
+                const selectRect = select.getBoundingClientRect();
+                container.scrollTop = selectRect.top + selectRect.height;
+            }
+        });
+    }
+
+    //
+    document.addEventListener('click', handleRemove);
+    document.addEventListener('click', handleDropdownClick);
+    document.addEventListener('click', scroll);
+
+    //
+    handleNewListAdd();
+    handleNewChanelsAdd();
+});

@@ -40,6 +40,7 @@ body {
 	--color-27: #404040;	
 	--color-28: #00000099;
 	--color-29: #0D0D0D;
+	--color-30: #262626;	
 }
 body._light {
 	--color-1: #ebebeb;
@@ -80,6 +81,7 @@ body._light {
 	--color-27: #E4F1FF;	
 	--color-28: #161E321A;
 	--color-29: #E7E8EA;
+	--color-30: #f7f8f8;	
 }
 * {
 	box-sizing: border-box;
