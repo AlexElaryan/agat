@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     })
-    
+
     customCheckboxTable.forEach((el, i) => {
         el.onclick = () => {
             if (el.checked) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let toolinfoSelect = document.querySelectorAll('.maininfocontact-tool2-select');
     let toolinfoBlock = document.querySelectorAll('.mainifocontact-tool2');
 
-    toolinfoSelect.forEach((tool,ind) => {
+    toolinfoSelect.forEach((tool, ind) => {
         tool.onclick = () => {
             toolinfoBlock[ind].classList.toggle('toolinfoBlock-open');
         }
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let seePassword = document.querySelectorAll('.seePassword');
     let password = document.querySelectorAll('.passwordForRegister input');
 
-    seePassword.forEach((seePassword,ind) => {
+    seePassword.forEach((seePassword, ind) => {
         seePassword.onclick = () => {
             if (password[ind].type === 'password') {
                 password[ind].type = 'text';
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let chanelsRight = document.querySelectorAll('.chanelsRight');
     let chanelsRightBtns = document.querySelectorAll('.section-event-log-content-bottom-left-block');
 
-    chanelsRightBtns.forEach((btn,ind) => {
+    chanelsRightBtns.forEach((btn, ind) => {
         btn.onclick = () => {
             chanelsRight.forEach(el => {
                 el.classList.remove('chanelsRightActive');
@@ -404,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterDropDowns = document.querySelectorAll('.filterDropDowns');
     const popupBackBtn = document.querySelector('.section-event-log-content-popup-content-open');
     let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll');
+    
 
     selectElements.forEach((selectElement, index) => {
         selectElement.addEventListener('click', (event) => {
@@ -421,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            // popupRightScroll.classList.remove('scrollHidden');
+            popupRightScroll.classList.remove('scrollHidden');
 
             // Open the clicked dropdown if it was closed
             if (!isOpen) {
@@ -433,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (popupBackBtn) {
                     popupBackBtn.classList.add('forFilter-popup-back');
                 }
-                // popupRightScroll.classList.add('scrollHidden');
+                popupRightScroll.classList.add('scrollHidden');
             }
         });
     });
@@ -450,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            // popupRightScroll.classList.remove('scrollHidden');
+            popupRightScroll.classList.remove('scrollHidden');
         }
     });
 
@@ -475,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (popupBackBtn) {
                 popupBackBtn.classList.remove('forFilter-popup-back');
             }
-            // popupRightScroll.classList.remove('scrollHidden');
+            popupRightScroll.classList.remove('scrollHidden');
 
         });
     });
@@ -488,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (popupBackBtn) {
             popupBackBtn.classList.remove('forFilter-popup-back');
         }
-        // popupRightScroll.classList.remove('scrollHidden');
+        popupRightScroll.classList.remove('scrollHidden');
     });
 });
 
@@ -815,15 +816,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// scrollHidden 
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let scrollHidden = document.querySelector('.section-event-log-content-popup-content-scroll');
-//     if (scrollHidden) {
-//         scrollHidden.style.paddingRight = `${scrollHidden.offsetWidth - scrollHidden.clientWidth}px`;
-//     }
-// });
-
 function createSVGIcon(i) {
     return `<svg class="arrow" width="21" height="21" viewBox="0 0 21 21" fill="none"
     xmlns="http://www.w3.org/2000/svg">
@@ -1013,3 +1005,88 @@ document.addEventListener('DOMContentLoaded', () => {
     handleNewListAdd();
     handleNewChanelsAdd();
 });
+
+// scroll hidden
+
+document.addEventListener('DOMContentLoaded', function () {
+    let popupRightScroll = document.querySelector('.section-event-log-content-popup-content-scroll');
+    
+    if (popupRightScroll) {
+        let popupRightScrollWidth = popupRightScroll.scrollWidth;
+        let popupRightScrollClientWidth = popupRightScroll.clientWidth;
+        let scrollbarWidth = popupRightScrollWidth - popupRightScrollClientWidth;
+        
+        if (popupRightScroll.classList.contains('scrollHidden')) {
+            document.body.style.setProperty('--padding-right', `${scrollbarWidth}px`);
+        }
+    }
+});
+
+
+
+// select scroll
+
+document.addEventListener('DOMContentLoaded', function () {
+    const selectElements = document.querySelectorAll('.select');
+    const selectDropdowns = document.querySelectorAll('.select-dropdown');
+
+
+    selectElements.forEach((selectElement) => {
+        selectElement.addEventListener('click', () => {
+            selectDropdowns.forEach((sel) => {
+                if (sel.classList.contains('select-dropdown-open')) {
+
+                    // Calculate scrollbar thumb height
+                    let containerHeight = sel.clientHeight;
+                    let scrollHeight = sel.scrollHeight;
+                    let scrollbarThumbHeight =  containerHeight / scrollHeight * containerHeight - 15;
+                    const maxTop = containerHeight - scrollbarThumbHeight - 30;
+                    const selRect = sel.getBoundingClientRect();
+                    const offsetTop = 15;
+                    const offsetRight = 15;
+
+
+                    let topSection = document.querySelector('.section-event-log-top-line');
+                    let topSectionRect = topSection.getBoundingClientRect();
+                    let header = document.querySelector('header');
+                    let headerRect = header.getBoundingClientRect();
+                    let parentElTop = topSectionRect.height + headerRect.height;
+
+                    const beforeTop = selRect.top + offsetTop;
+                    const beforeRight = window.innerWidth - selRect.right + offsetRight;
+                    document.body.style.setProperty('--before-top', `${beforeTop - parentElTop}px`);
+                    document.body.style.setProperty('--before-right', `${beforeRight}px`);
+
+                    let style = document.querySelector('#selectDropdownStyle');
+                    if (!style) {
+                        style = document.createElement('style');
+                        style.id = 'selectDropdownStyle';
+                        document.head.appendChild(style);
+                    }
+                    if (sel.scrollHeight > 200) {
+                        style.innerHTML = `
+                            .select-dropdown-open::before {
+                                height: ${scrollbarThumbHeight}px;
+                            }
+                        `;
+                    } else if (sel.scrollHeight < 200) {
+                        style.innerHTML = `
+                            .select-dropdown-open::before {
+                                height: ${0}px;
+                            }
+                        `;
+                    }
+
+                    // Update the top position on scroll
+                    sel.onscroll = () => {
+                        let selScrollTop = sel.scrollTop;
+                        let thumbTop = (selScrollTop / (scrollHeight - containerHeight)) * (containerHeight - scrollbarThumbHeight);
+                        thumbTop = Math.min(thumbTop, maxTop);
+                        document.body.style.setProperty('--before-top', `${(beforeTop - parentElTop) + thumbTop}px`);
+                    }
+                };
+            });
+        });
+    });
+});
+

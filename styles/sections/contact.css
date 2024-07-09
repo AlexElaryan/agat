@@ -1207,7 +1207,20 @@ header {
 	border: 1px solid var(--color-24);
 }
 
+.select-dropdown-open::-webkit-scrollbar {
+	opacity: 0;
+}
 
+.select-dropdown-open::before {
+	content: '';
+	width: 5px;
+	border-radius: 100px;
+	background: var(--color-20);
+	position: fixed;
+	right: var(--before-right, 15px);
+	top: var(--before-top, 15px);
+}
+  
 
 .filterDropDowns {
 	width: 100%;
@@ -1257,7 +1270,7 @@ header {
 	background: var(--color-3);
 	border-radius: 0px 0px 8px 8px;
 	border: 1px solid var(--color-24);
-	padding: 15px 15px 20px 15px;
+	padding: 15px 0px 20px 15px;
 	gap: 20px;
 	z-index: 100000000;
 }
@@ -1477,8 +1490,7 @@ table .checkbox span {
 	padding: 18px 0px;
 }
 
-.left-menu .accordion {
-	
+.left-menu .accordion {	
 	min-width: calc(288px - 40px);
 }
 
@@ -1486,18 +1498,17 @@ table .checkbox span {
 	padding: 0px 20px;
 }
 
-
 .section-event-log-navigation {
 	padding-right: 50px;
 }
-
 
 .mainCloseSelect .listAddAll {
 	display: none !important;
 }
 
-
 .scrollHidden {
+	padding-right: var(--padding-right);
+	padding-right: 17px;
 	overflow-y: hidden !important;
 }
 
