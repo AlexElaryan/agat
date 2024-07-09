@@ -1,0 +1,27 @@
+table.dataTable thead th[data-is-resizable='true'] {
+	position: relative;
+	padding-top: 18px !important;
+	padding-bottom: 18px !important;
+}
+table.dataTable thead th[data-is-resizable='true']::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 1px;
+	height: 31px;
+	margin: auto 0;
+	background-color: #909090;
+}
+body._light table.dataTable thead th[data-is-resizable='true']::after {
+	background-color: #dadada;
+}
+table.dataTable thead th.dt-colresizable-hover {
+	cursor: col-resize;
+}
+table.dataTable thead th.dt-colresizable-bound-min,
+table.dataTable thead th.dt-colresizable-bound-max {
+	opacity: 0.2;
+	cursor: not-allowed !important;
+}
